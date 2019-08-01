@@ -9,19 +9,19 @@ import java.util.List;
 public class PassengerPlane extends Aircraft {
 
     private int numberOfSeats;
-    private double maxWeight;
+    private Integer maxWeight;
 
     /**
      * @param numberOfSeats in the passenger plane
      * @param maxWeight of the passenger plane
      */
-    public PassengerPlane(String aircraftId, boolean foreign, double height, String model, int speed, int numberOfSeats, double maxWeight) {
+    public PassengerPlane(String aircraftId, boolean foreign, Integer height, String model, int speed, int numberOfSeats, Integer maxWeight) {
         super(aircraftId, foreign, height, model, speed);
         this.numberOfSeats = numberOfSeats;
         this.maxWeight = maxWeight;
     }
 
-    public PassengerPlane(String aircraftId, boolean foreign, double height, String model, List<Person> persons, HashMap<Integer, String> characteristics, int speed, int numberOfSeats) {
+    public PassengerPlane(String aircraftId, boolean foreign, Integer height, String model, List<Person> persons, HashMap<Integer, String> characteristics, int speed, int numberOfSeats) {
         super(aircraftId, foreign, height, model, persons, characteristics, speed);
         this.numberOfSeats = numberOfSeats;
     }
@@ -34,11 +34,11 @@ public class PassengerPlane extends Aircraft {
         this.numberOfSeats = numberOfSeats;
     }
 
-    public double getMaxWeight() {
+    public Integer getMaxWeight() {
         return maxWeight;
     }
 
-    public void setMaxWeight(double maxWeight) {
+    public void setMaxWeight(Integer maxWeight) {
         this.maxWeight = maxWeight;
     }
 

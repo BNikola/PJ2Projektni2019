@@ -8,23 +8,23 @@ import java.util.List;
 
 public class FirefightingPlane extends Aircraft {
 
-    private double waterCapacity;
+    private Integer waterCapacity;
 
-    public FirefightingPlane(String aircraftId, boolean foreign, double height, String model, int speed, double waterCapacity) {
+    public FirefightingPlane(String aircraftId, boolean foreign, Integer height, String model, int speed, Integer waterCapacity) {
         super(aircraftId, foreign, height, model, speed);
         this.waterCapacity = waterCapacity;
     }
 
-    public FirefightingPlane(String aircraftId, boolean foreign, double height, String model, List<Person> persons, HashMap<Integer, String> characteristics, int speed, double waterCapacity) {
+    public FirefightingPlane(String aircraftId, boolean foreign, Integer height, String model, List<Person> persons, HashMap<Integer, String> characteristics, int speed, Integer waterCapacity) {
         super(aircraftId, foreign, height, model, persons, characteristics, speed);
         this.waterCapacity = waterCapacity;
     }
 
-    public double getWaterCapacity() {
+    public Integer getWaterCapacity() {
         return waterCapacity;
     }
 
-    public void setWaterCapacity(double waterCapacity) {
+    public void setWaterCapacity(Integer waterCapacity) {
         this.waterCapacity = waterCapacity;
     }
 

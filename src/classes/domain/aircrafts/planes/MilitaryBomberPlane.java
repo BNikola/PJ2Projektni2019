@@ -8,11 +8,11 @@ import java.util.List;
 
 public class MilitaryBomberPlane extends Aircraft {
 
-    public MilitaryBomberPlane(String aircraftId, boolean foreign, double height, String model, int speed) {
+    public MilitaryBomberPlane(String aircraftId, boolean foreign, Integer height, String model, int speed) {
         super(aircraftId, foreign, height, model, speed);
     }
 
-    public MilitaryBomberPlane(String aircraftId, boolean foreign, double height, String model, List<Person> persons, HashMap<Integer, String> characteristics, int speed) {
+    public MilitaryBomberPlane(String aircraftId, boolean foreign, Integer height, String model, List<Person> persons, HashMap<Integer, String> characteristics, int speed) {
         super(aircraftId, foreign, height, model, persons, characteristics, speed);
     }
 }

@@ -9,13 +9,14 @@ public class Aircraft {
 
     protected String aircraftId;
     protected boolean foreign;
-    protected double height;
+    protected Integer height;
     protected String model;
     protected List<Person> persons = new ArrayList<>();
     protected HashMap<Integer, String> characteristics = new HashMap<>();
     protected int speed;
+    protected boolean crashed = false;
 
-
+    // region Constructors
     /**
      * @param aircraftId id of a aircraft
      * @param foreign if the aircraft is foreign or not
@@ -23,7 +24,7 @@ public class Aircraft {
      * @param model model of the aircraft
      * @param speed speed of the aircraft (pause time)
      */
-    public Aircraft(String aircraftId, boolean foreign, double height, String model, int speed) {
+    public Aircraft(String aircraftId, boolean foreign, Integer height, String model, int speed) {
         this.aircraftId = aircraftId;
         this.foreign = foreign;
         this.height = height;
@@ -35,7 +36,7 @@ public class Aircraft {
      * @param persons persons in the aircraft
      * @param characteristics characteristics of the aircraft <int, string> map
      */
-    public Aircraft(String aircraftId, boolean foreign, double height, String model, List<Person> persons, HashMap<Integer, String> characteristics, int speed) {
+    public Aircraft(String aircraftId, boolean foreign, Integer height, String model, List<Person> persons, HashMap<Integer, String> characteristics, int speed) {
         this.aircraftId = aircraftId;
         this.foreign = foreign;
         this.height = height;
@@ -44,7 +45,9 @@ public class Aircraft {
         this.characteristics = characteristics;
         this.speed = speed;
     }
+    // endregion
 
+    // region Getters and Setters
     public String getAircraftId() {
         return aircraftId;
     }
@@ -61,11 +64,11 @@ public class Aircraft {
         this.foreign = foreign;
     }
 
-    public double getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(Integer height) {
         this.height = height;
     }
 
@@ -101,6 +104,17 @@ public class Aircraft {
         this.speed = speed;
     }
 
+    public boolean isCrashed() {
+        return crashed;
+    }
+
+    public void setCrashed(boolean crashed) {
+        this.crashed = crashed;
+    }
+
+    // endregion
+
+    // region Methods
     /**
      * @param characteristic to add
      */
@@ -132,6 +146,7 @@ public class Aircraft {
             persons.add(person);
         }
     }
+    // endregion
 
     @Override
     public String toString() {

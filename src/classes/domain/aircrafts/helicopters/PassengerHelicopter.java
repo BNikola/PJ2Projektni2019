@@ -10,12 +10,12 @@ public class PassengerHelicopter extends Aircraft {
 
     private int numberOfSeats;
 
-    public PassengerHelicopter(String aircraftId, boolean foreign, double height, String model, int speed, int numberOfSeats) {
+    public PassengerHelicopter(String aircraftId, boolean foreign, Integer height, String model, int speed, int numberOfSeats) {
         super(aircraftId, foreign, height, model, speed);
         this.numberOfSeats = numberOfSeats;
     }
 
-    public PassengerHelicopter(String aircraftId, boolean foreign, double height, String model, List<Person> persons, HashMap<Integer, String> characteristics, int speed, int numberOfSeats) {
+    public PassengerHelicopter(String aircraftId, boolean foreign, Integer height, String model, List<Person> persons, HashMap<Integer, String> characteristics, int speed, int numberOfSeats) {
         super(aircraftId, foreign, height, model, persons, characteristics, speed);
         this.numberOfSeats = numberOfSeats;
     }
