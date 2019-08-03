@@ -1,4 +1,4 @@
-package classes.domain;
+package classes.domain.extras;
 
 public enum Height {
     VERY_LOW   (300),

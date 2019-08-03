@@ -1,4 +1,4 @@
-package classes.domain;
+package classes.domain.extras;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

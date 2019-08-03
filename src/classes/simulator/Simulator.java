@@ -1,7 +1,8 @@
 package classes.simulator;
 
-import classes.domain.FlightArea;
-import classes.domain.Height;
+import classes.domain.extras.ConfigWatcher;
+import classes.domain.extras.FlightArea;
+import classes.domain.extras.Height;
 import classes.domain.aircrafts.Aircraft;
 import classes.domain.aircrafts.helicopters.FirefightingHelicopter;
 import classes.domain.aircrafts.helicopters.PassengerHelicopter;
@@ -10,15 +11,21 @@ import classes.domain.aircrafts.planes.FirefightingPlane;
 import classes.domain.aircrafts.planes.PassengerPlane;
 import classes.domain.aircrafts.planes.TransportPlane;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+
+import static java.nio.file.StandardWatchEventKinds.*;
+import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 
 public class Simulator {
 
@@ -31,8 +38,21 @@ public class Simulator {
     public static final Properties PROPERTIES = new Properties();
     // logger
     public static final Logger LOGGER = Logger.getLogger("Logger");
-    private HashMap<String, Aircraft> aircraftRegistry = new HashMap<>();
+    // record of aircraft, for unique aircraftId
+    private HashMap<String, Aircraft> aircraftRegistry = new HashMap<>(); // todo - update when aircraft leaves
+    // interval of creating aircraft
+    private static int interval = 500;
+    // path to config
+    private static String pathToConfig = System.getProperty("user.dir")
+            + File.separator + "src"
+            + File.separator + "configs"
+            + File.separator + "config.properties";
+    // todo
+    //  - add main method for creating aircrafts
+    //  - add
+
     // endregion
+
 
     // region Static block
     static {
@@ -49,7 +69,7 @@ public class Simulator {
 
         // loading properties file
         try {
-            PROPERTIES.load(new FileInputStream("config.properties"));
+            PROPERTIES.load(new FileInputStream(new File(pathToConfig)));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -60,10 +80,14 @@ public class Simulator {
         try {
             flightArea.setSizeX(Integer.valueOf(PROPERTIES.getProperty("sizeX")));
             flightArea.setSizeY(Integer.valueOf(PROPERTIES.getProperty("sizeY")));
+            interval = Integer.valueOf(PROPERTIES.getProperty("interval"));
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
+
+
     }
+
     // endregion
 
     public Simulator() {
@@ -126,10 +150,20 @@ public class Simulator {
 
     public static void main(String[] args) {
         Simulator s = new Simulator();
+        s.configWatcher.start();
         int i = 0;
-        while (i++ < 10) {
-            System.out.println(s.generateRandomAircraft());
+        while (i++ < 20) {
+            if (s.configWatcher.isChange()) {
+                interval = Integer.parseInt(s.configWatcher.getOptions().get("interval"));
+            }
+            try {
+                System.out.println(s.generateRandomAircraft());
+                Thread.sleep(interval);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+        s.configWatcher.interrupt();
     }
 
 
@@ -138,6 +172,9 @@ public class Simulator {
     // region private methods
     private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     private static final int COUNT = 6;
+
+    // config watcher
+    private ConfigWatcher configWatcher = new ConfigWatcher("config.properties");
 
     // generate random aircraft id
     public String randomAlphaNumeric(int lenght) {
@@ -153,4 +190,5 @@ public class Simulator {
         return builder.toString();
     }
     // endregion
+
 }
