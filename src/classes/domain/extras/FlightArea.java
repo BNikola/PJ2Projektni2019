@@ -10,8 +10,8 @@ public class FlightArea {
 
     // region Members
     // defining size of the map
-    private static int SIZE_X = 100;
-    private static int SIZE_Y = 100;
+    private static int SIZE_X = 10;
+    private static int SIZE_Y = 20;
 
     // matrice
     private Object[][] flightArea = new Object[SIZE_X][SIZE_Y];
@@ -80,6 +80,13 @@ public class FlightArea {
     }
     //endregion
 
+
+    public static void main(String[] args) {
+        FlightArea fa = new FlightArea();
+        System.out.println(fa);
+        System.out.println(fa.getSizeX());
+        System.out.println(fa.getSizeY());
+    }
 
     @Override
     public String toString() {

@@ -1,6 +1,7 @@
 package classes.simulator;
 
 import classes.domain.extras.ConfigWatcher;
+import classes.domain.extras.FlightDirection;
 import classes.domain.extras.FlightArea;
 import classes.domain.extras.Height;
 import classes.domain.aircrafts.Aircraft;
@@ -15,17 +16,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.*;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-
-import static java.nio.file.StandardWatchEventKinds.*;
-import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 
 public class Simulator {
 
@@ -104,11 +100,12 @@ public class Simulator {
     }
     //endregion
 
+    // todo - update generator to create positions positionX - positionY
     private Aircraft generateRandomAircraft() {
         Aircraft aircraft = null;
         int choice = rand.nextInt(6);
         String aircraftId = randomAlphaNumeric(COUNT);
-        Integer height = Height.values()[rand.nextInt(5)].getHeight();      // getting random height
+        Integer height = Height.values()[rand.nextInt(Height.values().length)].getHeight();      // getting random height
         String model = "Model";
         int speed = rand.nextInt(3) + 1;
         switch (choice) {
@@ -142,14 +139,23 @@ public class Simulator {
                         aircraftId, false, height, model, speed,
                         rand.nextInt(1000) + 100);
                 break;
+            default:
+                aircraft = new PassengerPlane(
+                        aircraftId, false, height, model, speed,
+                        rand.nextInt(240) + 5, rand.nextInt(3000) + 100);
+
                 // todo - default and drone
         }
+
+        aircraft.setPositionAndDirection();
         aircraftRegistry.put(aircraftId, aircraft);
         return aircraft;
     }
 
     public static void main(String[] args) {
         Simulator s = new Simulator();
+        System.out.println(s.flightArea.getSizeX());
+        System.out.println(s.flightArea.getSizeY());
         s.configWatcher.start();
         int i = 0;
         while (i++ < 20) {

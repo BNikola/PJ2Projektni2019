@@ -1,20 +1,33 @@
 package classes.domain.aircrafts;
 
+import classes.domain.extras.FlightArea;
+import classes.domain.extras.FlightDirection;
 import classes.domain.persons.Person;
-import classes.domain.persons.Pilot;
 
 import java.util.*;
 
-public class Aircraft {
+public class Aircraft extends Thread {
 
+    // region Members
+    // description members
     protected String aircraftId;
     protected boolean foreign;
     protected Integer height;
     protected String model;
     protected List<Person> persons = new ArrayList<>();
     protected HashMap<Integer, String> characteristics = new HashMap<>();
+
+    // movement members
     protected int speed;
     protected boolean crashed = false;
+    protected Integer positionX;
+    protected Integer positionY;
+    protected FlightDirection direction;
+
+    private static Object lock = new Object();
+
+    // endregion
+
 
     // region Constructors
     /**
@@ -112,6 +125,30 @@ public class Aircraft {
         this.crashed = crashed;
     }
 
+    public Integer getPositionX() {
+        return positionX;
+    }
+
+    public void setPositionX(Integer positionX) {
+        this.positionX = positionX;
+    }
+
+    public Integer getPositionY() {
+        return positionY;
+    }
+
+    public void setPositionY(Integer positionY) {
+        this.positionY = positionY;
+    }
+
+    public FlightDirection getDirection() {
+        return direction;
+    }
+
+    public void setDirection(FlightDirection direction) {
+        this.direction = direction;
+    }
+
     // endregion
 
     // region Methods
@@ -146,6 +183,50 @@ public class Aircraft {
             persons.add(person);
         }
     }
+
+
+    /**
+     *  sets direction and position randomly
+     */
+    public void setPositionAndDirection() {
+        Random rand = new Random();
+        Integer flightDirection = rand.nextInt(4);
+        direction = FlightDirection.values()[flightDirection];
+        switch (flightDirection) {
+            case 0:
+                // UP - bottom up
+                positionX = FlightArea.getSizeX();
+                positionY = rand.nextInt(FlightArea.getSizeY());
+                break;
+            case 1:
+                // RIGHT - RTL
+                positionX = rand.nextInt(FlightArea.getSizeX());
+                positionY = 0;
+                break;
+            case 2:
+                // DOWN - top to bottom
+                positionX = 0;
+                positionY = rand.nextInt(FlightArea.getSizeY());
+                break;
+            case 3:
+                // LEFT - LTR
+                positionX = rand.nextInt(FlightArea.getSizeX());
+                positionY = FlightArea.getSizeY();
+                break;
+            default:
+                // right
+                positionX = rand.nextInt(FlightArea.getSizeX());
+                positionY = 0;
+        }
+    }
+
+
+    @Override
+    public void run() {
+// todo - implement motion
+    }
+
+
     // endregion
 
     @Override
@@ -156,6 +237,8 @@ public class Aircraft {
                 ", model='" + model + '\'' +
                 ", persons=" + persons +
                 ", characteristics=" + characteristics +
-                ", speed=" + speed;
+                ", speed=" + speed +
+                ", direction=" + direction +
+                ", [" + positionX + ", " + positionY + "]";
     }
 }
