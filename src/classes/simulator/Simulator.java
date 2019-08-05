@@ -29,7 +29,7 @@ public class Simulator {
     // random generator
     private Random rand = new Random();
     // Flight Area
-    private static FlightArea flightArea = new FlightArea();
+    public static FlightArea flightArea = new FlightArea();
     // properties file
     public static final Properties PROPERTIES = new Properties();
     // logger
@@ -45,7 +45,6 @@ public class Simulator {
             + File.separator + "config.properties";
     // todo
     //  - add main method for creating aircrafts
-    //  - add
 
     // endregion
 
@@ -74,8 +73,6 @@ public class Simulator {
 
         // loading properties
         try {
-            flightArea.setSizeX(Integer.valueOf(PROPERTIES.getProperty("sizeX")));
-            flightArea.setSizeY(Integer.valueOf(PROPERTIES.getProperty("sizeY")));
             interval = Integer.valueOf(PROPERTIES.getProperty("interval"));
         } catch (NumberFormatException e) {
             e.printStackTrace();
@@ -90,17 +87,7 @@ public class Simulator {
         super();
     }
 
-    // region Getters and Setters
-    public static FlightArea getFlightArea() {
-        return flightArea;
-    }
 
-    public static void setFlightArea(FlightArea flightArea) {
-        Simulator.flightArea = flightArea;
-    }
-    //endregion
-
-    // todo - update generator to create positions positionX - positionY
     private Aircraft generateRandomAircraft() {
         Aircraft aircraft = null;
         int choice = rand.nextInt(6);
@@ -144,11 +131,12 @@ public class Simulator {
                         aircraftId, false, height, model, speed,
                         rand.nextInt(240) + 5, rand.nextInt(3000) + 100);
 
-                // todo - default and drone
+                // todo - drone
         }
 
         aircraft.setPositionAndDirection();
         aircraftRegistry.put(aircraftId, aircraft);
+        flightArea.setPosition(aircraft, aircraft.getPositionX(), aircraft.getPositionY());
         return aircraft;
     }
 
@@ -163,12 +151,14 @@ public class Simulator {
                 interval = Integer.parseInt(s.configWatcher.getOptions().get("interval"));
             }
             try {
-                System.out.println(s.generateRandomAircraft());
+//                System.out.println(s.generateRandomAircraft());
+                s.generateRandomAircraft().start();
                 Thread.sleep(interval);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+        System.out.println(s.flightArea);
         s.configWatcher.interrupt();
     }
 

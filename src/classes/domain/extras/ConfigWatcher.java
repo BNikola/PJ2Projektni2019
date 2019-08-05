@@ -51,7 +51,6 @@ public class ConfigWatcher extends Thread {
             dir.register(watcher, ENTRY_MODIFY);
 
             System.out.println("Watch service registered for dir: " + dir.getFileName());
-            System.out.println(change);
 
             while (true) {
                 WatchKey key;

@@ -1,5 +1,6 @@
 package classes.domain.extras;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,12 +11,18 @@ public class FlightArea {
 
     // region Members
     // defining size of the map
-    private static int SIZE_X = 10;
-    private static int SIZE_Y = 20;
+    private static int SIZE_X;
+    private static int SIZE_Y;
+    public static final Properties PROPERTIES = new Properties();
+    private static String pathToConfig = System.getProperty("user.dir")
+            + File.separator + "src"
+            + File.separator + "configs"
+            + File.separator + "config.properties";
+
+    //todo - solve size initialization
 
     // matrice
-    private Object[][] flightArea = new Object[SIZE_X][SIZE_Y];
-
+    private Object[][] flightArea;
 
     // lock object
     public AtomicBoolean lock = new AtomicBoolean();
@@ -25,8 +32,29 @@ public class FlightArea {
 
     // endregion
 
+    static {
+        // loading properties file
+
+        try {
+            PROPERTIES.load(new FileInputStream(new File(pathToConfig)));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // loading properties
+        try {
+            SIZE_X = Integer.valueOf(PROPERTIES.getProperty("sizeX"));
+            SIZE_Y = Integer.valueOf(PROPERTIES.getProperty("sizeY"));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+    }
+
     public FlightArea() {
         super();
+        flightArea = new Object[SIZE_X][SIZE_Y];
     }
 
     //region Getters and Setters
@@ -78,6 +106,7 @@ public class FlightArea {
     public void setPosition(Object obj, int x, int y) {
         flightArea[x][y] = obj;
     }
+
     //endregion
 
 
@@ -94,7 +123,8 @@ public class FlightArea {
         for (int i = 0; i < SIZE_X; i++) {
             for (int j = 0; j < SIZE_Y; j++) {
                 if (flightArea[i][j] != null) {
-                    out += String.format("%-2s", flightArea[i][j]);
+//                    out += String.format("%-2s", flightArea[i][j]);
+                    out += " A ";
                 } else {
                     out += " * ";
                 }
