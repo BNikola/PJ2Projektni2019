@@ -122,7 +122,7 @@ public class FlightArea {
         return flightArea[x][y].getObjectFromHeight(height);
     }
 
-    public void setPosition(Object object, int x, int y, int height) {
+    synchronized public void setPosition(Object object, int x, int y, int height) {
         flightArea[x][y].setObjectToHeight(object, height);
     }
 

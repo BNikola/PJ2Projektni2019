@@ -84,8 +84,13 @@ public class Simulator {
         super();
     }
 
+    public Simulator(FlightArea flightArea) {
+        this.flightArea = flightArea;
+    }
 
-    private Aircraft generateRandomAircraft() {
+
+    // todo - change to private
+    public Aircraft generateRandomAircraft() {
         Aircraft aircraft = null;
         int choice = rand.nextInt(6);
         String aircraftId = randomAlphaNumeric(COUNT);
