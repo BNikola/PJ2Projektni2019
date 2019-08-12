@@ -1,9 +1,5 @@
 package classes.simulator;
 
-import classes.domain.extras.ConfigWatcher;
-import classes.domain.extras.FlightDirection;
-import classes.domain.extras.FlightArea;
-import classes.domain.extras.Height;
 import classes.domain.aircrafts.Aircraft;
 import classes.domain.aircrafts.helicopters.FirefightingHelicopter;
 import classes.domain.aircrafts.helicopters.PassengerHelicopter;
@@ -11,14 +7,15 @@ import classes.domain.aircrafts.helicopters.TransportHelicopter;
 import classes.domain.aircrafts.planes.FirefightingPlane;
 import classes.domain.aircrafts.planes.PassengerPlane;
 import classes.domain.aircrafts.planes.TransportPlane;
+import classes.domain.extras.ConfigWatcher;
+import classes.domain.extras.FlightArea;
+import classes.domain.extras.Height;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Properties;
-import java.util.Random;
+import java.util.*;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -136,7 +133,7 @@ public class Simulator {
 
         aircraft.setPositionAndDirection();
         aircraftRegistry.put(aircraftId, aircraft);
-        flightArea.setPosition(aircraft, aircraft.getPositionX(), aircraft.getPositionY());
+        flightArea.setPosition(aircraft, aircraft.getPositionX(), aircraft.getPositionY(), aircraft.getHeight());
         return aircraft;
     }
 
@@ -146,6 +143,7 @@ public class Simulator {
         System.out.println(s.flightArea.getSizeY());
         s.configWatcher.start();
         int i = 0;
+        List<Aircraft> aircrafts = new ArrayList<>();
         while (i++ < 30) {
             if (s.configWatcher.isChange()) {
                 interval = Integer.parseInt(s.configWatcher.getOptions().get("interval"));
@@ -153,14 +151,28 @@ public class Simulator {
             try {
 //                System.out.println(s.generateRandomAircraft());
                 Thread.sleep(interval);
-                Aircraft a = s.generateRandomAircraft();
-                a.setDaemon(true);
-                a.start();
+                s.generateRandomAircraft().start();
+//                Aircraft a = s.generateRandomAircraft();
+//                aircrafts.add(a);
+//                a.start();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        System.out.println(s.flightArea);
+
+//        Aircraft a = s.generateRandomAircraft();
+//        Aircraft b = s.generateRandomAircraft();
+//
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        a.start();
+//        b.start();
+
+        System.out.println(String.join("", Collections.nCopies(100, "=")));
+        System.out.println("aaaaaaaaaaaaaaaaaaaa\n" + s.flightArea);
         s.configWatcher.interrupt();
     }
 

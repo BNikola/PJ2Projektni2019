@@ -1,5 +1,9 @@
 package classes.domain.extras;
 
+import classes.domain.aircrafts.Aircraft;
+import classes.domain.aircrafts.helicopters.PassengerHelicopter;
+import classes.domain.aircrafts.planes.PassengerPlane;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,9 +24,10 @@ public class FlightArea {
             + File.separator + "config.properties";
 
     //todo - solve size initialization
+    // todo - remodel this to take in account the height
 
     // matrice
-    private Object[][] flightArea;
+    private Field[][] flightArea;
 
     // lock object
     public AtomicBoolean lock = new AtomicBoolean();
@@ -54,10 +59,16 @@ public class FlightArea {
 
     public FlightArea() {
         super();
-        flightArea = new Object[SIZE_X][SIZE_Y];
+        flightArea = new Field[SIZE_X][SIZE_Y];
+        for (int i = 0; i < SIZE_X; i++) {
+            for (int j = 0; j < SIZE_Y; j++) {
+                flightArea[i][j] = new Field();
+            }
+        }
     }
 
     //region Getters and Setters
+
     public static int getSizeX() {
         return SIZE_X;
     }
@@ -74,12 +85,20 @@ public class FlightArea {
         SIZE_Y = sizeY;
     }
 
-    public Object[][] getFlightArea() {
+    public Field[][] getFlightArea() {
         return flightArea;
     }
 
-    public void setFlightArea(Object[][] flightArea) {
+    public void setFlightArea(Field[][] flightArea) {
         this.flightArea = flightArea;
+    }
+
+    public AtomicBoolean getLock() {
+        return lock;
+    }
+
+    public void setLock(AtomicBoolean lock) {
+        this.lock = lock;
     }
 
     public boolean isCrash() {
@@ -98,24 +117,18 @@ public class FlightArea {
         this.noFlight = noFlight;
     }
 
-    // get/set object to position
-    public Object getPosition(int x, int y) {
-        return flightArea[x][y];
+    // get-set object to position and height
+    public Object getPosition(int x, int y, int height) {
+        return flightArea[x][y].getObjectFromHeight(height);
     }
 
-    public void setPosition(Object obj, int x, int y) {
-        flightArea[x][y] = obj;
+    public void setPosition(Object object, int x, int y, int height) {
+        flightArea[x][y].setObjectToHeight(object, height);
     }
+
+
 
     //endregion
-
-
-    public static void main(String[] args) {
-        FlightArea fa = new FlightArea();
-        System.out.println(fa);
-        System.out.println(fa.getSizeX());
-        System.out.println(fa.getSizeY());
-    }
 
     @Override
     public String toString() {
@@ -124,7 +137,7 @@ public class FlightArea {
             for (int j = 0; j < SIZE_Y; j++) {
                 if (flightArea[i][j] != null) {
 //                    out += String.format("%-2s", flightArea[i][j]);
-                    out += " A ";
+                    out += flightArea[i][j];  // todo - change this
                 } else {
                     out += " * ";
                 }

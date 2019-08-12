@@ -1,11 +1,11 @@
 package classes.domain.extras;
 
 public enum Height {
-    VERY_LOW   (300),
-    LOW        (400),
-    MEDIUM     (500),
-    HIGH       (600),
-    VERY_HIGH  (700);
+    VERY_LOW   (0),
+    LOW        (1),
+    MEDIUM     (2),
+    HIGH       (3),
+    VERY_HIGH  (4);
 
     private final Integer height;
 

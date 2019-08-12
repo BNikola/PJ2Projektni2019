@@ -193,7 +193,8 @@ public class Aircraft extends Thread {
      */
     public void setPositionAndDirection() {
         Random rand = new Random();
-        Integer flightDirection = rand.nextInt(4);
+//        Integer flightDirection = rand.nextInt(4); // todo - uncomment this
+        Integer flightDirection = 0;
         direction = FlightDirection.values()[flightDirection];
         switch (flightDirection) {
             case 0:
@@ -224,145 +225,55 @@ public class Aircraft extends Thread {
     }
 
 
+    // todo - implement run
+
+    // todo - implement motion
+    //  - fix and finish run method for aircraft
+
+
     @Override
     public void run() {
-// todo - implement motion
-//  - fix and finish run method for aircraft
-
+        System.out.println(Simulator.flightArea);
+        System.out.println(this.getClass());
         while(!doneMoving) {
             switch (direction) {
                 case UP:
-                    System.out.println("UP - " + positionX + " " + positionY);
-                    System.out.println(Simulator.flightArea);
-                    while (positionX != 0) {
-                        Controller.app.refreshTextArea();
-                        if (Simulator.flightArea.getPosition(positionX - 1, positionY) == null) {
-                                Simulator.flightArea.setPosition(null, positionX, positionY);
-                                positionX -= 1;
-                                Simulator.flightArea.setPosition(this, positionX, positionY);
-                        } else {
-                            if (((Aircraft)Simulator.flightArea.getPosition(positionX-1, positionY)).getHeight() != this.height) {
-                                Simulator.flightArea.setPosition(null, positionX, positionY);
-                                positionX -= 1;
-                                Simulator.flightArea.setPosition(this, positionX, positionY);
-                            } else {
-                                System.out.println("Sudar na: [" + positionX + ", " + positionY + "]");
-                                doneMoving = true;
-                                break;
-                            }
-                        }
+                    System.out.println(positionX + " " + positionY);
+                    while (positionX > 0) {
+                        Simulator.flightArea.setPosition(null, positionX, positionY, height);
+                        positionX--;
+                        Simulator.flightArea.setPosition(this, positionX, positionY, height);
+//                        Controller.app.refreshTextArea();
                         try {
-                            sleep(speed * 500);
+                            Thread.sleep(500);
                         } catch (InterruptedException e) {
-                            Simulator.LOGGER.log(Level.SEVERE, e.toString(), e);
+                            e.printStackTrace();
                         }
+                        // todo upisivati u fajl a ne u text field
                     }
-                    System.out.println("DONE UP");
-                    System.out.println(Simulator.flightArea);
+
                     doneMoving = true;
                     break;
                 case LEFT:
-                    System.out.println("LEFT - " + positionX + " " + positionY);
-                    System.out.println(Simulator.flightArea);
-                    while (positionY != 0) {
-                        Controller.app.refreshTextArea();
-                        if (Simulator.flightArea.getPosition(positionX, positionY - 1) == null) {
-                            Simulator.flightArea.setPosition(null, positionX, positionY);
-                            positionY -= 1;
-                            Simulator.flightArea.setPosition(this, positionX, positionY);
-                        } else {
-                            if (((Aircraft)Simulator.flightArea.getPosition(positionX, positionY-1)).getHeight() != this.height) {
-                                Simulator.flightArea.setPosition(null, positionX, positionY);
-                                positionY -= 1;
-                                Simulator.flightArea.setPosition(this, positionX, positionY);
-                            } else {
-                                System.out.println("Sudar na: [" + positionX + ", " + positionY + "]");
-                                doneMoving = true;
-                                break;
-                            }
-                        }
-                        try {
-                            sleep(speed * 500);
-                        } catch (InterruptedException e) {
-                            Simulator.LOGGER.log(Level.SEVERE, e.toString(), e);
-                        }
-                    }
-                    System.out.println("DONE LEFT");
-                    System.out.println(Simulator.flightArea);
-                    doneMoving = true;
+
                     break;
                 case DOWN:
-                    System.out.println("DOWN - " + positionX + " " + positionY);
-                    System.out.println(Simulator.flightArea);
-                    while (positionX != Simulator.flightArea.getSizeX() - 1) {
-                        Controller.app.refreshTextArea();
-                        if (Simulator.flightArea.getPosition(positionX + 1, positionY) == null) {
-                            Simulator.flightArea.setPosition(null, positionX, positionY);
-                            positionX += 1;
-                            Simulator.flightArea.setPosition(this, positionX, positionY);
-                        } else {
-                            if (((Aircraft)Simulator.flightArea.getPosition(positionX + 1, positionY)).getHeight() != this.height) {
-                                Simulator.flightArea.setPosition(null, positionX, positionY);
-                                positionX += 1;
-                                Simulator.flightArea.setPosition(this, positionX, positionY);
-                            } else {
-                                System.out.println("Sudar na: [" + positionX + ", " + positionY + "]");
-                                doneMoving = true;
-                                break;
-                            }
-                        }
-                        try {
-                            sleep(speed * 500);
-                        } catch (InterruptedException e) {
-                            Simulator.LOGGER.log(Level.SEVERE, e.toString(), e);
-                        }
-                    }
-                    System.out.println("DONE DOWN");
-                    System.out.println(Simulator.flightArea);
-                    doneMoving = true;
+                    System.out.println("JEeeeeaafsdasf");
                     break;
                 case RIGHT:
-                    System.out.println("RIGHT - " + positionX + " " + positionY);
-                    System.out.println(Simulator.flightArea);
-                    while (positionY != Simulator.flightArea.getSizeY() - 1) {
-                        Controller.app.refreshTextArea();
-                        if (Simulator.flightArea.getPosition(positionX, positionY + 1) == null) {
-                            Simulator.flightArea.setPosition(null, positionX, positionY);
-                            positionY += 1;
-                            Simulator.flightArea.setPosition(this, positionX, positionY);
-                        } else {
-                            if (((Aircraft)Simulator.flightArea.getPosition(positionX, positionY + 1)).getHeight() != this.height) {
-                                Simulator.flightArea.setPosition(null, positionX, positionY);
-                                positionY += 1;
-                                Simulator.flightArea.setPosition(this, positionX, positionY);
-                            } else {
-                                System.out.println("Sudar na: [" + positionX + ", " + positionY + "]");
-                                doneMoving = true;
-                                break;
-                            }
-                        }
-                        try {
-                            sleep(speed * 500);
-                        } catch (InterruptedException e) {
-                            Simulator.LOGGER.log(Level.SEVERE, e.toString(), e);
-                        }
-                    }
-                    System.out.println("DONE RIGHT");
-                    System.out.println(Simulator.flightArea);
 
-                    System.out.println("Gotov");
-                    doneMoving = true;
                     break;
                 default:
                     doneMoving = true;
                     break;
             }
+            doneMoving = true;
         }
-        Controller.app.refreshTextArea();
         System.out.println("Gotov");
-        Simulator.flightArea.setPosition(null, positionX, positionY);
+        Simulator.flightArea.setPosition(null, positionX, positionY, height);
+        System.out.println(Simulator.flightArea);
+//        Controller.app.refreshTextArea();
     }
-
 
     // endregion
 
