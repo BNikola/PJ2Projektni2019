@@ -146,14 +146,16 @@ public class Simulator {
         System.out.println(s.flightArea.getSizeY());
         s.configWatcher.start();
         int i = 0;
-        while (i++ < 20) {
+        while (i++ < 30) {
             if (s.configWatcher.isChange()) {
                 interval = Integer.parseInt(s.configWatcher.getOptions().get("interval"));
             }
             try {
 //                System.out.println(s.generateRandomAircraft());
-                s.generateRandomAircraft().start();
                 Thread.sleep(interval);
+                Aircraft a = s.generateRandomAircraft();
+                a.setDaemon(true);
+                a.start();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

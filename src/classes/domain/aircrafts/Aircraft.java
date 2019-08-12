@@ -1,5 +1,6 @@
 package classes.domain.aircrafts;
 
+import classes.controllers.Controller;
 import classes.domain.extras.FlightArea;
 import classes.domain.extras.FlightDirection;
 import classes.domain.persons.Person;
@@ -226,12 +227,15 @@ public class Aircraft extends Thread {
     @Override
     public void run() {
 // todo - implement motion
+//  - fix and finish run method for aircraft
+
         while(!doneMoving) {
             switch (direction) {
                 case UP:
                     System.out.println("UP - " + positionX + " " + positionY);
                     System.out.println(Simulator.flightArea);
                     while (positionX != 0) {
+                        Controller.app.refreshTextArea();
                         if (Simulator.flightArea.getPosition(positionX - 1, positionY) == null) {
                                 Simulator.flightArea.setPosition(null, positionX, positionY);
                                 positionX -= 1;
@@ -248,7 +252,7 @@ public class Aircraft extends Thread {
                             }
                         }
                         try {
-                            sleep(speed * 1000);
+                            sleep(speed * 500);
                         } catch (InterruptedException e) {
                             Simulator.LOGGER.log(Level.SEVERE, e.toString(), e);
                         }
@@ -261,6 +265,7 @@ public class Aircraft extends Thread {
                     System.out.println("LEFT - " + positionX + " " + positionY);
                     System.out.println(Simulator.flightArea);
                     while (positionY != 0) {
+                        Controller.app.refreshTextArea();
                         if (Simulator.flightArea.getPosition(positionX, positionY - 1) == null) {
                             Simulator.flightArea.setPosition(null, positionX, positionY);
                             positionY -= 1;
@@ -277,7 +282,7 @@ public class Aircraft extends Thread {
                             }
                         }
                         try {
-                            sleep(speed * 1000);
+                            sleep(speed * 500);
                         } catch (InterruptedException e) {
                             Simulator.LOGGER.log(Level.SEVERE, e.toString(), e);
                         }
@@ -290,6 +295,7 @@ public class Aircraft extends Thread {
                     System.out.println("DOWN - " + positionX + " " + positionY);
                     System.out.println(Simulator.flightArea);
                     while (positionX != Simulator.flightArea.getSizeX() - 1) {
+                        Controller.app.refreshTextArea();
                         if (Simulator.flightArea.getPosition(positionX + 1, positionY) == null) {
                             Simulator.flightArea.setPosition(null, positionX, positionY);
                             positionX += 1;
@@ -306,7 +312,7 @@ public class Aircraft extends Thread {
                             }
                         }
                         try {
-                            sleep(speed * 1000);
+                            sleep(speed * 500);
                         } catch (InterruptedException e) {
                             Simulator.LOGGER.log(Level.SEVERE, e.toString(), e);
                         }
@@ -319,6 +325,7 @@ public class Aircraft extends Thread {
                     System.out.println("RIGHT - " + positionX + " " + positionY);
                     System.out.println(Simulator.flightArea);
                     while (positionY != Simulator.flightArea.getSizeY() - 1) {
+                        Controller.app.refreshTextArea();
                         if (Simulator.flightArea.getPosition(positionX, positionY + 1) == null) {
                             Simulator.flightArea.setPosition(null, positionX, positionY);
                             positionY += 1;
@@ -335,7 +342,7 @@ public class Aircraft extends Thread {
                             }
                         }
                         try {
-                            sleep(speed * 1000);
+                            sleep(speed * 500);
                         } catch (InterruptedException e) {
                             Simulator.LOGGER.log(Level.SEVERE, e.toString(), e);
                         }
@@ -351,6 +358,7 @@ public class Aircraft extends Thread {
                     break;
             }
         }
+        Controller.app.refreshTextArea();
         System.out.println("Gotov");
         Simulator.flightArea.setPosition(null, positionX, positionY);
     }

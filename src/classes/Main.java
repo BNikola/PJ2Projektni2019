@@ -13,7 +13,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../views/sample.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Scene scene = new Scene(root, 300, 275);
+        scene.getStylesheets().add("views/custom.css");
+        primaryStage.setScene(scene);
         primaryStage.show();
 
         // start simulator
@@ -22,8 +24,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-//        new Thread(() -> Simulator.main(args)).start();
+        new Thread(() -> Simulator.main(args)).start();
         launch(args);
-
     }
 }
