@@ -1,12 +1,11 @@
 package classes;
 
+import classes.domain.extras.ConfigWatcher;
+import classes.domain.extras.FileWatcher;
 import classes.domain.extras.FlightArea;
 import classes.simulator.Simulator;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 import java.util.logging.FileHandler;
 import java.util.logging.SimpleFormatter;
@@ -17,6 +16,10 @@ public class Radar extends Thread {
     public static FlightArea flightArea = new FlightArea();
     public static int refreshRate;
     public static final Properties PROPERTIES = new Properties();
+    // todo - check private or public
+    public static final String PATH_TO_FILES = System.getProperty("user.dir")
+            + File.separator + "src"
+            + File.separator + "files";
     private static final String PATH_TO_MAP = System.getProperty("user.dir")
             + File.separator + "src"
             + File.separator + "files"
@@ -26,7 +29,10 @@ public class Radar extends Thread {
             + File.separator + "configs"
             + File.separator + "radar.properties";
 
-    private File mapFile = new File(PATH_TO_MAP);
+    private static File mapFile = new File(PATH_TO_MAP);
+    // todo - check watcher
+    public FileWatcher mapWatcher = new FileWatcher("map.txt", PATH_TO_FILES);
+
     // endregion Members
 
     static {
@@ -65,5 +71,28 @@ public class Radar extends Thread {
 
     public Radar(FlightArea flightArea) {
         this.flightArea = flightArea;
+    }
+
+    public static synchronized void writeToFile(String data) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(mapFile))) {
+            pw.print(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void run() {
+        // todo - add parameter to stop
+        while (true) {
+            try {
+                sleep(2000);
+                System.out.println("area iz radara");
+                System.out.println(flightArea.toString());
+                writeToFile(flightArea.toString());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

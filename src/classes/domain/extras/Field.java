@@ -33,35 +33,50 @@ public class Field {
     }
 
     // returns the highest or foreign aircraft
+//    @Override
+//    public String toString() {
+//        String ret = " * ";
+//        for (Object o : heights) {
+//            if (o != null) {
+//                if (((Aircraft) o).isForeign()) {
+//                    if (o instanceof FirefightingPlane || o instanceof MilitaryBomberPlane || o instanceof MilitaryFighterPlane
+//                            || o instanceof PassengerPlane || o instanceof TransportPlane) {
+//                        ret = " A ";
+//                    } else if (o instanceof FirefightingHelicopter || o instanceof PassengerHelicopter || o instanceof TransportHelicopter) {
+//                        ret = " H ";
+//                    } else if (o instanceof Drones) {
+//                        ret = " D ";
+//                    } else {
+//                        ret = " A ";
+//                    }
+//                    break;
+//                } else if (o instanceof FirefightingPlane || o instanceof MilitaryBomberPlane || o instanceof MilitaryFighterPlane
+//                        || o instanceof PassengerPlane || o instanceof TransportPlane) {
+//                    ret = " A ";
+//                } else if (o instanceof FirefightingHelicopter || o instanceof PassengerHelicopter || o instanceof TransportHelicopter) {
+//                    ret = " H ";
+//                } else if (o instanceof Drones) {
+//                    ret = " D ";
+//                } else {
+//                    ret = " A ";
+//                }
+//            }
+//        }
+//        return ret;
+//    }
+
+
+    // printing info about aircrafts
     @Override
     public String toString() {
-        String ret = " * ";
+        String result = "";
         for (Object o : heights) {
             if (o != null) {
-                if (((Aircraft) o).isForeign()) {
-                    if (o instanceof FirefightingPlane || o instanceof MilitaryBomberPlane || o instanceof MilitaryFighterPlane
-                            || o instanceof PassengerPlane || o instanceof TransportPlane) {
-                        ret = " A ";
-                    } else if (o instanceof FirefightingHelicopter || o instanceof PassengerHelicopter || o instanceof TransportHelicopter) {
-                        ret = " H ";
-                    } else if (o instanceof Drones) {
-                        ret = " D ";
-                    } else {
-                        ret = " A ";
-                    }
-                    break;
-                } else if (o instanceof FirefightingPlane || o instanceof MilitaryBomberPlane || o instanceof MilitaryFighterPlane
-                        || o instanceof PassengerPlane || o instanceof TransportPlane) {
-                    ret = " A ";
-                } else if (o instanceof FirefightingHelicopter || o instanceof PassengerHelicopter || o instanceof TransportHelicopter) {
-                    ret = " H ";
-                } else if (o instanceof Drones) {
-                    ret = " D ";
-                } else {
-                    ret = " A ";
-                }
+                result += "-";
+                result += o.toString();
+                result += "\n";
             }
         }
-        return ret;
+        return result;
     }
 }

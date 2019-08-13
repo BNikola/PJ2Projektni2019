@@ -122,7 +122,7 @@ public class FlightArea {
         return flightArea[x][y].getObjectFromHeight(height);
     }
 
-    synchronized public void setPosition(Object object, int x, int y, int height) {
+    public synchronized void setPosition(Object object, int x, int y, int height) {
         flightArea[x][y].setObjectToHeight(object, height);
     }
 
@@ -138,11 +138,12 @@ public class FlightArea {
                 if (flightArea[i][j] != null) {
 //                    out += String.format("%-2s", flightArea[i][j]);
                     out += flightArea[i][j];  // todo - change this
-                } else {
-                    out += " * ";
                 }
+//                else {
+//                    out += " * ";
+//                }
             }
-            out += '\n';
+//            out += '\n';
         }
         return out;
     }

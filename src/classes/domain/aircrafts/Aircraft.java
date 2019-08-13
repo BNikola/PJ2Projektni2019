@@ -1,5 +1,6 @@
 package classes.domain.aircrafts;
 
+import classes.Radar;
 import classes.controllers.Controller;
 import classes.domain.extras.FlightArea;
 import classes.domain.extras.FlightDirection;
@@ -233,19 +234,15 @@ public class Aircraft extends Thread {
 
     @Override
     public void run() {
-        System.out.println(Simulator.flightArea);
-        System.out.println(this.getClass());
         while(!doneMoving) {
             switch (direction) {
                 case UP:
-                    System.out.println(positionX + " " + positionY);
                     while (positionX > 0) {
                         Simulator.flightArea.setPosition(null, positionX, positionY, height);
                         positionX--;
                         Simulator.flightArea.setPosition(this, positionX, positionY, height);
-//                        Controller.app.refreshTextArea();
                         try {
-                            Thread.sleep(500);
+                            Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -269,24 +266,24 @@ public class Aircraft extends Thread {
             }
             doneMoving = true;
         }
-        System.out.println("Gotov");
+//        System.out.println("Gotov -> " + this);
+        // todo - remove this after check for all directions
+        System.out.println("Zadnje pozicije: " + positionX + " - " + positionY);
         Simulator.flightArea.setPosition(null, positionX, positionY, height);
-        System.out.println(Simulator.flightArea);
-//        Controller.app.refreshTextArea();
     }
 
     // endregion
 
     @Override
     public String toString() {
-        return " aircraftId='" + aircraftId + '\'' +
+        return ", [" + positionX + ", " + positionY + "]" +
+                ", aircraftId='" + aircraftId + '\'' +
                 ", foreign=" + foreign +
                 ", height=" + height +
                 ", model='" + model + '\'' +
                 ", persons=" + persons +
                 ", characteristics=" + characteristics +
                 ", speed=" + speed +
-                ", direction=" + direction +
-                ", [" + positionX + ", " + positionY + "]";
+                ", direction=" + direction;
     }
 }

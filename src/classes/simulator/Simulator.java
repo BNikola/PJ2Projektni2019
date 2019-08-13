@@ -144,8 +144,6 @@ public class Simulator {
 
     public static void main(String[] args) {
         Simulator s = new Simulator();
-        System.out.println(s.flightArea.getSizeX());
-        System.out.println(s.flightArea.getSizeY());
         s.configWatcher.start();
         int i = 0;
         List<Aircraft> aircrafts = new ArrayList<>();
@@ -154,7 +152,6 @@ public class Simulator {
                 interval = Integer.parseInt(s.configWatcher.getOptions().get("interval"));
             }
             try {
-//                System.out.println(s.generateRandomAircraft());
                 Thread.sleep(interval);
                 s.generateRandomAircraft().start();
 //                Aircraft a = s.generateRandomAircraft();

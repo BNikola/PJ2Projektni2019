@@ -46,7 +46,7 @@ public class PassengerPlane extends Aircraft {
     public String toString() {
         return "PassengerPlane{" +
                 "numberOfSeats=" + numberOfSeats +
-                ", maxWeight=" + maxWeight + ", " +
+                ", maxWeight=" + maxWeight +
                 super.toString() +
                 '}';
     }

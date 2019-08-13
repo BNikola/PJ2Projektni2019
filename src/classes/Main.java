@@ -1,5 +1,6 @@
 package classes;
 
+import classes.domain.extras.FlightArea;
 import classes.simulator.Simulator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +25,11 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        new Thread(() -> Simulator.main(args)).start();
+        FlightArea flightArea = new FlightArea();
+        Simulator s = new Simulator(flightArea);
+        new Thread(() -> s.main(args)).start();
+        Radar r = new Radar(flightArea);
+        r.start();
         launch(args);
     }
 }
