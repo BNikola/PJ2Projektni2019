@@ -36,16 +36,16 @@ public class Radar extends Thread {
     // endregion Members
 
     static {
-        // setting up logger
-        try {
-            FileHandler fileHandler = new FileHandler("error.log", true);
-            Simulator.LOGGER.addHandler(fileHandler);
-            SimpleFormatter simpleFormatter = new SimpleFormatter(); // formatting the logger
-            fileHandler.setFormatter(simpleFormatter);
-//            LOGGER.setUseParentHandlers(false);                    // do not print on console
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        // setting up logger
+//        try {
+//            FileHandler fileHandler = new FileHandler("error.log", true);
+//            Simulator.LOGGER.addHandler(fileHandler);
+//            SimpleFormatter simpleFormatter = new SimpleFormatter(); // formatting the logger
+//            fileHandler.setFormatter(simpleFormatter);
+////            LOGGER.setUseParentHandlers(false);                    // do not print on console
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
         // loading properties file
         try {

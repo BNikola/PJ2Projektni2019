@@ -30,7 +30,8 @@ public class Simulator {
     // properties file
     public static final Properties PROPERTIES = new Properties();
     // logger
-    public static final Logger LOGGER = Logger.getLogger("Logger");
+    // todo - implement logger
+//    public static final Logger LOGGER = Logger.getLogger("Logger");
     // record of aircraft, for unique aircraftId
     private HashMap<String, Aircraft> aircraftRegistry = new HashMap<>(); // todo - update when aircraft leaves
     // interval of creating aircraft
@@ -48,16 +49,16 @@ public class Simulator {
 
     // region Static block
     static {
-        // setting up logger
-        try {
-            FileHandler fileHandler = new FileHandler("error.log", true);
-            LOGGER.addHandler(fileHandler);
-            SimpleFormatter simpleFormatter = new SimpleFormatter(); // formatting the logger
-            fileHandler.setFormatter(simpleFormatter);
-//            LOGGER.setUseParentHandlers(false);                    // do not print on console
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        // setting up logger
+//        try {
+//            FileHandler fileHandler = new FileHandler("error.log", true);
+//            LOGGER.addHandler(fileHandler);
+//            SimpleFormatter simpleFormatter = new SimpleFormatter(); // formatting the logger
+//            fileHandler.setFormatter(simpleFormatter);
+////            LOGGER.setUseParentHandlers(false);                    // do not print on console
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
         // loading properties file
         try {
