@@ -25,11 +25,11 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        FlightArea flightArea = new FlightArea();
-        Simulator s = new Simulator(flightArea);
-        new Thread(() -> s.main(args)).start();
-        Radar r = new Radar(flightArea);
-        r.start();
+//        FlightArea flightArea = new FlightArea();
+//        Simulator s = new Simulator(flightArea);
+//        new Thread(() -> s.main(args)).start();
+//        Radar r = new Radar(flightArea);
+//        r.start();
         launch(args);
     }
 }

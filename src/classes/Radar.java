@@ -84,6 +84,7 @@ public class Radar extends Thread {
     @Override
     public void run() {
         // todo - add parameter to stop
+        //  - maybe put this into main and make new Thread for this main
         while (true) {
             try {
                 sleep(2000);

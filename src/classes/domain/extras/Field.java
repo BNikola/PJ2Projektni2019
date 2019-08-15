@@ -72,7 +72,6 @@ public class Field {
         String result = "";
         for (Object o : heights) {
             if (o != null) {
-                result += "-";
                 result += o.toString();
                 result += "\n";
             }

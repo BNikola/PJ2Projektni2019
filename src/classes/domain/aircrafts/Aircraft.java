@@ -274,6 +274,7 @@ public class Aircraft extends Thread {
 
     // endregion
 
+    // todo - remove characteristics maybe
     @Override
     public String toString() {
         return "[" + positionX + ", " + positionY + "]" +
