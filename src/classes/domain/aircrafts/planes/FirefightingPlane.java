@@ -30,9 +30,8 @@ public class FirefightingPlane extends Aircraft {
 
     @Override
     public String toString() {
-        return "FirefightingPlane{" +
-                "waterCapacity=" +
-                super.toString() +
-                '}';
+        return super.toString() +
+                "#FirefightingPlane" +
+                ", waterCapacity=" + waterCapacity;
     }
 }

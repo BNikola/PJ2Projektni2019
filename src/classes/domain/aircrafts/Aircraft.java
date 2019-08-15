@@ -276,12 +276,10 @@ public class Aircraft extends Thread {
 
     @Override
     public String toString() {
-        return ", [" + positionX + ", " + positionY + "]" +
-                ", aircraftId='" + aircraftId + '\'' +
+        return "[" + positionX + ", " + positionY + "]" +
+                ", aircraftId=" + aircraftId +
                 ", foreign=" + foreign +
                 ", height=" + height +
-                ", model='" + model + '\'' +
-                ", persons=" + persons +
                 ", characteristics=" + characteristics +
                 ", speed=" + speed +
                 ", direction=" + direction;

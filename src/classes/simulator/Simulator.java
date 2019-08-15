@@ -145,10 +145,13 @@ public class Simulator {
 
     public static void main(String[] args) {
         Simulator s = new Simulator();
+        System.out.println(flightArea.getSizeX());
+        System.out.println(flightArea.getSizeY());
         s.configWatcher.start();
         int i = 0;
         List<Aircraft> aircrafts = new ArrayList<>();
-        while (i++ < 30) {
+//        while (i++ < 30) {
+        while(i == 0) {
             if (s.configWatcher.isChange()) {
                 interval = Integer.parseInt(s.configWatcher.getOptions().get("interval"));
             }

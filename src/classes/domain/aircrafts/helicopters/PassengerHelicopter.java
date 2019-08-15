@@ -30,9 +30,8 @@ public class PassengerHelicopter extends Aircraft {
 
     @Override
     public String toString() {
-        return "PassengerHelicopter{" +
-                "numberOfSeats=" + numberOfSeats +
-                super.toString() +
-                '}';
+        return super.toString() +
+                "#PassengerHelicopter" +
+                ", numberOfSeats=" + numberOfSeats;
     }
 }

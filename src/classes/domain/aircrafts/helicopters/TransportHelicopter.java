@@ -30,9 +30,8 @@ public class TransportHelicopter extends Aircraft {
 
     @Override
     public String toString() {
-        return "TransportHelicopter{" +
-                "maxCargoWeight=" + maxCargoWeight +
-                super.toString() +
-                '}';
+        return super.toString() +
+                "#TransportHelicopter" +
+                ", maxCargoWeight=" + maxCargoWeight;
     }
 }
