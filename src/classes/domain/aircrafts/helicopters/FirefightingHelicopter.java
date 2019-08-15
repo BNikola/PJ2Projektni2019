@@ -31,7 +31,7 @@ public class FirefightingHelicopter extends Aircraft {
     @Override
     public String toString() {
         return super.toString() +
-                "#FirefightingHelicopter" +
+                ", FirefightingHelicopter" +
                 ", waterCapacity=" + waterCapacity;
     }
 }

@@ -31,7 +31,7 @@ public class TransportPlane extends Aircraft {
     @Override
     public String toString() {
         return super.toString() +
-                "#TransportPlane" +
+                ", TransportPlane" +
                 ", maxCargoWeight=" + maxCargoWeight;
     }
 }

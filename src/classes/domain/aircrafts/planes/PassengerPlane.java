@@ -45,7 +45,7 @@ public class PassengerPlane extends Aircraft {
     @Override
     public String toString() {
         return super.toString() +
-                "#PassengerPlane" +
+                ", PassengerPlane" +
                 ", numberOfSeats=" + numberOfSeats +
                 ", maxWeight=" + maxWeight;
     }

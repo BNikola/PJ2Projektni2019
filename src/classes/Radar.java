@@ -87,9 +87,9 @@ public class Radar extends Thread {
         //  - maybe put this into main and make new Thread for this main
         while (true) {
             try {
-                sleep(2000);
-                System.out.println("area iz radara");
-                System.out.println(flightArea.toString());
+                sleep(1500);
+//                System.out.println("area iz radara");
+//                System.out.println(flightArea.toString());
                 writeToFile(flightArea.toString());
             } catch (InterruptedException e) {
                 e.printStackTrace();

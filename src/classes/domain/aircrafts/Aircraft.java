@@ -268,6 +268,7 @@ public class Aircraft extends Thread {
         }
 //        System.out.println("Gotov -> " + this);
         // todo - remove this after check for all directions
+        // todo - remove from Simulator registry
         System.out.println("Zadnje pozicije: " + positionX + " - " + positionY);
         Simulator.flightArea.setPosition(null, positionX, positionY, height);
     }
@@ -277,12 +278,14 @@ public class Aircraft extends Thread {
     // todo - remove characteristics maybe
     @Override
     public String toString() {
-        return "[" + positionX + ", " + positionY + "]" +
+        return "[" + positionX + "-" + positionY + "]" +
                 ", aircraftId=" + aircraftId +
-                ", foreign=" + foreign +
                 ", height=" + height +
+                ", foreign=" + foreign +
                 ", characteristics=" + characteristics +
                 ", speed=" + speed +
                 ", direction=" + direction;
     }
+
+    // todo - implement compare method
 }
