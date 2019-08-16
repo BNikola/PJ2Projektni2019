@@ -1,14 +1,11 @@
 package classes.domain.aircrafts;
 
-import classes.Radar;
-import classes.controllers.Controller;
 import classes.domain.extras.FlightArea;
 import classes.domain.extras.FlightDirection;
 import classes.domain.persons.Person;
 import classes.simulator.Simulator;
 
 import java.util.*;
-import java.util.logging.Level;
 
 public class Aircraft extends Thread {
 
@@ -194,8 +191,7 @@ public class Aircraft extends Thread {
      */
     public void setPositionAndDirection() {
         Random rand = new Random();
-//        Integer flightDirection = rand.nextInt(4); // todo - uncomment this
-        Integer flightDirection = 0;
+        Integer flightDirection = rand.nextInt(4); // TODO: 16.8.2019. - change to 4
         direction = FlightDirection.values()[flightDirection];
         switch (flightDirection) {
             case 0:
@@ -232,44 +228,120 @@ public class Aircraft extends Thread {
     //  - fix and finish run method for aircraft
 
 
+
     @Override
     public void run() {
         while(!doneMoving) {
+            if (Simulator.flightArea.isCrash()) {
+                System.out.println("Bjezim");
+            }
             switch (direction) {
                 case UP:
                     while (positionX > 0) {
-                        Simulator.flightArea.setPosition(null, positionX, positionY, height);
-                        positionX--;
-                        Simulator.flightArea.setPosition(this, positionX, positionY, height);
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                        if (Simulator.flightArea.getPosition(positionX - 1, positionY, height) == null) {
+                            Simulator.flightArea.setPosition(null, positionX, positionY, height);
+                            positionX--;
+                            Simulator.flightArea.setPosition(this, positionX, positionY, height);
+                            try {
+                                sleep(speed * 1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            System.out.println("Desio se sudar na: " + positionX + " " + positionY);
+                            System.out.println(Simulator.flightArea.getPosition(positionX - 1, positionY, height));
+                            System.out.println(this);
+
+                            Simulator.flightArea.setCrash(true);
+                            ((Aircraft)Simulator.flightArea.getPosition(positionX - 1, positionY, height)).doneMoving = true;
+                            doneMoving = true;
+                            break;
                         }
-                        // todo upisivati u fajl a ne u text field
                     }
 
                     doneMoving = true;
                     break;
                 case LEFT:
+                    while (positionY > 0) {
+                        if (Simulator.flightArea.getPosition(positionX, positionY - 1, height) == null) {
+                            Simulator.flightArea.setPosition(null, positionX, positionY, height);
+                            positionY--;
+                            Simulator.flightArea.setPosition(this, positionX, positionY, height);
+                            try {
+                                sleep(speed * 1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            System.out.println("Desio se sudar na: " + positionX + " " + positionY);
+                            System.out.println(Simulator.flightArea.getPosition(positionX, positionY - 1, height));
+                            System.out.println(this);
 
+                            Simulator.flightArea.setCrash(true);
+                            ((Aircraft)Simulator.flightArea.getPosition(positionX, positionY - 1, height)).doneMoving = true;
+                            doneMoving = true;
+                            break;
+                        }
+                    }
+                    doneMoving = true;
                     break;
+
                 case DOWN:
-                    System.out.println("JEeeeeaafsdasf");
+                    while (positionX < FlightArea.getSizeX() - 1) {
+                        if (Simulator.flightArea.getPosition(positionX + 1, positionY, height) == null) {
+                            Simulator.flightArea.setPosition(null, positionX, positionY, height);
+                            positionX++;
+                            Simulator.flightArea.setPosition(this, positionX, positionY, height);
+                            try {
+                                sleep(speed * 1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            System.out.println("Desio se sudar na: " + positionX + " " + positionY);
+                            System.out.println(Simulator.flightArea.getPosition(positionX + 1, positionY, height));
+                            System.out.println(this);
+
+                            Simulator.flightArea.setCrash(true);
+                            ((Aircraft)Simulator.flightArea.getPosition(positionX + 1, positionY, height)).doneMoving = true;
+                            doneMoving = true;
+                            break;
+                        }
+                    }
+                    doneMoving = true;
                     break;
                 case RIGHT:
+                    while (positionY < FlightArea.getSizeY() - 1) {
+                        if (Simulator.flightArea.getPosition(positionX, positionY + 1, height) == null) {
+                            Simulator.flightArea.setPosition(null, positionX, positionY, height);
+                            positionY++;
+                            Simulator.flightArea.setPosition(this, positionX, positionY, height);
+                            try {
+                                sleep(speed * 1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            System.out.println("Desio se sudar na: " + positionX + " " + positionY);
+                            System.out.println(Simulator.flightArea.getPosition(positionX, positionY + 1, height));
+                            System.out.println(this);
 
+                            Simulator.flightArea.setCrash(true);
+                            ((Aircraft)Simulator.flightArea.getPosition(positionX, positionY + 1, height)).doneMoving = true;
+                            doneMoving = true;
+                            break;
+                        }
+                    }
+                    doneMoving = true;
                     break;
                 default:
                     doneMoving = true;
                     break;
             }
-            doneMoving = true;
         }
-//        System.out.println("Gotov -> " + this);
         // todo - remove this after check for all directions
-        // todo - remove from Simulator registry
         System.out.println("Zadnje pozicije: " + positionX + " - " + positionY);
+        Simulator.aircraftRegistry.remove(aircraftId);      // removes this id from registry
         Simulator.flightArea.setPosition(null, positionX, positionY, height);
     }
 
@@ -286,6 +358,8 @@ public class Aircraft extends Thread {
                 ", speed=" + speed +
                 ", direction=" + direction;
     }
+
+
 
     // todo - implement compare method
 }

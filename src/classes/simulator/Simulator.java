@@ -33,7 +33,7 @@ public class Simulator {
     // todo - implement logger
 //    public static final Logger LOGGER = Logger.getLogger("Logger");
     // record of aircraft, for unique aircraftId
-    private HashMap<String, Aircraft> aircraftRegistry = new HashMap<>(); // todo - update when aircraft leaves
+    public static HashMap<String, Aircraft> aircraftRegistry = new HashMap<>(); // todo - update when aircraft leaves
     // interval of creating aircraft
     private static int interval = 500;
     // path to config

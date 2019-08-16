@@ -118,7 +118,7 @@ public class FlightArea {
     }
 
     // get-set object to position and height
-    public Object getPosition(int x, int y, int height) {
+    public synchronized Object getPosition(int x, int y, int height) {
         return flightArea[x][y].getObjectFromHeight(height);
     }
 

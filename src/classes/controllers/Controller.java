@@ -3,7 +3,6 @@ package classes.controllers;
 import classes.Radar;
 import classes.domain.extras.FileWatcher;
 import classes.domain.extras.FlightArea;
-import classes.simulator.Simulator;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +19,6 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 import java.net.URL;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -75,8 +73,7 @@ public class Controller implements Initializable {
             sp.getChildren().add(display);
             Platform.runLater(() -> {
                 Text t = (Text) ((VBox) flightAreaGridPane.getChildren().get(x + y * FlightArea.getSizeY())).getChildren().get(0);
-//                if (category.contains("Fire"))
-////                    t.setFill(Color.RED);
+                // TODO: 16.8.2019. - add military planes
                 switch (category) {
                     case "FirefightingHelicopter":
                         t.setFill(Color.DARKRED);
@@ -104,15 +101,12 @@ public class Controller implements Initializable {
                 t.setTextAlignment(TextAlignment.CENTER);
             });
         }
-        // todo - fix this to show actual data
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         app = this;
-
-        // todo - initialize with the correct size of map (gridpane)
         Platform.runLater(() -> {
             System.out.println("started");
             for (int i = 0; i < FlightArea.getSizeX(); i++) {
@@ -125,10 +119,9 @@ public class Controller implements Initializable {
                     flightAreaGridPane.setAlignment(Pos.CENTER);
                     flightAreaGridPane.setVgap(15);
                     flightAreaGridPane.setHgap(15);
+                    flightAreaGridPane.setMinHeight(30);
                     flightAreaGridPane.setPadding(new Insets(10, 10, 10, 10));
                     ColumnConstraints s = new ColumnConstraints();
-                    // todo - check min width and height
-
                 }
             }
         });

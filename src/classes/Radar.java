@@ -1,14 +1,10 @@
 package classes;
 
-import classes.domain.extras.ConfigWatcher;
 import classes.domain.extras.FileWatcher;
 import classes.domain.extras.FlightArea;
-import classes.simulator.Simulator;
 
 import java.io.*;
 import java.util.Properties;
-import java.util.logging.FileHandler;
-import java.util.logging.SimpleFormatter;
 
 public class Radar extends Thread {
     // region Members
@@ -30,7 +26,6 @@ public class Radar extends Thread {
             + File.separator + "radar.properties";
 
     private static File mapFile = new File(PATH_TO_MAP);
-    // todo - check watcher
     public FileWatcher mapWatcher = new FileWatcher("map.txt", PATH_TO_FILES);
 
     // endregion Members
@@ -87,9 +82,8 @@ public class Radar extends Thread {
         //  - maybe put this into main and make new Thread for this main
         while (true) {
             try {
+                // TODO: 16.8.2019. - use radar.properties for sleep
                 sleep(1500);
-//                System.out.println("area iz radara");
-//                System.out.println(flightArea.toString());
                 writeToFile(flightArea.toString());
             } catch (InterruptedException e) {
                 e.printStackTrace();
