@@ -11,14 +11,17 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../views/sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        Scene scene = new Scene(root, 300, 275);
-        scene.getStylesheets().add("views/custom.css");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
+    public void start(Stage primaryStage) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../views/sample.fxml"));
+            primaryStage.setTitle("Hello World");
+            Scene scene = new Scene(root, 300, 275);
+            scene.getStylesheets().add("views/custom.css");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e) {
+            System.out.println("Uhvacen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        }
         // start simulator
 
     }

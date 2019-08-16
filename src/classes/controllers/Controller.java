@@ -4,6 +4,7 @@ import classes.Radar;
 import classes.domain.extras.FileWatcher;
 import classes.domain.extras.FlightArea;
 import classes.simulator.Simulator;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -54,7 +55,7 @@ public class Controller implements Initializable {
                 Text t = (Text) ((VBox) flightAreaGridPane.getChildren().get(i * FlightArea.getSizeX() + j)).getChildren().get(0);
                 t.setFill(Color.BLACK);
                 t.setTextAlignment(TextAlignment.CENTER);
-                t.setText(" ** ");
+                t.setText("  **  ");
             }
         }
         List<String> list = new ArrayList<>();
@@ -72,11 +73,36 @@ public class Controller implements Initializable {
             Text display = new Text(id + "\n" + height);
             StackPane sp = new StackPane();
             sp.getChildren().add(display);
-            Text t = (Text) ((VBox) flightAreaGridPane.getChildren().get(x + y * FlightArea.getSizeY())).getChildren().get(0);
-            if (category.contains("Fire"))
-                t.setFill(Color.RED);
-            t.setText(id + "\n" + height);
-            t.setTextAlignment(TextAlignment.CENTER);
+            Platform.runLater(() -> {
+                Text t = (Text) ((VBox) flightAreaGridPane.getChildren().get(x + y * FlightArea.getSizeY())).getChildren().get(0);
+//                if (category.contains("Fire"))
+////                    t.setFill(Color.RED);
+                switch (category) {
+                    case "FirefightingHelicopter":
+                        t.setFill(Color.DARKRED);
+                        break;
+                    case "PassengerHelicopter":
+                        t.setFill(Color.DARKBLUE);
+                        break;
+                    case "TransportHelicopter":
+                        t.setFill(Color.DARKGREEN);
+                        break;
+                    case "FirefightingPlane":
+                        t.setFill(Color.ORANGERED);
+                        break;
+                    case "PassengerPlane":
+                        t.setFill(Color.DEEPSKYBLUE);
+                        break;
+                    case "TransportPlane":
+                        t.setFill(Color.LAWNGREEN);
+                        break;
+                    default:
+                        t.setFill(Color.BLACK);
+                }
+
+                t.setText(id + "\n" + height);
+                t.setTextAlignment(TextAlignment.CENTER);
+            });
         }
         // todo - fix this to show actual data
     }
@@ -87,24 +113,27 @@ public class Controller implements Initializable {
         app = this;
 
         // todo - initialize with the correct size of map (gridpane)
-        System.out.println("started");
-        for (int i = 0; i < FlightArea.getSizeX(); i++) {
-            for (int j = 0; j < FlightArea.getSizeY(); j++) {
-                VBox columnLayout = new VBox();
-                Text cellText = new Text(" ** ");      // the aircraftId is 6 letters long
-                columnLayout.getChildren().addAll(cellText);
-                columnLayout.setAlignment(Pos.CENTER);
-                flightAreaGridPane.add(columnLayout, i, j);
-                flightAreaGridPane.setAlignment(Pos.CENTER);
-                flightAreaGridPane.setVgap(15);
-                flightAreaGridPane.setHgap(15);
-                flightAreaGridPane.setPadding(new Insets(10,10,10,10));
-                ColumnConstraints s = new ColumnConstraints();
-                // todo - check min width and height
+        Platform.runLater(() -> {
+            System.out.println("started");
+            for (int i = 0; i < FlightArea.getSizeX(); i++) {
+                for (int j = 0; j < FlightArea.getSizeY(); j++) {
+                    VBox columnLayout = new VBox();
+                    Text cellText = new Text("  **  ");      // the aircraftId is 6 letters long
+                    columnLayout.getChildren().addAll(cellText);
+                    columnLayout.setAlignment(Pos.CENTER);
+                    flightAreaGridPane.add(columnLayout, i, j);
+                    flightAreaGridPane.setAlignment(Pos.CENTER);
+                    flightAreaGridPane.setVgap(15);
+                    flightAreaGridPane.setHgap(15);
+                    flightAreaGridPane.setPadding(new Insets(10, 10, 10, 10));
+                    ColumnConstraints s = new ColumnConstraints();
+                    // todo - check min width and height
 
+                }
             }
-        }
+        });
 
+        System.out.println("From controller");
         System.out.println(flightAreaGridPane.getColumnCount());
         System.out.println(flightAreaGridPane.getRowCount());
         FileWatcher fw = new FileWatcher("map.txt", Radar.PATH_TO_FILES);
