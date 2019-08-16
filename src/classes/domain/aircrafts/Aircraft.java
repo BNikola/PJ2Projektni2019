@@ -6,6 +6,7 @@ import classes.domain.persons.Person;
 import classes.simulator.Simulator;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class Aircraft extends Thread {
 
@@ -360,6 +361,47 @@ public class Aircraft extends Thread {
     }
 
 
+    // region Private methods
+    private FlightDirection getClosestExit() {
+        int index = 0;
+
+        int top = positionX;
+        int min = top;
+        int bottom = FlightArea.getSizeX() - 1 - positionX;
+        int left = positionY;
+        int right = FlightArea.getSizeY() - 1 - positionY;
+        int[] directionArray = {top, bottom, left, right};
+        for (int i = 0; i < directionArray.length; i++) {
+            if (directionArray[i] <= min) {
+                min = directionArray[i];
+                index = i;
+            }
+        }
+
+        switch (index) {
+            case 0:
+                return FlightDirection.UP;
+            case 1:
+                return FlightDirection.DOWN;
+            case 2:
+                return FlightDirection.LEFT;
+            case 3:
+                return FlightDirection.RIGHT;
+            default:
+                return FlightDirection.UP;
+        }
+
+
+    }
+    // endregion Private methods
+
+    public static void main(String[] args) {
+        Simulator s = new Simulator();
+        Aircraft a = s.generateRandomAircraft();
+        a.positionX = 7;
+        a.positionY = 4;
+        System.out.println(a.getClosestExit());
+    }
 
     // todo - implement compare method
 }
