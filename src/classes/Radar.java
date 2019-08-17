@@ -10,8 +10,8 @@ public class Radar extends Thread {
     // region Members
     // todo - maybe change to non static
     public static FlightArea flightArea = new FlightArea();
-    public static int refreshRate;
-    public static final Properties PROPERTIES = new Properties();
+    private static int refreshRate;
+    private static final Properties PROPERTIES = new Properties();
     // todo - check private or public
     public static final String PATH_TO_FILES = System.getProperty("user.dir")
             + File.separator + "src"
@@ -57,8 +57,6 @@ public class Radar extends Thread {
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public Radar() {
@@ -82,8 +80,7 @@ public class Radar extends Thread {
         //  - maybe put this into main and make new Thread for this main
         while (true) {
             try {
-                // TODO: 16.8.2019. - use radar.properties for sleep
-                sleep(1500);
+                sleep(refreshRate);
                 writeToFile(flightArea.toString());
             } catch (InterruptedException e) {
                 e.printStackTrace();
