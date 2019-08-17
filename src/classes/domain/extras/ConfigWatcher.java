@@ -1,10 +1,13 @@
 package classes.domain.extras;
 
+import classes.AirTrafficControl;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
 
 import static java.nio.file.StandardWatchEventKinds.*;
 import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
@@ -90,7 +93,7 @@ public class ConfigWatcher extends Thread {
 
 
         } catch (IOException e) {
-            e.printStackTrace();
+            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
     }
     // endregion

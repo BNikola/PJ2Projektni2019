@@ -1,5 +1,6 @@
 package classes.domain.extras;
 
+import classes.AirTrafficControl;
 import classes.domain.aircrafts.Aircraft;
 import classes.domain.aircrafts.helicopters.PassengerHelicopter;
 import classes.domain.aircrafts.planes.PassengerPlane;
@@ -10,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.logging.Level;
 
 public class FlightArea {
 
@@ -17,7 +19,7 @@ public class FlightArea {
     // defining size of the map
     private static int SIZE_X;
     private static int SIZE_Y;
-    public static final Properties PROPERTIES = new Properties();
+    private static final Properties PROPERTIES = new Properties();
     private static String pathToConfig = System.getProperty("user.dir")
             + File.separator + "src"
             + File.separator + "configs"
@@ -42,18 +44,16 @@ public class FlightArea {
 
         try {
             PROPERTIES.load(new FileInputStream(new File(pathToConfig)));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
 
         // loading properties
         try {
-            SIZE_X = Integer.valueOf(PROPERTIES.getProperty("sizeX"));
-            SIZE_Y = Integer.valueOf(PROPERTIES.getProperty("sizeY"));
+            SIZE_X = Integer.parseInt(PROPERTIES.getProperty("sizeX"));
+            SIZE_Y = Integer.parseInt(PROPERTIES.getProperty("sizeY"));
         } catch (NumberFormatException e) {
-            e.printStackTrace();
+            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
     }
 
@@ -132,12 +132,12 @@ public class FlightArea {
 
     @Override
     public String toString() {
-        String out = "";
+        StringBuilder out = new StringBuilder();
         for (int i = 0; i < SIZE_X; i++) {
             for (int j = 0; j < SIZE_Y; j++) {
                 if (flightArea[i][j] != null) {
 //                    out += String.format("%-2s", flightArea[i][j]);
-                    out += flightArea[i][j];  // todo - change this
+                    out.append(flightArea[i][j]);  // todo - change this
                 }
 //                else {
 //                    out += " * ";
@@ -145,6 +145,6 @@ public class FlightArea {
             }
 //            out += '\n';
         }
-        return out;
+        return out.toString();
     }
 }

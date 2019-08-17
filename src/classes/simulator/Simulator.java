@@ -1,5 +1,6 @@
 package classes.simulator;
 
+import classes.AirTrafficControl;
 import classes.domain.aircrafts.Aircraft;
 import classes.domain.aircrafts.helicopters.FirefightingHelicopter;
 import classes.domain.aircrafts.helicopters.PassengerHelicopter;
@@ -17,6 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 import java.util.logging.FileHandler;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
@@ -49,31 +51,19 @@ public class Simulator {
 
     // region Static block
     static {
-//        // setting up logger
-//        try {
-//            FileHandler fileHandler = new FileHandler("error.log", true);
-//            LOGGER.addHandler(fileHandler);
-//            SimpleFormatter simpleFormatter = new SimpleFormatter(); // formatting the logger
-//            fileHandler.setFormatter(simpleFormatter);
-////            LOGGER.setUseParentHandlers(false);                    // do not print on console
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
 
         // loading properties file
         try {
             PROPERTIES.load(new FileInputStream(new File(pathToConfig)));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
 
         // loading properties
         try {
-            interval = Integer.valueOf(PROPERTIES.getProperty("interval"));
+            interval = Integer.parseInt(PROPERTIES.getProperty("interval"));
         } catch (NumberFormatException e) {
-            e.printStackTrace();
+            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
 
 
@@ -86,7 +76,7 @@ public class Simulator {
     }
 
     public Simulator(FlightArea flightArea) {
-        this.flightArea = flightArea;
+        Simulator.flightArea = flightArea;
     }
 
 
@@ -145,8 +135,8 @@ public class Simulator {
 
     public static void main(String[] args) {
         Simulator s = new Simulator();
-        System.out.println(flightArea.getSizeX());
-        System.out.println(flightArea.getSizeY());
+        System.out.println(FlightArea.getSizeX());
+        System.out.println(FlightArea.getSizeY());
         s.configWatcher.start();
         int i = 0;
         List<Aircraft> aircrafts = new ArrayList<>();
@@ -162,7 +152,7 @@ public class Simulator {
 //                aircrafts.add(a);
 //                a.start();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
             }
         }
 
@@ -172,13 +162,13 @@ public class Simulator {
 //        try {
 //            Thread.sleep(3000);
 //        } catch (InterruptedException e) {
-//            e.printStackTrace();
+//            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
 //        }
 //        a.start();
 //        b.start();
 
         System.out.println(String.join("", Collections.nCopies(100, "=")));
-        System.out.println("aaaaaaaaaaaaaaaaaaaa\n" + s.flightArea);
+        System.out.println("aaaaaaaaaaaaaaaaaaaa\n" + flightArea);
         s.configWatcher.interrupt();
     }
 
@@ -193,7 +183,7 @@ public class Simulator {
     private ConfigWatcher configWatcher = new ConfigWatcher("config.properties");
 
     // generate random aircraft id
-    public String randomAlphaNumeric(int lenght) {
+    private String randomAlphaNumeric(int lenght) {
         StringBuilder builder = new StringBuilder();
 
         do {

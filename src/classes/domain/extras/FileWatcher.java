@@ -1,5 +1,6 @@
 package classes.domain.extras;
 
+import classes.AirTrafficControl;
 import classes.controllers.Controller;
 
 import java.io.IOException;
@@ -7,6 +8,7 @@ import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
 
 import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 
@@ -101,7 +103,7 @@ public class FileWatcher extends Thread {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();    // todo - use logger
+            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
     }
 }

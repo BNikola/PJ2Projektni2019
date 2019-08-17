@@ -5,6 +5,7 @@ import classes.domain.extras.FlightArea;
 
 import java.io.*;
 import java.util.Properties;
+import java.util.logging.Level;
 
 public class Radar extends Thread {
     // region Members
@@ -45,17 +46,15 @@ public class Radar extends Thread {
         // loading properties file
         try {
             PROPERTIES.load(new FileInputStream(new File(PATH_TO_CONFIG)));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
 
         // loading properties
         try {
-            refreshRate = Integer.valueOf(PROPERTIES.getProperty("refreshRate"));
+            refreshRate = Integer.parseInt(PROPERTIES.getProperty("refreshRate"));
         } catch (NumberFormatException e) {
-            e.printStackTrace();
+            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
     }
 
@@ -63,7 +62,7 @@ public class Radar extends Thread {
     }
 
     public Radar(FlightArea flightArea) {
-        this.flightArea = flightArea;
+        Radar.flightArea = flightArea;
     }
 
     public static synchronized void writeToFile(String data) {
@@ -83,7 +82,7 @@ public class Radar extends Thread {
                 sleep(refreshRate);
                 writeToFile(flightArea.toString());
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
             }
         }
     }

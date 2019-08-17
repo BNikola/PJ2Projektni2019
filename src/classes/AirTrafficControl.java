@@ -7,9 +7,37 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.util.Properties;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
 public class AirTrafficControl extends Application {
 
+    // region Members
     private Stage window;
+
+    // for logger
+    public static final Properties PROPERTIES = new Properties();
+    public static final Logger LOGGER = Logger.getLogger("Logger");
+
+    // TODO: 17.8.2019. maybe add constructor and member for no flight
+    // endregion
+
+    // region Static block for logger
+    static {
+        try {
+            FileHandler fileHandler = new FileHandler("error.log",  true);
+            LOGGER.addHandler(fileHandler);
+            SimpleFormatter simpleFormatter = new SimpleFormatter();    // formatting of the logger
+            fileHandler.setFormatter(simpleFormatter);
+//            LOGGER.setUseParentHandlers(false);   // do not print out to console
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    // endregion
 
     @Override
     public void start(Stage primaryStage) throws Exception {

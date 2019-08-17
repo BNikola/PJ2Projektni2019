@@ -1,11 +1,13 @@
 package classes.domain.aircrafts;
 
+import classes.AirTrafficControl;
 import classes.domain.extras.FlightArea;
 import classes.domain.extras.FlightDirection;
 import classes.domain.persons.Person;
 import classes.simulator.Simulator;
 
 import java.util.*;
+import java.util.logging.Level;
 import java.util.stream.IntStream;
 
 public class Aircraft extends Thread {
@@ -277,7 +279,7 @@ public class Aircraft extends Thread {
                         try {
                             sleep(speed * 1000);
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                         }
                     } else {
                         System.out.println("Desio se sudar na: " + positionX + " " + positionY);
@@ -302,7 +304,7 @@ public class Aircraft extends Thread {
                         try {
                             sleep(speed * 1000);
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                         }
                     } else {
                         System.out.println("Desio se sudar na: " + positionX + " " + positionY);
@@ -327,7 +329,7 @@ public class Aircraft extends Thread {
                         try {
                             sleep(speed * 1000);
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                         }
                     } else {
                         System.out.println("Desio se sudar na: " + positionX + " " + positionY);
@@ -351,7 +353,7 @@ public class Aircraft extends Thread {
                         try {
                             sleep(speed * 1000);
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                         }
                     } else {
                         System.out.println("Desio se sudar na: " + positionX + " " + positionY);
