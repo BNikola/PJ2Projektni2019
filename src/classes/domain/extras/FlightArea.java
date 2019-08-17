@@ -25,9 +25,6 @@ public class FlightArea {
             + File.separator + "configs"
             + File.separator + "config.properties";
 
-    //todo - solve size initialization
-    // todo - remodel this to take in account the height
-
     // matrice
     private Field[][] flightArea;
 

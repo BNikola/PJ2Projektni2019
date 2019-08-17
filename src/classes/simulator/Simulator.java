@@ -31,9 +31,7 @@ public class Simulator {
     public static FlightArea flightArea = new FlightArea();
     // properties file
     public static final Properties PROPERTIES = new Properties();
-    // logger
-    // todo - implement logger
-//    public static final Logger LOGGER = Logger.getLogger("Logger");
+
     // record of aircraft, for unique aircraftId
     public static HashMap<String, Aircraft> aircraftRegistry = new HashMap<>(); // todo - update when aircraft leaves
     // interval of creating aircraft

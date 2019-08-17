@@ -91,8 +91,6 @@ public class FileWatcher extends Thread {
                         // setting change to true
                         change = true;
                         data = Files.readAllLines(dir.resolve(fileName));
-//                        System.out.println(data);
-                        // todo - parse data to show matrice
                         Controller.app.refreshTextArea(data);
                     }
                 }
