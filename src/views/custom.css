@@ -1,0 +1,20 @@
+.text-area {
+	-fx-font-size: 16;
+    -fx-font-family: Consolas;
+    -fx-font-weigh: bold;
+    /*-fx-highlight-fill: null;*/
+	/*-fx-highlight-text-fill: null;*/
+}
+
+
+.text-area .scroll-pane {
+	/*[ never | always | as-needed ] */
+    -fx-hbar-policy: never;
+    -fx-vbar-policy: never;
+}
+
+#flightAreaGridPane {
+    -fx-font-size: 16;
+    -fx-font-family: Consolas;
+    -fx-font-weigh: bold;
+}

@@ -1,0 +1,6 @@
+[1-1], aircraftId=U89EQC, height=3, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerPlane, numberOfSeats=223, maxWeight=619
+[2-7], aircraftId=BUGSX3, height=5, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingHelicopter, waterCapacity=314
+[4-3], aircraftId=6Z37Y3, height=0, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=257
+[4-6], aircraftId=BW2A2W, height=3, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerPlane, numberOfSeats=56, maxWeight=1762
+[6-8], aircraftId=A1ULH2, height=2, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerHelicopter, numberOfSeats=3
+[7-1], aircraftId=1TGYCD, height=5, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingPlane, waterCapacity=335
