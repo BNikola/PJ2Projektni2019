@@ -1,6 +1,9 @@
-[1-1], aircraftId=U89EQC, height=3, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerPlane, numberOfSeats=223, maxWeight=619
-[2-7], aircraftId=BUGSX3, height=5, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingHelicopter, waterCapacity=314
-[4-3], aircraftId=6Z37Y3, height=0, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=257
-[4-6], aircraftId=BW2A2W, height=3, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerPlane, numberOfSeats=56, maxWeight=1762
-[6-8], aircraftId=A1ULH2, height=2, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerHelicopter, numberOfSeats=3
-[7-1], aircraftId=1TGYCD, height=5, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingPlane, waterCapacity=335
+[0-1], aircraftId=71Q1PZ, height=0, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=326
+[0-1], aircraftId=PBYCPO, height=4, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingPlane, waterCapacity=214
+[1-5], aircraftId=4O228V, height=0, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerPlane, numberOfSeats=157, maxWeight=950
+[1-9], aircraftId=08YQSE, height=4, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=2
+[4-2], aircraftId=3FYM68, height=1, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerHelicopter, numberOfSeats=3
+[4-4], aircraftId=1RDZHC, height=0, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=309
+[4-5], aircraftId=4OWAC8, height=0, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingHelicopter, waterCapacity=162
+[6-4], aircraftId=29129D, height=1, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingPlane, waterCapacity=256
+[8-4], aircraftId=9SU9GU, height=4, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingHelicopter, waterCapacity=209

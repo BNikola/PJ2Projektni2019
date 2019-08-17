@@ -58,7 +58,7 @@ public class Radar extends Thread {
         try (PrintWriter pw = new PrintWriter(new FileWriter(mapFile))) {
             pw.print(data);
         } catch (IOException e) {
-            e.printStackTrace();
+            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
     }
 

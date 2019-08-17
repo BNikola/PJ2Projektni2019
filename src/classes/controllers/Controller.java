@@ -61,7 +61,8 @@ public class Controller implements Initializable {
             String[] split = s.split(", ");
             String pos = split[0];
             String id = split[1].split("=")[1];
-            String height = split[2].split("=")[1];
+            Integer height = (Integer.parseInt(split[2].split("=")[1]) + 1) * 100;
+
             String category = split[7];
             String[] position = pos.substring(1, pos.length() - 1).split("-");
             int x = Integer.parseInt(position[0]);
