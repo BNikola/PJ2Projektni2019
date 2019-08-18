@@ -15,7 +15,7 @@ public class Main extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../views/sample.fxml"));
             primaryStage.setTitle("Hello World");
-            Scene scene = new Scene(root, 300, 275);
+            Scene scene = new Scene(root, 800, 600);
             scene.getStylesheets().add("views/custom.css");
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -30,8 +30,9 @@ public class Main extends Application {
     public static void main(String[] args) {
         FlightArea flightArea = new FlightArea();
         Simulator s = new Simulator(flightArea);
-        new Thread(() -> s.main(args)).start();
+//        new Thread(() -> s.main(args)).start();
         Radar r = new Radar(flightArea);
+        s.start();
         r.start();
         launch(args);
     }

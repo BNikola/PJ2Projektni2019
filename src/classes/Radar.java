@@ -1,5 +1,6 @@
 package classes;
 
+import classes.domain.aircrafts.Aircraft;
 import classes.domain.extras.FileWatcher;
 import classes.domain.extras.FlightArea;
 
@@ -64,15 +65,29 @@ public class Radar extends Thread {
 
     @Override
     public void run() {
+        System.out.println(this.getId());
         // todo - add parameter to stop
         //  - maybe put this into main and make new Thread for this main
         while (true) {
             try {
+                if (flightArea.isCrash()) {
+                    System.out.println("desio se sudar");
+                    flightArea.setCrash(false);
+                }
                 sleep(refreshRate);
                 writeToFile(flightArea.toString());
             } catch (InterruptedException e) {
                 AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
             }
         }
+    }
+
+    public static void processCollision(Aircraft a, Aircraft b) {
+        if (a != null || b != null) {
+            System.out.println("Colision at: [" + a.getPositionX() + "-" + a.getPositionY() + "] " + "[" + b.getPositionX() + "-" + b.getPositionY() + "]");
+        }
+        System.out.println("From RADAR: " + a);
+        System.out.println("From RADAR: " + b);
+        flightArea.setCrash(false);
     }
 }

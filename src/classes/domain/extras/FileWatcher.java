@@ -91,7 +91,9 @@ public class FileWatcher extends Thread {
                         // setting change to true
                         change = true;
                         data = Files.readAllLines(dir.resolve(fileName));
-                        Controller.app.refreshTextArea(data);
+                        if (Controller.app != null) {
+                            Controller.app.refreshTextArea(data);
+                        }
                     }
                 }
 

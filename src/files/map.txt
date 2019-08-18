@@ -1,9 +1,7 @@
-[0-1], aircraftId=71Q1PZ, height=0, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=326
-[0-1], aircraftId=PBYCPO, height=4, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingPlane, waterCapacity=214
-[1-5], aircraftId=4O228V, height=0, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerPlane, numberOfSeats=157, maxWeight=950
-[1-9], aircraftId=08YQSE, height=4, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=2
-[4-2], aircraftId=3FYM68, height=1, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerHelicopter, numberOfSeats=3
-[4-4], aircraftId=1RDZHC, height=0, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=309
-[4-5], aircraftId=4OWAC8, height=0, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingHelicopter, waterCapacity=162
-[6-4], aircraftId=29129D, height=1, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingPlane, waterCapacity=256
-[8-4], aircraftId=9SU9GU, height=4, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingHelicopter, waterCapacity=209
+[1-7], aircraftId=2XBQ9O, height=3, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=28, maxWeight=1475
+[1-9], aircraftId=4NLZB1, height=2, foreign=false, characteristics={}, speed=2, direction=UP, TransportHelicopter, maxCargoWeight=335
+[2-0], aircraftId=4LZ1KN, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingHelicopter, waterCapacity=166
+[2-5], aircraftId=DM0F1B, height=2, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerHelicopter, numberOfSeats=3
+[4-7], aircraftId=RK8PRQ, height=3, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerHelicopter, numberOfSeats=4
+[5-5], aircraftId=SGMSW4, height=5, foreign=false, characteristics={}, speed=2, direction=UP, TransportPlane, maxCargoWeight=662
+[6-1], aircraftId=N42S2E, height=1, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportHelicopter, maxCargoWeight=173

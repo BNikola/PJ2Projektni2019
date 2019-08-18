@@ -1,6 +1,7 @@
 package classes.domain.aircrafts;
 
 import classes.AirTrafficControl;
+import classes.Radar;
 import classes.domain.extras.FlightArea;
 import classes.domain.extras.FlightDirection;
 import classes.domain.persons.Person;
@@ -236,19 +237,24 @@ public class Aircraft extends Thread {
     @Override
     public synchronized void run() {
         while(!doneMoving) {
-//            if (Simulator.flightArea.isCrash()) { // TODO: 16.8.2019. - move this into moving
-//                System.out.println("Bjezim" + aircraftId);
-//                changeDirection();
-//                move();
 //                // TODO: 16.8.2019. - add change of direction and check for null
 //            } else {
+//            move2();
             move();
+            if (crashed) {
+                System.out.println("Srusio se" + this);
+            }
+            System.out.println("Krece se");
 //            }
         }
         // todo - remove this after check for all directions
         System.out.println("Zadnje pozicije: " + positionX + " - " + positionY);
         Simulator.aircraftRegistry.remove(aircraftId);      // removes this id from registry
         Simulator.flightArea.setPosition(null, positionX, positionY, height);
+//        for testing simple movement
+//        System.out.println("Napisao: " + this.getAircraftId() + "\n" + Simulator.flightArea);
+//        System.out.println("-----Radar");
+//        System.out.println(Radar.flightArea);
     }
 
 
@@ -269,14 +275,15 @@ public class Aircraft extends Thread {
 
 
     // region Private methods
-    private synchronized void move() {
+    private synchronized void move2() {
         switch (direction) {
             case UP:
                 while (positionX > 0 && !crashed) { // TODO: 16.8.2019. add boolean directionChanged to check if the direction has been changed and then add condition to check for crash and dirChange in here
-                    if (Simulator.flightArea.getPosition(positionX - 1, positionY, height) == null) {
+                    Object nextPosition = Simulator.flightArea.getPosition(positionX - 1, positionY, height);
+                    if (nextPosition == null) {
+                        Simulator.flightArea.setPosition(this, positionX - 1, positionY, height);
                         Simulator.flightArea.setPosition(null, positionX, positionY, height);
                         positionX--;
-                        Simulator.flightArea.setPosition(this, positionX, positionY, height);
                         try {
                             sleep(speed * 1000);
                         } catch (InterruptedException e) {
@@ -284,12 +291,14 @@ public class Aircraft extends Thread {
                         }
                     } else {
                         try {
-                            System.out.println("Desio se sudar na: " + (positionX - 1) + " " + positionY);
-                            System.out.println(Simulator.flightArea.getPosition(positionX - 1, positionY, height));
-                            System.out.println(this);
-
-                            Simulator.flightArea.setCrash(true);
-                            ((Aircraft)Simulator.flightArea.getPosition(positionX - 1, positionY, height)).setCrashed(true);
+                            Simulator.flightArea.setPosition(this, positionX-1, positionY, height);
+//                            System.out.println("Desio se sudar na: " + (positionX - 1) + " " + positionY);
+//                            System.out.println(nextPosition);
+//                            System.out.println(this);
+////                            Radar.processCollision(this, (Aircraft)nextPosition);
+//                            this.setCrashed(true);
+////                            Simulator.flightArea.setCrash(true);
+//                            ((Aircraft) nextPosition).setCrashed(true);
                         } catch (Exception e) {
                             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                         }
@@ -302,10 +311,11 @@ public class Aircraft extends Thread {
                 break;
             case LEFT:
                 while (positionY > 0 && !crashed) {
-                    if (Simulator.flightArea.getPosition(positionX, positionY - 1, height) == null) {
+                    Object nextPosition = Simulator.flightArea.getPosition(positionX, positionY - 1, height);
+                    if (nextPosition == null) {
+                        Simulator.flightArea.setPosition(this, positionX, positionY-1, height);
                         Simulator.flightArea.setPosition(null, positionX, positionY, height);
                         positionY--;
-                        Simulator.flightArea.setPosition(this, positionX, positionY, height);
                         try {
                             sleep(speed * 1000);
                         } catch (InterruptedException e) {
@@ -314,11 +324,11 @@ public class Aircraft extends Thread {
                     } else {
                         try {
                             System.out.println("Desio se sudar na: " + positionX + " " + (positionY - 1));
-                            System.out.println(Simulator.flightArea.getPosition(positionX, positionY - 1, height));
+                            System.out.println(nextPosition);
                             System.out.println(this);
-
+                            this.setCrashed(true);
                             Simulator.flightArea.setCrash(true);
-                            ((Aircraft)Simulator.flightArea.getPosition(positionX, positionY - 1, height)).setCrashed(true);
+                            ((Aircraft) nextPosition).setCrashed(true);
                         } catch (Exception e) {
                             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                         }
@@ -331,10 +341,11 @@ public class Aircraft extends Thread {
 
             case DOWN:
                 while ((positionX < FlightArea.getSizeX() - 1) && !crashed) {
-                    if (Simulator.flightArea.getPosition(positionX + 1, positionY, height) == null) {
+                    Object nextPosition = Simulator.flightArea.getPosition(positionX + 1, positionY, height);
+                    if (nextPosition == null) {
+                        Simulator.flightArea.setPosition(this, positionX + 1, positionY, height);
                         Simulator.flightArea.setPosition(null, positionX, positionY, height);
                         positionX++;
-                        Simulator.flightArea.setPosition(this, positionX, positionY, height);
                         try {
                             sleep(speed * 1000);
                         } catch (InterruptedException e) {
@@ -343,11 +354,11 @@ public class Aircraft extends Thread {
                     } else {
                         try {
                             System.out.println("Desio se sudar na: " + (positionX + 1)+ " " + positionY);
-                            System.out.println(Simulator.flightArea.getPosition(positionX + 1, positionY, height));
+                            System.out.println(nextPosition);
                             System.out.println(this);
-
+                            this.setCrashed(true);
                             Simulator.flightArea.setCrash(true);
-                            ((Aircraft)Simulator.flightArea.getPosition(positionX + 1, positionY, height)).setCrashed(true);
+                            ((Aircraft) nextPosition).setCrashed(true);
                         } catch (Exception e) {
                             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                         }
@@ -359,10 +370,11 @@ public class Aircraft extends Thread {
                 break;
             case RIGHT:
                 while ((positionY < FlightArea.getSizeY() - 1) && !crashed) {
-                    if (Simulator.flightArea.getPosition(positionX, positionY + 1, height) == null) {
+                    Object nextPosition = Simulator.flightArea.getPosition(positionX, positionY + 1, height);
+                    if (nextPosition == null) {
+                        Simulator.flightArea.setPosition(this, positionX, positionY + 1, height);
                         Simulator.flightArea.setPosition(null, positionX, positionY, height);
                         positionY++;
-                        Simulator.flightArea.setPosition(this, positionX, positionY, height);
                         try {
                             sleep(speed * 1000);
                         } catch (InterruptedException e) {
@@ -371,16 +383,77 @@ public class Aircraft extends Thread {
                     } else {
                         try {
                             System.out.println("Desio se sudar na: " + positionX + " " + (positionY + 1));
-                            System.out.println(Simulator.flightArea.getPosition(positionX, positionY + 1, height));
+                            System.out.println(nextPosition);
                             System.out.println(this);
-
+                            this.setCrashed(true);
                             Simulator.flightArea.setCrash(true);
-                            ((Aircraft)Simulator.flightArea.getPosition(positionX, positionY + 1, height)).setCrashed(true);
+                            ((Aircraft) nextPosition).setCrashed(true);
                         } catch (Exception e) {
                             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                         }
                         doneMoving = true;
                         break;
+                    }
+                }
+                doneMoving = true;
+                break;
+            default:
+                doneMoving = true;
+                break;
+        }
+    }
+
+    private void move() {
+        switch (direction) {
+            case UP:
+                while (positionX > 0 && !crashed) { // TODO: 16.8.2019. add boolean directionChanged to check if the direction has been changed and then add condition to check for crash and dirChange in here
+                    Simulator.flightArea.setPosition(this, positionX - 1, positionY, height);
+                    Simulator.flightArea.setPosition(null, positionX, positionY, height);
+                    positionX--;
+                    try {
+                        sleep(speed * 1000);
+                    } catch (InterruptedException e) {
+                        AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+                    }
+                }
+                doneMoving = true;
+                break;
+            case LEFT:
+                while (positionY > 0 && !crashed) {
+                    Simulator.flightArea.setPosition(this, positionX, positionY-1, height);
+                    Simulator.flightArea.setPosition(null, positionX, positionY, height);
+                    positionY--;
+                    try {
+                        sleep(speed * 1000);
+                    } catch (InterruptedException e) {
+                        AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+                    }
+                }
+                doneMoving = true;
+                break;
+
+            case DOWN:
+                while ((positionX < FlightArea.getSizeX() - 1) && !crashed) {
+                    Simulator.flightArea.setPosition(this, positionX + 1, positionY, height);
+                    Simulator.flightArea.setPosition(null, positionX, positionY, height);
+                    positionX++;
+                    try {
+                        sleep(speed * 1000);
+                    } catch (InterruptedException e) {
+                        AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+                    }
+                }
+                doneMoving = true;
+                break;
+            case RIGHT:
+                while ((positionY < FlightArea.getSizeY() - 1) && !crashed) {
+                    Simulator.flightArea.setPosition(this, positionX, positionY + 1, height);
+                    Simulator.flightArea.setPosition(null, positionX, positionY, height);
+                    positionY++;
+                    try {
+                        sleep(speed * 1000);
+                    } catch (InterruptedException e) {
+                        AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                     }
                 }
                 doneMoving = true;
@@ -473,4 +546,18 @@ public class Aircraft extends Thread {
     }
 
     // todo - implement compare method
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else {
+            Aircraft a = (Aircraft) obj; // TODO: 18.8.2019. maybe change this to some superclass of Aircraft and Rocket
+            if (height.equals(a.height)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 }

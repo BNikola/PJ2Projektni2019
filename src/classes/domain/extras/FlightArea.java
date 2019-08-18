@@ -1,6 +1,7 @@
 package classes.domain.extras;
 
 import classes.AirTrafficControl;
+import classes.Radar;
 import classes.domain.aircrafts.Aircraft;
 import classes.domain.aircrafts.helicopters.PassengerHelicopter;
 import classes.domain.aircrafts.planes.PassengerPlane;
@@ -115,12 +116,36 @@ public class FlightArea {
     }
 
     // get-set object to position and height
-    public synchronized Object getPosition(int x, int y, int height) {
+    public Object getPosition(int x, int y, int height) {
         return flightArea[x][y].getObjectFromHeight(height);
     }
 
-    public synchronized void setPosition(Object object, int x, int y, int height) {
+    public synchronized void setPosition2(Object object, int x, int y, int height) {
         flightArea[x][y].setObjectToHeight(object, height);
+    }
+
+    public synchronized void setPosition(Object object, int x, int y, int height) {
+        if (object != null) {
+            if (object.equals(flightArea[x][y].getObjectFromHeight(height))) {
+                crash = true;
+                Radar.processCollision((Aircraft)object, (Aircraft) flightArea[x][y].getObjectFromHeight(height));
+                ((Aircraft) flightArea[x][y].getObjectFromHeight(height)).setCrashed(true);
+                ((Aircraft) object).setCrashed(true);
+            } else {
+                flightArea[x][y].setObjectToHeight(object, height);
+            }
+        } else {
+            flightArea[x][y].setObjectToHeight(object, height);
+        }
+    }
+
+    public void print() {
+        for (int i = 0; i < SIZE_X; i++) {
+            for (int j = 0; j < SIZE_Y; j++) {
+                System.out.print(flightArea[i][j].print() + " | ");
+            }
+            System.out.println();
+        }
     }
 
 
@@ -128,7 +153,7 @@ public class FlightArea {
     //endregion
 
     @Override
-    public String toString() {
+    public synchronized String toString() {
         StringBuilder out = new StringBuilder();
         for (int i = 0; i < SIZE_X; i++) {
             for (int j = 0; j < SIZE_Y; j++) {

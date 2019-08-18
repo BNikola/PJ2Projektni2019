@@ -10,6 +10,7 @@ import classes.domain.aircrafts.planes.PassengerPlane;
 import classes.domain.aircrafts.planes.TransportPlane;
 import classes.domain.extras.ConfigWatcher;
 import classes.domain.extras.FlightArea;
+import classes.domain.extras.FlightDirection;
 import classes.domain.extras.Height;
 
 import java.io.File;
@@ -22,7 +23,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-public class Simulator {
+public class Simulator extends Thread {
 
     // region Members
     // random generator
@@ -132,30 +133,43 @@ public class Simulator {
     }
 
     public static void main(String[] args) {
-        Simulator s = new Simulator();
+//        Simulator s = new Simulator();
+        Simulator s = new Simulator(flightArea);
         System.out.println(FlightArea.getSizeX());
         System.out.println(FlightArea.getSizeY());
         s.configWatcher.start();
         int i = 0;
         List<Aircraft> aircrafts = new ArrayList<>();
 //        while (i++ < 30) {
-        while(i == 0) {
-            if (s.configWatcher.isChange()) {
-                interval = Integer.parseInt(s.configWatcher.getOptions().get("interval"));
-            }
-            try {
-                Thread.sleep(interval);
-                s.generateRandomAircraft().start();
-//                Aircraft a = s.generateRandomAircraft();
-//                aircrafts.add(a);
-//                a.start();
-            } catch (InterruptedException e) {
-                AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
-            }
-        }
+//        while(i == 0) {
+//            if (s.configWatcher.isChange()) {
+//                interval = Integer.parseInt(s.configWatcher.getOptions().get("interval"));
+//            }
+//            try {
+//                Thread.sleep(interval);
+//                s.generateRandomAircraft().start();
+////                Aircraft a = s.generateRandomAircraft();
+////                aircrafts.add(a);
+////                a.start();
+//            } catch (InterruptedException e) {
+//                AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+//            }
+//        }
 
-//        Aircraft a = s.generateRandomAircraft();
-//        Aircraft b = s.generateRandomAircraft();
+        Aircraft a = s.generateRandomAircraft();
+        Aircraft b = s.generateRandomAircraft();
+
+        a.setPositionX(0);
+        a.setPositionY(0);
+        a.setDirection(FlightDirection.DOWN);
+        b.setPositionX(9);
+        b.setPositionY(0);
+        b.setDirection(FlightDirection.UP);
+
+        a.start();
+        b.start();
+        System.out.println(flightArea);
+//        s.generateRandomAircraft().start();
 //
 //        try {
 //            Thread.sleep(3000);
@@ -164,14 +178,55 @@ public class Simulator {
 //        }
 //        a.start();
 //        b.start();
-
-        System.out.println(String.join("", Collections.nCopies(100, "=")));
-        System.out.println("aaaaaaaaaaaaaaaaaaaa\n" + flightArea);
-        s.configWatcher.interrupt();
+//
+//        System.out.println(String.join("", Collections.nCopies(100, "=")));
+//        System.out.println("aaaaaaaaaaaaaaaaaaaa\n" + flightArea);
+//        s.configWatcher.interrupt();
     }
 
-
-
+    @Override
+    public void run() {
+        try {
+            sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        while (true) {
+            try {
+                sleep(interval);
+                generateRandomAircraft().start();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+//  testing
+//        Aircraft a = generateRandomAircraft();
+//        Aircraft b = generateRandomAircraft();
+//        this.flightArea.setPosition(null, a.getPositionX(), a.getPositionY(), a.getHeight());
+//        this.flightArea.setPosition(null, b.getPositionX(), b.getPositionY(), b.getHeight());
+//        a.setPositionX(7);
+//        a.setPositionY(0);
+//        a.setDirection(FlightDirection.UP);
+//        a.setHeight(1);
+//        a.setSpeed(3);
+//        b.setPositionX(9);
+//        b.setPositionY(0);
+//        b.setDirection(FlightDirection.UP);
+//        b.setHeight(1);
+//        b.setSpeed(2);
+//        System.out.println("A: " + a);
+//        System.out.println("B: " + b);
+//        this.flightArea.setPosition(a, a.getPositionX(), a.getPositionY(), a.getHeight());
+//        this.flightArea.setPosition(b, b.getPositionX(), b.getPositionY(), b.getHeight());
+//        a.start();
+//        try {
+//            sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        b.start();
+//        generateRandomAircraft().start();
+    }
 
     // region private methods
     private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

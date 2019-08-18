@@ -68,12 +68,26 @@ public class Field {
 
     // printing info about aircrafts
     @Override
-    public String toString() {
+    public synchronized String toString() {
         String result = "";
         for (Object o : heights) {
             if (o != null) {
                 result += o.toString();
                 result += "\n";
+            }
+        }
+        return result;
+    }
+
+    public String print() {
+        String result = "";
+        for (Object o : heights) {
+            if (o != null) {
+                result += "*";
+                result += ((Aircraft) o).getAircraftId();
+                result += "*";
+            } else {
+                result += "&";
             }
         }
         return result;
