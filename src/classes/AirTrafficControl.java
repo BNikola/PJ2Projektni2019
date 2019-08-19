@@ -68,4 +68,6 @@ public class AirTrafficControl extends Application {
         // TODO: 17.8.2019. add Simulator and Radar
         launch(args);
     }
+
+    // TODO: 18.8.2019. Remove unecessary code from everything (Aircraft, FlightArea, Field...)
 }

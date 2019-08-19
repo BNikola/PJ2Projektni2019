@@ -42,8 +42,8 @@ public class Simulator extends Thread {
             + File.separator + "src"
             + File.separator + "configs"
             + File.separator + "config.properties";
-    // todo
-    //  - add main method for creating aircrafts
+
+    public static boolean isNFZ = false;    // no fly zone
 
     // endregion
 
@@ -137,7 +137,7 @@ public class Simulator extends Thread {
         Simulator s = new Simulator(flightArea);
         System.out.println(FlightArea.getSizeX());
         System.out.println(FlightArea.getSizeY());
-        s.configWatcher.start();
+//        s.configWatcher.start();
         int i = 0;
         List<Aircraft> aircrafts = new ArrayList<>();
 //        while (i++ < 30) {
@@ -158,17 +158,55 @@ public class Simulator extends Thread {
 
         Aircraft a = s.generateRandomAircraft();
         Aircraft b = s.generateRandomAircraft();
+        Aircraft c = s.generateRandomAircraft();
+        Aircraft d = s.generateRandomAircraft();
+        flightArea.setPosition(null, a.getPositionX(), a.getPositionY(), a.getHeight());
+        flightArea.setPosition(null, b.getPositionX(), b.getPositionY(), b.getHeight());
+        flightArea.setPosition(null, c.getPositionX(), c.getPositionY(), c.getHeight());
+        flightArea.setPosition(null, d.getPositionX(), d.getPositionY(), d.getHeight());
 
-        a.setPositionX(0);
-        a.setPositionY(0);
-        a.setDirection(FlightDirection.DOWN);
-        b.setPositionX(9);
-        b.setPositionY(0);
-        b.setDirection(FlightDirection.UP);
+        a.setPositionX(6);
+        a.setPositionY(5);
+        a.setDirection(FlightDirection.UP);
+        a.setSpeed(2);
+        a.setHeight(2);
+        b.setPositionX(4);
+        b.setPositionY(8);
+        b.setDirection(FlightDirection.DOWN);
+        b.setHeight(1);
+        c.setPositionX(7);
+        c.setPositionY(7);
+        c.setDirection(FlightDirection.LEFT);
+        d.setPositionX(5);
+        d.setPositionY(5);
+        d.setDirection(FlightDirection.UP);
+        flightArea.setPosition(a, a.getPositionX(), a.getPositionY(), a.getHeight());
+        flightArea.setPosition(b, b.getPositionX(), b.getPositionY(), b.getHeight());
+        flightArea.setPosition(c, c.getPositionX(), c.getPositionY(), c.getHeight());
+        flightArea.setPosition(d, d.getPositionX(), d.getPositionY(), d.getHeight());
+
 
         a.start();
-        b.start();
+        Simulator.isNFZ = true;
+//        b.changeDirection();
+//        b.start();
+        System.out.println("---------------------------------");
         System.out.println(flightArea);
+        System.out.println("---------------------------------");
+//        System.out.println("A: " + a.getClosestExit() + a);
+//        System.out.println("B: " + b.getClosestExit() + b);
+//        System.out.println("C: " + c.getClosestExit() + c);
+//        System.out.println("D: " + d.getClosestExit() + d);
+        try {
+            a.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("---------------------------------");
+        System.out.println(flightArea);
+        System.out.println("---------------------------------");
+
 //        s.generateRandomAircraft().start();
 //
 //        try {

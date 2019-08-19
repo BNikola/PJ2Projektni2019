@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -10,7 +10,7 @@
    <center>
       <ScrollPane BorderPane.alignment="CENTER">
          <content>
-            <GridPane fx:id="flightAreaGridPane">
+            <GridPane fx:id="flightAreaGridPane" alignment="CENTER">
               <columnConstraints>
 <!--                  uncomment this so you can use scenebuilder-->
 <!--                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="10.0" />-->
@@ -20,17 +20,55 @@
               </rowConstraints>
             </GridPane>
          </content>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
       </ScrollPane>
    </center>
    <top>
-      <HBox BorderPane.alignment="CENTER">
+      <HBox spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Label" />
-             <Button text="refresh" onAction="#test"></Button>
+             <Button onAction="#test" text="refresh" />
+            <Button fx:id="ShowEventsButton" mnemonicParsing="false" text="Show events" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="NFZButton" mnemonicParsing="false" text="Activate NFZ" />
+            <Label fx:id="NFZLabel" styleClass="NFZLabel" text="NFZ is OFF">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
    </top>
-   <right>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </right>
+   <bottom>
+      <VBox spacing="20.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Label styleClass="FirefightingHelicopter" text="FirefightingHelicopter" />
+                  <Label layoutX="10.0" layoutY="10.0" styleClass="PassengerHelicopter" text="PassengerHelicopter" />
+                  <Label layoutX="38.0" layoutY="10.0" styleClass="TransportHelicopter" text="TransportHelicopter" />
+                  <Label layoutX="66.0" layoutY="10.0" styleClass="FirefightingPlane" text="FirefightingPlane" />
+                  <Label layoutX="94.0" layoutY="10.0" styleClass="PassengerPlane" text="PassengerPlane" />
+                  <Label layoutX="122.0" layoutY="10.0" styleClass="TransportPlane" text="TransportPlane" />
+                  <Label layoutX="150.0" layoutY="10.0" text="Label" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label fx:id="NewEventLabel" text="Label" BorderPane.alignment="CENTER" />
+               </children>
+               <BorderPane.margin>
+                  <Insets top="20.0" />
+               </BorderPane.margin>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </bottom>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 </BorderPane>

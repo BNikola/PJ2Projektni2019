@@ -1,7 +1,8 @@
-[1-7], aircraftId=2XBQ9O, height=3, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=28, maxWeight=1475
-[1-9], aircraftId=4NLZB1, height=2, foreign=false, characteristics={}, speed=2, direction=UP, TransportHelicopter, maxCargoWeight=335
-[2-0], aircraftId=4LZ1KN, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingHelicopter, waterCapacity=166
-[2-5], aircraftId=DM0F1B, height=2, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerHelicopter, numberOfSeats=3
-[4-7], aircraftId=RK8PRQ, height=3, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerHelicopter, numberOfSeats=4
-[5-5], aircraftId=SGMSW4, height=5, foreign=false, characteristics={}, speed=2, direction=UP, TransportPlane, maxCargoWeight=662
-[6-1], aircraftId=N42S2E, height=1, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportHelicopter, maxCargoWeight=173
+[1-2], aircraftId=PO21NL, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, TransportPlane, maxCargoWeight=1052
+[2-1], aircraftId=XO3S45, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=3
+[2-1], aircraftId=2MTVNM, height=5, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportHelicopter, maxCargoWeight=365
+[3-0], aircraftId=KQEX18, height=5, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingPlane, waterCapacity=399
+[3-5], aircraftId=NCV2WW, height=5, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerPlane, numberOfSeats=203, maxWeight=860
+[6-5], aircraftId=X23JWD, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=1058
+[7-1], aircraftId=L6DJLA, height=1, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportHelicopter, maxCargoWeight=312
+[7-6], aircraftId=Z4C5LL, height=3, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=298

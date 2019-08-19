@@ -28,6 +28,7 @@ public class Aircraft extends Thread {
     protected Integer positionY;
     protected FlightDirection direction;
     protected boolean doneMoving = false;
+    protected boolean directionChanged = false;
 
     private static Object lock = new Object();
 
@@ -238,14 +239,36 @@ public class Aircraft extends Thread {
     public synchronized void run() {
         while(!doneMoving) {
 //                // TODO: 16.8.2019. - add change of direction and check for null
-//            } else {
 //            move2();
             move();
+            // TODO: 19.8.2019. - add this to move method (at the end of while loops if(crash && condition) doneMoving = true
+//                - this works for now
             if (crashed) {
                 System.out.println("Srusio se" + this);
+                doneMoving = true;
+            } else {
+                switch (direction) {
+                    case UP:
+                        if (positionX == 0) {
+                            doneMoving = true;
+                        }
+                        break;
+                    case LEFT:
+                        if (positionY == 0) {
+                            doneMoving = true;
+                        }
+                        break;
+                    case DOWN:
+                        if (positionX == FlightArea.getSizeX() - 1) {
+                            doneMoving = true;
+                        }
+                        break;
+                    case RIGHT:
+                        if (positionY == FlightArea.getSizeX() - 1) {
+                            doneMoving = true;
+                        }
+                }
             }
-            System.out.println("Krece se");
-//            }
         }
         // todo - remove this after check for all directions
         System.out.println("Zadnje pozicije: " + positionX + " - " + positionY);
@@ -407,6 +430,12 @@ public class Aircraft extends Thread {
         switch (direction) {
             case UP:
                 while (positionX > 0 && !crashed) { // TODO: 16.8.2019. add boolean directionChanged to check if the direction has been changed and then add condition to check for crash and dirChange in here
+                    System.out.println(this);
+                    if (Simulator.isNFZ && !directionChanged) {
+                        System.out.println("|- " + this);
+                        this.changeDirection();
+                        break;
+                    }
                     Simulator.flightArea.setPosition(this, positionX - 1, positionY, height);
                     Simulator.flightArea.setPosition(null, positionX, positionY, height);
                     positionX--;
@@ -416,10 +445,18 @@ public class Aircraft extends Thread {
                         AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                     }
                 }
-                doneMoving = true;
+                if (!directionChanged) {
+                    doneMoving = true;
+                }
                 break;
             case LEFT:
                 while (positionY > 0 && !crashed) {
+                    System.out.println(this);
+                    if (Simulator.isNFZ && !directionChanged) {
+                        System.out.println("|- " + this);
+                        this.changeDirection();
+                        break;
+                    }
                     Simulator.flightArea.setPosition(this, positionX, positionY-1, height);
                     Simulator.flightArea.setPosition(null, positionX, positionY, height);
                     positionY--;
@@ -429,11 +466,19 @@ public class Aircraft extends Thread {
                         AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                     }
                 }
-                doneMoving = true;
+                if (!directionChanged) {
+                    doneMoving = true;
+                }
                 break;
 
             case DOWN:
                 while ((positionX < FlightArea.getSizeX() - 1) && !crashed) {
+                    System.out.println(this);
+                    if (Simulator.isNFZ && !directionChanged) {
+                        System.out.println("|- " + this);
+                        this.changeDirection();
+                        break;
+                    }
                     Simulator.flightArea.setPosition(this, positionX + 1, positionY, height);
                     Simulator.flightArea.setPosition(null, positionX, positionY, height);
                     positionX++;
@@ -443,10 +488,18 @@ public class Aircraft extends Thread {
                         AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                     }
                 }
-                doneMoving = true;
+                if (!directionChanged) {
+                    doneMoving = true;
+                }
                 break;
             case RIGHT:
                 while ((positionY < FlightArea.getSizeY() - 1) && !crashed) {
+                    System.out.println(this);
+                    if (Simulator.isNFZ && !directionChanged) {
+                        System.out.println("|- " + this);
+                        this.changeDirection();
+                        break;
+                    }
                     Simulator.flightArea.setPosition(this, positionX, positionY + 1, height);
                     Simulator.flightArea.setPosition(null, positionX, positionY, height);
                     positionY++;
@@ -456,7 +509,9 @@ public class Aircraft extends Thread {
                         AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                     }
                 }
-                doneMoving = true;
+                if (!directionChanged) {
+                    doneMoving = true;
+                }
                 break;
             default:
                 doneMoving = true;
@@ -464,12 +519,16 @@ public class Aircraft extends Thread {
         }
     }
 
+
+
     // return the correct flight direction
-    private FlightDirection getClosestExit() {
+    public FlightDirection getClosestExit() { // TODO: 19.8.2019. change to private
         int index = 0;
-        if (positionX == 0 && positionY == 0 && direction.equals(FlightDirection.UP)) {
+        if (positionX == 0 && positionY == 0 && direction.equals(FlightDirection.DOWN)) {
             return FlightDirection.LEFT;
-        } else if (positionX == FlightArea.getSizeX() - 1 && positionY == 0 && direction.equals(FlightDirection.DOWN)) {
+        } else if (positionX == 0 && (positionY == FlightArea.getSizeY() - 1) && direction.equals(FlightDirection.DOWN)) {
+            return FlightDirection.RIGHT;
+        } else if ((positionX == FlightArea.getSizeX() - 1) && positionY == 0 && direction.equals(FlightDirection.UP)) {
             return FlightDirection.LEFT;
         } else {
 
@@ -504,19 +563,40 @@ public class Aircraft extends Thread {
         }
     }
 
-    private void changeDirection() {
-        // TODO: 16.8.2019. - check this
+    public void changeDirection() {
+        // TODO: 16.8.2019. - check this (change to private)
+        System.out.println("--> " + this);
         direction = getClosestExit();
+        System.out.println("--> " + this);
         FlightDirection fd = getClosestExit();
         if (!fd.equals(direction)) {
             // just change direction and move
             direction = fd;
-//            move();
         } else {
-            if (positionX == 0) {
-
+            switch (direction) {
+                case UP:
+                    Simulator.flightArea.setPosition(this, positionX, positionY - 1, height);
+                    Simulator.flightArea.setPosition(null, positionX, positionY, height);
+                    positionY--;
+                    break;
+                case LEFT:
+                    Simulator.flightArea.setPosition(this, positionX + 1, positionY, height);
+                    Simulator.flightArea.setPosition(null, positionX, positionY, height);
+                    positionX++;
+                    break;
+                case DOWN:
+                    Simulator.flightArea.setPosition(this, positionX, positionY + 1, height);
+                    Simulator.flightArea.setPosition(null, positionX, positionY, height);
+                    positionY++;
+                    break;
+                case RIGHT:
+                    Simulator.flightArea.setPosition(this, positionX - 1, positionY, height);
+                    Simulator.flightArea.setPosition(null, positionX, positionY, height);
+                    positionX--;
+                    break;
             }
         }
+        directionChanged = true;
     }
     // endregion Private methods
 
@@ -544,8 +624,6 @@ public class Aircraft extends Thread {
         System.out.println(height);
 
     }
-
-    // todo - implement compare method
 
     @Override
     public boolean equals(Object obj) {

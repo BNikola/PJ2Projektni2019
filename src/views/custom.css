@@ -16,5 +16,35 @@
 #flightAreaGridPane {
     -fx-font-size: 16;
     -fx-font-family: Consolas;
-    -fx-font-weigh: bold;
+    -fx-font-weight: bold;
+}
+
+.NFZLabel {
+    -fx-font-weight: bold;
+}
+
+.FirefightingHelicopter {
+    -fx-text-fill: DARKRED;
+    -fx-font-weight: bold;
+}
+
+.PassengerHelicopter {
+    -fx-text-fill: DARKBLUE;
+    -fx-font-weight: bold;
+}
+.TransportHelicopter {
+    -fx-text-fill: DARKGREEN;
+    -fx-font-weight: bold;
+}
+.FirefightingPlane {
+    -fx-text-fill: ORANGERED;
+    -fx-font-weight: bold;
+}
+.PassengerPlane {
+    -fx-text-fill: DEEPSKYBLUE;
+    -fx-font-weight: bold;
+}
+.TransportPlane {
+    -fx-text-fill: LAWNGREEN;
+    -fx-font-weight: bold;
 }
