@@ -3,13 +3,9 @@ package classes.domain.extras;
 import classes.AirTrafficControl;
 import classes.Radar;
 import classes.domain.aircrafts.Aircraft;
-import classes.domain.aircrafts.helicopters.PassengerHelicopter;
-import classes.domain.aircrafts.planes.PassengerPlane;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Level;
@@ -128,8 +124,10 @@ public class FlightArea {
         if (object != null) {
             if (object.equals(flightArea[x][y].getObjectFromHeight(height))) {
                 crash = true;
-                Radar.processCollision((Aircraft)object, (Aircraft) flightArea[x][y].getObjectFromHeight(height));
-                ((Aircraft) flightArea[x][y].getObjectFromHeight(height)).setCrashed(true);
+                // TODO: 20.8.2019. att test for foreign aircraft
+                Aircraft objectFromHeight = (Aircraft) flightArea[x][y].getObjectFromHeight(height);
+                Radar.processCollision(objectFromHeight, (Aircraft)object);
+                objectFromHeight.setCrashed(true);
                 ((Aircraft) object).setCrashed(true);
             } else {
                 flightArea[x][y].setObjectToHeight(object, height);

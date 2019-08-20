@@ -3,6 +3,7 @@ package classes.controllers;
 import classes.Radar;
 import classes.domain.extras.FileWatcher;
 import classes.domain.extras.FlightArea;
+import classes.simulator.Simulator;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,6 +28,8 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     public static Controller app;
+    @FXML
+    private Button NFZButton;
 
     @FXML
     private GridPane flightAreaGridPane;
@@ -133,5 +136,10 @@ public class Controller implements Initializable {
         FileWatcher fw = new FileWatcher("map.txt", Radar.PATH_TO_FILES);
         fw.start();
 
+    }
+
+    public void activateNFZ(ActionEvent actionEvent) {
+        System.out.println("NFZ is activated");
+        Simulator.isNFZ = !Simulator.isNFZ;
     }
 }

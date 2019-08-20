@@ -170,10 +170,10 @@ public class Simulator extends Thread {
         a.setDirection(FlightDirection.UP);
         a.setSpeed(2);
         a.setHeight(2);
-        b.setPositionX(4);
-        b.setPositionY(8);
+        b.setPositionX(8);
+        b.setPositionY(4);
         b.setDirection(FlightDirection.DOWN);
-        b.setHeight(1);
+        b.setHeight(2);
         c.setPositionX(7);
         c.setPositionY(7);
         c.setDirection(FlightDirection.LEFT);

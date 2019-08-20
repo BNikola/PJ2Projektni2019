@@ -530,6 +530,8 @@ public class Aircraft extends Thread {
             return FlightDirection.RIGHT;
         } else if ((positionX == FlightArea.getSizeX() - 1) && positionY == 0 && direction.equals(FlightDirection.UP)) {
             return FlightDirection.LEFT;
+        } else if ((positionX == FlightArea.getSizeX() - 1) && (positionY == FlightArea.getSizeY() - 1) && direction.equals(FlightDirection.LEFT)) {
+            return FlightDirection.DOWN;
         } else {
 
             int top = positionX;
@@ -566,13 +568,14 @@ public class Aircraft extends Thread {
     public void changeDirection() {
         // TODO: 16.8.2019. - check this (change to private)
         System.out.println("--> " + this);
-        direction = getClosestExit();
+        //direction = getClosestExit();
         System.out.println("--> " + this);
         FlightDirection fd = getClosestExit();
-        if (!fd.equals(direction)) {
+        if (!fd.isOpposite(direction)) {
             // just change direction and move
             direction = fd;
         } else {
+            // turn around
             switch (direction) {
                 case UP:
                     Simulator.flightArea.setPosition(this, positionX, positionY - 1, height);
@@ -595,6 +598,7 @@ public class Aircraft extends Thread {
                     positionX--;
                     break;
             }
+            direction = fd;
         }
         directionChanged = true;
     }

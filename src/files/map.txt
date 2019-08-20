@@ -1,8 +1,10 @@
-[1-2], aircraftId=PO21NL, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, TransportPlane, maxCargoWeight=1052
-[2-1], aircraftId=XO3S45, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=3
-[2-1], aircraftId=2MTVNM, height=5, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportHelicopter, maxCargoWeight=365
-[3-0], aircraftId=KQEX18, height=5, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingPlane, waterCapacity=399
-[3-5], aircraftId=NCV2WW, height=5, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerPlane, numberOfSeats=203, maxWeight=860
-[6-5], aircraftId=X23JWD, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=1058
-[7-1], aircraftId=L6DJLA, height=1, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportHelicopter, maxCargoWeight=312
-[7-6], aircraftId=Z4C5LL, height=3, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=298
+[0-7], aircraftId=DN17OI, height=5, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerPlane, numberOfSeats=208, maxWeight=1607
+[0-8], aircraftId=RTHB86, height=4, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerHelicopter, numberOfSeats=2
+[1-2], aircraftId=EA8SN0, height=3, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportHelicopter, maxCargoWeight=388
+[2-6], aircraftId=X2D6HS, height=3, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerHelicopter, numberOfSeats=6
+[3-6], aircraftId=BELGZE, height=1, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingPlane, waterCapacity=615
+[4-0], aircraftId=UT0IUX, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=3
+[6-0], aircraftId=DLQ67S, height=3, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=125
+[6-9], aircraftId=IFXHHS, height=5, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerPlane, numberOfSeats=31, maxWeight=1738
+[7-7], aircraftId=RZX4AI, height=4, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerPlane, numberOfSeats=44, maxWeight=1353
+[8-7], aircraftId=RRLTM0, height=1, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingPlane, waterCapacity=367

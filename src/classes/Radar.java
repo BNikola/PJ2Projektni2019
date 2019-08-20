@@ -1,10 +1,14 @@
 package classes;
 
 import classes.domain.aircrafts.Aircraft;
+import classes.domain.extras.CrashWarning;
 import classes.domain.extras.FileWatcher;
 import classes.domain.extras.FlightArea;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Level;
 
@@ -65,6 +69,11 @@ public class Radar extends Thread {
 
     @Override
     public void run() {
+        try {
+            sleep(3000);
+        } catch (InterruptedException e) {
+            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+        }
         System.out.println(this.getId());
         // todo - add parameter to stop
         //  - maybe put this into main and make new Thread for this main
@@ -89,5 +98,17 @@ public class Radar extends Thread {
         System.out.println("From RADAR: " + a);
         System.out.println("From RADAR: " + b);
         flightArea.setCrash(false);
+        // create CrashObject
+        String position = "[" + a.getPositionX() + "-" + a.getPositionY() + "-" + a.getHeight() + "]";
+        // TODO: 20.8.2019. change this to add more details
+        String details = "Crashed: " + a.getClass().getCanonicalName() + " and " + b.getClass().getCanonicalName();
+        Date date = Calendar.getInstance().getTime();
+        CrashWarning crashWarning = new CrashWarning(details, date, position);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-hh.mm.ss");
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("alert/Crash_" + dateFormat.format(date) + ".txt"))) {
+            oos.writeObject(crashWarning);
+        } catch (IOException e) {
+            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+        }
     }
 }

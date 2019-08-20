@@ -31,7 +31,7 @@
              <Button onAction="#test" text="refresh" />
             <Button fx:id="ShowEventsButton" mnemonicParsing="false" text="Show events" />
             <Region HBox.hgrow="ALWAYS" />
-            <Button fx:id="NFZButton" mnemonicParsing="false" text="Activate NFZ" />
+            <Button fx:id="NFZButton" mnemonicParsing="false" text="Activate NFZ" onAction="#activateNFZ"/>
             <Label fx:id="NFZLabel" styleClass="NFZLabel" text="NFZ is OFF">
                <HBox.margin>
                   <Insets top="5.0" />
