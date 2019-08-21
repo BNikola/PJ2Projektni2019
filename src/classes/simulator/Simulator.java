@@ -34,7 +34,7 @@ public class Simulator extends Thread {
     public static final Properties PROPERTIES = new Properties();
 
     // record of aircraft, for unique aircraftId
-    public static HashMap<String, Aircraft> aircraftRegistry = new HashMap<>(); // todo - update when aircraft leaves
+    public static HashMap<String, Aircraft> aircraftRegistry = new HashMap<>();
     // interval of creating aircraft
     private static int interval = 500;
     // path to config
@@ -224,6 +224,7 @@ public class Simulator extends Thread {
 
     @Override
     public void run() {
+        // region Real
         try {
             sleep(3000);
         } catch (InterruptedException e) {
@@ -237,6 +238,43 @@ public class Simulator extends Thread {
                 e.printStackTrace();
             }
         }
+        // endregion
+
+//        // region Testing
+//        Aircraft a = this.generateRandomAircraft();
+//        Aircraft b = this.generateRandomAircraft();
+//        Aircraft c = this.generateRandomAircraft();
+//        Aircraft d = this.generateRandomAircraft();
+//        flightArea.setPosition(null, a.getPositionX(), a.getPositionY(), a.getHeight());
+//        flightArea.setPosition(null, b.getPositionX(), b.getPositionY(), b.getHeight());
+//        flightArea.setPosition(null, c.getPositionX(), c.getPositionY(), c.getHeight());
+//        flightArea.setPosition(null, d.getPositionX(), d.getPositionY(), d.getHeight());
+//
+//        a.setPositionX(6);
+//        a.setPositionY(5);
+//        a.setDirection(FlightDirection.UP);
+//        a.setSpeed(2);
+//        a.setHeight(2);
+//        b.setPositionX(8);
+//        b.setPositionY(4);
+//        b.setDirection(FlightDirection.DOWN);
+//        b.setHeight(2);
+//        c.setPositionX(7);
+//        c.setPositionY(7);
+//        c.setDirection(FlightDirection.LEFT);
+//        d.setPositionX(5);
+//        d.setPositionY(5);
+//        d.setDirection(FlightDirection.UP);
+//        flightArea.setPosition(a, a.getPositionX(), a.getPositionY(), a.getHeight());
+//        flightArea.setPosition(b, b.getPositionX(), b.getPositionY(), b.getHeight());
+//        flightArea.setPosition(c, c.getPositionX(), c.getPositionY(), c.getHeight());
+//        flightArea.setPosition(d, d.getPositionX(), d.getPositionY(), d.getHeight());
+//
+//
+//        a.start();
+//        Simulator.isNFZ = true;
+//
+//        // endregion
 //  testing
 //        Aircraft a = generateRandomAircraft();
 //        Aircraft b = generateRandomAircraft();

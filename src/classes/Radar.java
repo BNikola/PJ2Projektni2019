@@ -1,5 +1,6 @@
 package classes;
 
+import classes.controllers.Controller;
 import classes.domain.aircrafts.Aircraft;
 import classes.domain.extras.CrashWarning;
 import classes.domain.extras.FileWatcher;
@@ -110,5 +111,7 @@ public class Radar extends Thread {
         } catch (IOException e) {
             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
+        Controller.displayCrash(crashWarning.toString());
+
     }
 }

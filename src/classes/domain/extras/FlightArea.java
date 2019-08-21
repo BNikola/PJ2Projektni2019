@@ -145,9 +145,6 @@ public class FlightArea {
             System.out.println();
         }
     }
-
-
-
     //endregion
 
     @Override
@@ -156,14 +153,9 @@ public class FlightArea {
         for (int i = 0; i < SIZE_X; i++) {
             for (int j = 0; j < SIZE_Y; j++) {
                 if (flightArea[i][j] != null) {
-//                    out += String.format("%-2s", flightArea[i][j]);
-                    out.append(flightArea[i][j]);  // todo - change this
+                    out.append(flightArea[i][j]);
                 }
-//                else {
-//                    out += " * ";
-//                }
             }
-//            out += '\n';
         }
         return out.toString();
     }

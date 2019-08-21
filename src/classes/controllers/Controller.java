@@ -1,15 +1,20 @@
 package classes.controllers;
 
+import classes.AirTrafficControl;
 import classes.Radar;
+import classes.domain.extras.AlertBox;
 import classes.domain.extras.FileWatcher;
 import classes.domain.extras.FlightArea;
 import classes.simulator.Simulator;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -18,11 +23,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 
 public class Controller implements Initializable {
@@ -141,5 +148,11 @@ public class Controller implements Initializable {
     public void activateNFZ(ActionEvent actionEvent) {
         System.out.println("NFZ is activated");
         Simulator.isNFZ = !Simulator.isNFZ;
+    }
+
+    public static void displayCrash(String crashDetails) {
+        Platform.runLater(() -> {
+            AlertBox.display("Crash detected", crashDetails);
+        });
     }
 }
