@@ -1,3 +1,3 @@
-[0-5], aircraftId=W1ZSI8, height=5, foreign=false, characteristics={}, speed=2, direction=UP, PassengerPlane, numberOfSeats=112, maxWeight=2841
+[0-5], aircraftId=W1ZSI8, height=5, foreign=true, characteristics={}, speed=2, direction=UP, PassengerPlane, numberOfSeats=112, maxWeight=2841
 [4-8], aircraftId=XJ4987, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerHelicopter, numberOfSeats=5
 [5-1], aircraftId=65QS8K, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, TransportHelicopter, maxCargoWeight=422

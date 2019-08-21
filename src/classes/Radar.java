@@ -37,7 +37,6 @@ public class Radar extends Thread {
     // endregion Members
 
     static {
-
         // loading properties file
         try {
             PROPERTIES.load(new FileInputStream(new File(PATH_TO_CONFIG)));
@@ -53,12 +52,14 @@ public class Radar extends Thread {
         }
     }
 
+    // region Constructors
     public Radar() {
     }
 
     public Radar(FlightArea flightArea) {
         Radar.flightArea = flightArea;
     }
+    // endregion
 
     public static synchronized void writeToFile(String data) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(mapFile))) {
@@ -81,11 +82,11 @@ public class Radar extends Thread {
         while (true) {
             try {
                 if (flightArea.isCrash()) {
-                    System.out.println("desio se sudar");
                     flightArea.setCrash(false);
                 }
                 sleep(refreshRate);
                 writeToFile(flightArea.toString());
+//                if (flightArea.toString().contains("foreign=true"));
             } catch (InterruptedException e) {
                 AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
             }

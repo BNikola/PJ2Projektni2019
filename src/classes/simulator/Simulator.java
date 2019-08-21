@@ -137,7 +137,7 @@ public class Simulator extends Thread {
         Simulator s = new Simulator(flightArea);
         System.out.println(FlightArea.getSizeX());
         System.out.println(FlightArea.getSizeY());
-//        s.configWatcher.start();
+        s.configWatcher.start();
         int i = 0;
         List<Aircraft> aircrafts = new ArrayList<>();
 //        while (i++ < 30) {
@@ -187,7 +187,7 @@ public class Simulator extends Thread {
 
 
         a.start();
-        Simulator.isNFZ = true;
+//        Simulator.isNFZ = true;
 //        b.changeDirection();
 //        b.start();
         System.out.println("---------------------------------");
@@ -206,20 +206,6 @@ public class Simulator extends Thread {
         System.out.println("---------------------------------");
         System.out.println(flightArea);
         System.out.println("---------------------------------");
-
-//        s.generateRandomAircraft().start();
-//
-//        try {
-//            Thread.sleep(3000);
-//        } catch (InterruptedException e) {
-//            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
-//        }
-//        a.start();
-//        b.start();
-//
-//        System.out.println(String.join("", Collections.nCopies(100, "=")));
-//        System.out.println("aaaaaaaaaaaaaaaaaaaa\n" + flightArea);
-//        s.configWatcher.interrupt();
     }
 
     @Override
@@ -275,33 +261,7 @@ public class Simulator extends Thread {
 //        Simulator.isNFZ = true;
 //
 //        // endregion
-//  testing
-//        Aircraft a = generateRandomAircraft();
-//        Aircraft b = generateRandomAircraft();
-//        this.flightArea.setPosition(null, a.getPositionX(), a.getPositionY(), a.getHeight());
-//        this.flightArea.setPosition(null, b.getPositionX(), b.getPositionY(), b.getHeight());
-//        a.setPositionX(7);
-//        a.setPositionY(0);
-//        a.setDirection(FlightDirection.UP);
-//        a.setHeight(1);
-//        a.setSpeed(3);
-//        b.setPositionX(9);
-//        b.setPositionY(0);
-//        b.setDirection(FlightDirection.UP);
-//        b.setHeight(1);
-//        b.setSpeed(2);
-//        System.out.println("A: " + a);
-//        System.out.println("B: " + b);
-//        this.flightArea.setPosition(a, a.getPositionX(), a.getPositionY(), a.getHeight());
-//        this.flightArea.setPosition(b, b.getPositionX(), b.getPositionY(), b.getHeight());
-//        a.start();
-//        try {
-//            sleep(3000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        b.start();
-//        generateRandomAircraft().start();
+
     }
 
     // region private methods
