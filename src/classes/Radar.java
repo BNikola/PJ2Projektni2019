@@ -71,8 +71,9 @@ public class Radar extends Thread {
 
     @Override
     public void run() {
+        // TODO: 21.8.2019. Add ForeignWatcher here
         try {
-            sleep(3000);
+            sleep(2000);
         } catch (InterruptedException e) {
             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
@@ -94,7 +95,7 @@ public class Radar extends Thread {
     }
 
     public static void processCollision(Aircraft a, Aircraft b) {
-        if (a != null || b != null) {
+        if (a != null && b != null) {
             System.out.println("Colision at: [" + a.getPositionX() + "-" + a.getPositionY() + "] " + "[" + b.getPositionX() + "-" + b.getPositionY() + "]");
         }
         System.out.println("From RADAR: " + a);

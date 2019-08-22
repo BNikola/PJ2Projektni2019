@@ -24,7 +24,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public class Simulator extends Thread {
-
+    // TODO: 21.8.2019. Add creation of foreign aircraft
     // region Members
     // random generator
     private Random rand = new Random();
@@ -36,7 +36,7 @@ public class Simulator extends Thread {
     // record of aircraft, for unique aircraftId
     public static HashMap<String, Aircraft> aircraftRegistry = new HashMap<>();
     // interval of creating aircraft
-    private static int interval = 500;
+    private static int interval = 2000;
     // path to config
     private static String pathToConfig = System.getProperty("user.dir")
             + File.separator + "src"
@@ -44,6 +44,8 @@ public class Simulator extends Thread {
             + File.separator + "config.properties";
 
     public static boolean isNFZ = false;    // no fly zone
+    public static int foreign;
+    public static int domestic;
 
     // endregion
 
@@ -61,6 +63,8 @@ public class Simulator extends Thread {
         // loading properties
         try {
             interval = Integer.parseInt(PROPERTIES.getProperty("interval"));
+            foreign = Integer.parseInt(PROPERTIES.getProperty("foreign"));
+            domestic = Integer.parseInt(PROPERTIES.getProperty("domestic"));
         } catch (NumberFormatException e) {
             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
@@ -168,7 +172,7 @@ public class Simulator extends Thread {
         a.setPositionX(6);
         a.setPositionY(5);
         a.setDirection(FlightDirection.UP);
-        a.setSpeed(2);
+        a.setSpeed(3);
         a.setHeight(2);
         b.setPositionX(8);
         b.setPositionY(4);
@@ -193,6 +197,9 @@ public class Simulator extends Thread {
         System.out.println("---------------------------------");
         System.out.println(flightArea);
         System.out.println("---------------------------------");
+        if (s.configWatcher.isChange()) {
+            System.out.println("change detected");
+        }
 //        System.out.println("A: " + a.getClosestExit() + a);
 //        System.out.println("B: " + b.getClosestExit() + b);
 //        System.out.println("C: " + c.getClosestExit() + c);
@@ -203,6 +210,7 @@ public class Simulator extends Thread {
             e.printStackTrace();
         }
 
+        s.configWatcher.interrupt();
         System.out.println("---------------------------------");
         System.out.println(flightArea);
         System.out.println("---------------------------------");
@@ -210,23 +218,57 @@ public class Simulator extends Thread {
 
     @Override
     public void run() {
+        configWatcher.start();
         // region Real
         try {
             sleep(3000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
         while (true) {
+            System.out.println(configWatcher.isChange());
+            if (configWatcher.isChange()) {
+                try {
+                    interval = Integer.parseInt(configWatcher.getOptions().get("interval"));
+                    foreign = Integer.parseInt(configWatcher.getOptions().get("foreign"));
+                    domestic = Integer.parseInt(configWatcher.getOptions().get("domestic"));
+                    configWatcher.setChange(false);
+                } catch (NumberFormatException e) {
+                    AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+                }
+            }
+            // generates foreign aircraft if config file has changed
+            if (foreign > 0) {
+                Aircraft foreignAircraft = generateRandomAircraft();    // TODO: 22.8.2019. Change this to foreign military aircraft
+                foreignAircraft.setForeign(true);
+                foreignAircraft.start();
+                foreign--;
+                try {
+                    sleep(interval);
+                } catch (InterruptedException e) {
+                    AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+                }
+            }
+            System.out.println("------------------------");
+            System.out.println(foreign);
+            System.out.println("------------------------");
             try {
                 sleep(interval);
                 generateRandomAircraft().start();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
             }
         }
         // endregion
 
-//        // region Testing
+//         // region Testing
+//
+//        if (configWatcher.isChange()) {
+//            System.out.println(configWatcher.getOptions().get("interval"));
+//            System.out.println(configWatcher.getOptions().get("foreign"));
+//            System.out.println(configWatcher.getOptions().get("domestic"));
+//            configWatcher.setChange(false);
+//        }
 //        Aircraft a = this.generateRandomAircraft();
 //        Aircraft b = this.generateRandomAircraft();
 //        Aircraft c = this.generateRandomAircraft();
@@ -244,7 +286,7 @@ public class Simulator extends Thread {
 //        b.setPositionX(8);
 //        b.setPositionY(4);
 //        b.setDirection(FlightDirection.DOWN);
-//        b.setHeight(2);
+//        b.setHeight(1);
 //        c.setPositionX(7);
 //        c.setPositionY(7);
 //        c.setDirection(FlightDirection.LEFT);
@@ -258,7 +300,7 @@ public class Simulator extends Thread {
 //
 //
 //        a.start();
-//        Simulator.isNFZ = true;
+////        Simulator.isNFZ = true;
 //
 //        // endregion
 

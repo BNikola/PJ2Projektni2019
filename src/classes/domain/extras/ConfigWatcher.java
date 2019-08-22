@@ -18,7 +18,7 @@ public class ConfigWatcher extends Thread {
     // name of config file
     private String configFileName;
     // if file has changed
-    private volatile boolean change;
+    private volatile boolean change = false;
     // map to store config data
     private HashMap<String, String> options = new HashMap<>();
     // endregion
@@ -38,6 +38,10 @@ public class ConfigWatcher extends Thread {
 
     public boolean isChange() {
         return change;
+    }
+
+    public void setChange(boolean change) {
+        this.change = change;
     }
 
     public HashMap<String, String> getOptions() {
@@ -74,13 +78,13 @@ public class ConfigWatcher extends Thread {
 
                     // if the file name matches and if the file is modified
                     if (fileName.toString().trim().contains(configFileName) && kind.equals(ENTRY_MODIFY)) {
-                        // setting change to true - must set to false after use
-                        change = true;
                         List<String> content = Files.readAllLines(dir.resolve(fileName));
                         // populate the map
                         for (String s : content) {
                             options.put(s.split("=")[0], s.split("=")[1]);
                         }
+                        // setting change to true - must set to false after use
+                        change = true;
                     }
                 }
 
