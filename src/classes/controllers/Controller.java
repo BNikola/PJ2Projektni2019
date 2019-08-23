@@ -147,7 +147,9 @@ public class Controller implements Initializable {
 
     public void activateNFZ(ActionEvent actionEvent) {
         System.out.println("NFZ is activated");
-        Simulator.isNFZ = !Simulator.isNFZ;
+        Simulator.flightArea.setNoFlight(!Simulator.flightArea.isNoFlight());
+        System.out.println(Simulator.flightArea.isNoFlight());
+        // TODO: 23.8.2019. Change this to something meaningful
     }
 
     public static void displayCrash(String crashDetails) {

@@ -43,7 +43,6 @@ public class Simulator extends Thread {
             + File.separator + "configs"
             + File.separator + "config.properties";
 
-    public static boolean isNFZ = false;    // no fly zone
     public static int foreign;
     public static int domestic;
 
@@ -304,7 +303,6 @@ public class Simulator extends Thread {
 //
 //
 //        a.start();
-////        Simulator.isNFZ = true;
 //
 //        // endregion
 

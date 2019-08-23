@@ -1,3 +1,3 @@
-[4-19], aircraftId=J2K6W7, height=0, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingHelicopter, waterCapacity=144
-[19-6], aircraftId=3MA38S, height=5, foreign=true, characteristics={}, speed=2, direction=UP, PassengerHelicopter, numberOfSeats=6
-[19-16], aircraftId=7FMMZ4, height=1, foreign=true, characteristics={}, speed=1, direction=UP, PassengerHelicopter, numberOfSeats=5
+[16-1], aircraftId=Y6VWS8, height=1, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportPlane, maxCargoWeight=322
+[16-18], aircraftId=N25GZ4, height=5, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportHelicopter, maxCargoWeight=288
+[19-10], aircraftId=69I0C1, height=1, foreign=false, characteristics={}, speed=2, direction=DOWN, TransportPlane, maxCargoWeight=920

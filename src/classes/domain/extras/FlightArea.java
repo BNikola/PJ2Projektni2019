@@ -29,7 +29,7 @@ public class FlightArea {
     public AtomicBoolean lock = new AtomicBoolean();
     // test for crash
     private volatile boolean crash = false;
-    public volatile boolean noFlight = false;
+    private volatile boolean noFlight = false;
 
     // endregion
 

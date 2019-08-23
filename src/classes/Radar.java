@@ -98,7 +98,7 @@ public class Radar extends Thread {
                 }
             }
             if (detectedForeign.keySet().size() > 0) {
-                Simulator.isNFZ = true;
+                flightArea.setNoFlight(true);
                 detectedForeign.keySet().stream().filter(id -> !detectedForeign.get(id)).forEach(id -> {
                     Simulator.sendEscort(Simulator.aircraftRegistry.get(id));
                     detectedForeign.replace(id, true);
