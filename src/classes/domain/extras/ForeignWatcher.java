@@ -3,15 +3,13 @@ package classes.domain.extras;
 import classes.domain.aircrafts.Aircraft;
 import classes.simulator.Simulator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ForeignWatcher extends Thread {
 
     private String data;
+    private Map<String, String> collect = new HashMap<>();
 
     public ForeignWatcher(String data) {
         this.data = data;
@@ -25,18 +23,18 @@ public class ForeignWatcher extends Thread {
         this.data = data;
     }
 
+    public Map<String, String> getCollect() {
+        return collect;
+    }
+
     @Override
     public void run() {
-        List<String> list = Arrays.asList(data.split("\n"));
-        Map<String, String> collect = list.stream()
-                .filter(line -> line.contains("foreign=true"))
-                .map(line -> line.split(", "))
-                .collect(Collectors.toMap(array -> array[1].split("=")[1], array -> array[7]));
-        System.out.println(collect.keySet().size());
-        for (String s : collect.keySet()) {
-            if (Simulator.aircraftRegistry.containsKey(s)) {
-                System.out.println(Simulator.aircraftRegistry.get(s));
-            }
+        while(true) {
+            List<String> list = Arrays.asList(data.split("\n"));
+            collect = list.stream()
+                    .filter(line -> line.contains("foreign=true"))
+                    .map(line -> line.split(", "))
+                    .collect(Collectors.toMap(array -> array[1].split("=")[1], array -> array[7]));
         }
     }
 
@@ -49,6 +47,11 @@ public class ForeignWatcher extends Thread {
         b.setForeign(true);
         ForeignWatcher fw = new ForeignWatcher(Simulator.flightArea.toString());
         fw.run();
+        System.out.println(fw.getCollect().keySet().size());
+
+        if (fw.getCollect().containsKey(b.getAircraftId())) {
+            System.out.println("Detected: " + b);
+        }
 
         System.out.println("-----------");
         System.out.println(Simulator.flightArea);

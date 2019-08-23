@@ -5,11 +5,14 @@ import classes.domain.aircrafts.Aircraft;
 import classes.domain.extras.CrashWarning;
 import classes.domain.extras.FileWatcher;
 import classes.domain.extras.FlightArea;
+import classes.domain.extras.ForeignWatcher;
+import classes.simulator.Simulator;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Properties;
 import java.util.logging.Level;
 
@@ -17,6 +20,9 @@ public class Radar extends Thread {
     // region Members
     // todo - maybe change to non static
     public static FlightArea flightArea = new FlightArea();
+    private HashMap<String, Boolean> detectedForeign = new HashMap<>();
+    ForeignWatcher foreignWatcher = new ForeignWatcher(flightArea.toString());
+
     private static int refreshRate;
     private static final Properties PROPERTIES = new Properties();
     // todo - check private or public
@@ -77,10 +83,27 @@ public class Radar extends Thread {
         } catch (InterruptedException e) {
             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
+        foreignWatcher.start();
         System.out.println(this.getId());
         // todo - add parameter to stop
         //  - maybe put this into main and make new Thread for this main
         while (true) {
+            foreignWatcher.setData(flightArea.toString());
+            // if foreign is detected
+            if (foreignWatcher.getCollect().keySet().size() > 0) {
+                for (String id : foreignWatcher.getCollect().keySet()) {
+                    if (!detectedForeign.containsKey(id)) {
+                        detectedForeign.put(id, false);
+                    }
+                }
+            }
+            if (detectedForeign.keySet().size() > 0) {
+                Simulator.isNFZ = true;
+                detectedForeign.keySet().stream().filter(id -> !detectedForeign.get(id)).forEach(id -> {
+                    Simulator.sendEscort(Simulator.aircraftRegistry.get(id));
+                    detectedForeign.replace(id, true);
+                });
+            }
             try {
                 if (flightArea.isCrash()) {
                     flightArea.setCrash(false);

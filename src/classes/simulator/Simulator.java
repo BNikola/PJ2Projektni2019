@@ -82,6 +82,10 @@ public class Simulator extends Thread {
         Simulator.flightArea = flightArea;
     }
 
+    public static void sendEscort(Aircraft aircraft) {
+        System.out.println("Escort sent for: " + aircraft);
+    }
+
 
     // todo - change to private
     public Aircraft generateRandomAircraft() {
