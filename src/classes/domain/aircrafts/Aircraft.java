@@ -270,6 +270,10 @@ public class Aircraft extends Thread {
         System.out.println("Zadnje pozicije: " + positionX + " - " + positionY);
         Simulator.aircraftRegistry.remove(aircraftId);      // removes this id from registry
         Simulator.flightArea.setPosition(null, positionX, positionY, height);
+
+        if (foreign) {
+            Radar.removeFromDetectedForeign(aircraftId);
+        }
 //        for testing simple movement
 //        System.out.println("Napisao: " + this.getAircraftId() + "\n" + Simulator.flightArea);
 //        System.out.println("-----Radar");

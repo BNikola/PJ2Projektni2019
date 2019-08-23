@@ -8,6 +8,7 @@ import classes.domain.extras.FlightArea;
 import classes.domain.extras.ForeignWatcher;
 import classes.simulator.Simulator;
 
+import javax.swing.text.DateFormatter;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -20,7 +21,7 @@ public class Radar extends Thread {
     // region Members
     // todo - maybe change to non static
     public static FlightArea flightArea = new FlightArea();
-    private HashMap<String, Boolean> detectedForeign = new HashMap<>();
+    private static HashMap<String, Boolean> detectedForeign = new HashMap<>();
     ForeignWatcher foreignWatcher = new ForeignWatcher(flightArea.toString());
 
     private static int refreshRate;
@@ -67,6 +68,10 @@ public class Radar extends Thread {
     }
     // endregion
 
+    public static void removeFromDetectedForeign(String key) {
+        detectedForeign.remove(key);
+    }
+
     public static synchronized void writeToFile(String data) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(mapFile))) {
             pw.print(data);
@@ -100,6 +105,17 @@ public class Radar extends Thread {
             if (detectedForeign.keySet().size() > 0) {
                 flightArea.setNoFlight(true);
                 detectedForeign.keySet().stream().filter(id -> !detectedForeign.get(id)).forEach(id -> {
+                    // create a file in folder events
+                    try (PrintWriter printWriter = new PrintWriter(new FileWriter(
+                            "events"
+                                    + File.separator
+                                    + new SimpleDateFormat("yyyy-MM-dd'_'HH-mm-ss").format(new Date())
+                                    + ".txt"))) {
+                        printWriter.println("Detected foreign aircraft");
+                        printWriter.println(Simulator.aircraftRegistry.get(id));
+                    } catch (IOException e) {
+                        AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+                    }
                     Simulator.sendEscort(Simulator.aircraftRegistry.get(id));
                     detectedForeign.replace(id, true);
                 });
