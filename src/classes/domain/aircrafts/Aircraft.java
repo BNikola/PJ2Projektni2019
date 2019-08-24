@@ -303,7 +303,7 @@ public class Aircraft extends Thread {
             case UP:
                 while (positionX > 0 && !crashed) {
                     System.out.println(this);
-                    if (Simulator.flightArea.isNoFlight() && !directionChanged) {
+                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign) {
                         System.out.println("|- " + this);
                         this.changeDirection();
                         break;
@@ -324,7 +324,7 @@ public class Aircraft extends Thread {
             case LEFT:
                 while (positionY > 0 && !crashed) {
                     System.out.println(this);
-                    if (Simulator.flightArea.isNoFlight() && !directionChanged) {
+                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign) {
                         System.out.println("|- " + this);
                         this.changeDirection();
                         break;
@@ -344,7 +344,7 @@ public class Aircraft extends Thread {
                 break;
 
             case DOWN:
-                while ((positionX < FlightArea.getSizeX() - 1) && !crashed) {
+                while ((positionX < FlightArea.getSizeX() - 1) && !crashed && !foreign) {
                     System.out.println(this);
                     if (Simulator.flightArea.isNoFlight() && !directionChanged) {
                         System.out.println("|- " + this);
@@ -365,7 +365,7 @@ public class Aircraft extends Thread {
                 }
                 break;
             case RIGHT:
-                while ((positionY < FlightArea.getSizeY() - 1) && !crashed) {
+                while ((positionY < FlightArea.getSizeY() - 1) && !crashed && !foreign) {
                     System.out.println(this);
                     if (Simulator.flightArea.isNoFlight() && !directionChanged) {
                         System.out.println("|- " + this);

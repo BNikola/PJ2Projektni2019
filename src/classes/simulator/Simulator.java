@@ -6,6 +6,7 @@ import classes.domain.aircrafts.helicopters.FirefightingHelicopter;
 import classes.domain.aircrafts.helicopters.PassengerHelicopter;
 import classes.domain.aircrafts.helicopters.TransportHelicopter;
 import classes.domain.aircrafts.planes.FirefightingPlane;
+import classes.domain.aircrafts.planes.MilitaryFighterPlane;
 import classes.domain.aircrafts.planes.PassengerPlane;
 import classes.domain.aircrafts.planes.TransportPlane;
 import classes.domain.extras.ConfigWatcher;
@@ -27,7 +28,7 @@ public class Simulator extends Thread {
     // TODO: 21.8.2019. Add creation of foreign aircraft
     // region Members
     // random generator
-    private Random rand = new Random();
+    private static Random rand = new Random();
     // Flight Area
     public static FlightArea flightArea = new FlightArea();
     // properties file
@@ -82,7 +83,67 @@ public class Simulator extends Thread {
     }
 
     public static void sendEscort(Aircraft aircraft) {
-        System.out.println("Escort sent for: " + aircraft);
+        if (aircraft != null) {
+
+            int x = aircraft.getPositionX();
+            int y = aircraft.getPositionY();
+            int height = aircraft.getHeight();
+            FlightDirection flightDirection = aircraft.getDirection();
+
+            if (x == 0 && (flightDirection.equals(FlightDirection.LEFT) || flightDirection.equals(FlightDirection.RIGHT))) {        // if it is in a top row
+                if (flightDirection.equals(FlightDirection.LEFT)) {
+                    generateEscortAircraft(x, FlightArea.getSizeY() - 1, height, flightDirection).start();
+                    generateEscortAircraft(x + 1, FlightArea.getSizeY() - 1, height, flightDirection).start();
+                } else {
+                    generateEscortAircraft(x, 0, height, flightDirection).start();
+                    generateEscortAircraft(x + 1, 0, height, flightDirection).start();
+                }
+            } else if (y == FlightArea.getSizeY() - 1 && (flightDirection.equals(FlightDirection.UP) || flightDirection.equals(FlightDirection.DOWN))) {        // if it is in a far right column
+                if (flightDirection.equals(FlightDirection.UP)) {
+                    generateEscortAircraft(FlightArea.getSizeX() - 1, y, height, flightDirection).start();
+                    generateEscortAircraft(FlightArea.getSizeX() - 1, y - 1, height, flightDirection).start();
+                } else {
+                    generateEscortAircraft(0, y, height, flightDirection).start();
+                    generateEscortAircraft(0, y - 1, height, flightDirection).start();
+                }
+            } else if (x == FlightArea.getSizeX() - 1 && (flightDirection.equals(FlightDirection.LEFT) || flightDirection.equals(FlightDirection.RIGHT))) {     // if it is in a bottom row
+                if (flightDirection.equals(FlightDirection.LEFT)) {
+                    generateEscortAircraft(x, FlightArea.getSizeY() - 1, height, flightDirection).start();
+                    generateEscortAircraft(x - 1, FlightArea.getSizeY() - 1, height, flightDirection).start();
+                } else {
+                    generateEscortAircraft(x, 0, height, flightDirection).start();
+                    generateEscortAircraft(x - 1, 0, height, flightDirection).start();
+                }
+            } else if (y == 0 && (flightDirection.equals(FlightDirection.UP) || flightDirection.equals(FlightDirection.DOWN))) {        // if it is in a far left column
+                if (flightDirection.equals(FlightDirection.UP)) {
+                    generateEscortAircraft(FlightArea.getSizeX() - 1, y, height, flightDirection).start();
+                    generateEscortAircraft(FlightArea.getSizeX() - 1, y + 1, height, flightDirection).start();
+                } else {
+                    generateEscortAircraft(0, y, height, flightDirection).start();
+                    generateEscortAircraft(0, y + 1, height, flightDirection).start();
+                }
+            } else {
+                switch (flightDirection) {
+                    case UP:
+                        generateEscortAircraft(FlightArea.getSizeX() - 1, y - 1, height, flightDirection).start();
+                        generateEscortAircraft(FlightArea.getSizeX() - 1, y + 1, height, flightDirection).start();
+                        break;
+                    case LEFT:
+                        generateEscortAircraft(x - 1, FlightArea.getSizeY() - 1, height, flightDirection).start();
+                        generateEscortAircraft(x + 1, FlightArea.getSizeY() - 1, height, flightDirection).start();
+                        break;
+                    case DOWN:
+                        generateEscortAircraft(0, y - 1, height, flightDirection).start();
+                        generateEscortAircraft(0, y + 1, height, flightDirection).start();
+                        break;
+                    case RIGHT:
+                        generateEscortAircraft(x - 1, 0, height, flightDirection).start();
+                        generateEscortAircraft(x + 1, 0, height, flightDirection).start();
+                        break;
+                }
+            }
+
+        }
     }
 
 
@@ -316,7 +377,7 @@ public class Simulator extends Thread {
     private ConfigWatcher configWatcher = new ConfigWatcher("config.properties");
 
     // generate random aircraft id
-    private String randomAlphaNumeric(int lenght) {
+    private static String randomAlphaNumeric(int lenght) {
         StringBuilder builder = new StringBuilder();
 
         do {
@@ -327,6 +388,19 @@ public class Simulator extends Thread {
             }
         } while(aircraftRegistry.containsKey(builder));
         return builder.toString();
+    }
+
+    // generate escort fighter
+    private static MilitaryFighterPlane generateEscortAircraft(int pos_X, int pos_Y, int height, FlightDirection flightDirection) {
+        String aircraftId = randomAlphaNumeric(COUNT);
+        String model = randomAlphaNumeric(COUNT).toLowerCase();
+        MilitaryFighterPlane fighterPlane = new MilitaryFighterPlane(aircraftId, false, height, model, rand.nextInt(3) + 1);
+
+        fighterPlane.setDirection(flightDirection);
+        fighterPlane.setPositionX(pos_X);
+        fighterPlane.setPositionY(pos_Y);
+
+        return fighterPlane;
     }
     // endregion
 

@@ -1,3 +1,1 @@
-[0-5], aircraftId=YRFD6R, height=1, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingPlane, waterCapacity=525
-[0-8], aircraftId=EIHSXI, height=4, foreign=true, characteristics={}, speed=3, direction=DOWN, FirefightingHelicopter, waterCapacity=183
-[19-15], aircraftId=81XDIM, height=0, foreign=true, characteristics={}, speed=1, direction=UP, FirefightingPlane, waterCapacity=464
+[12-2], aircraftId=B8LCZR, height=5, foreign=true, characteristics={}, speed=3, direction=UP, FirefightingHelicopter, waterCapacity=95

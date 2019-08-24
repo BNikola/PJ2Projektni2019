@@ -82,7 +82,6 @@ public class Radar extends Thread {
 
     @Override
     public void run() {
-        // TODO: 21.8.2019. Add ForeignWatcher here
         try {
             sleep(2000);
         } catch (InterruptedException e) {
