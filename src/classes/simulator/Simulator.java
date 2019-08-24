@@ -84,64 +84,79 @@ public class Simulator extends Thread {
 
     public static void sendEscort(Aircraft aircraft) {
         if (aircraft != null) {
-
+            try {
+                sleep(2000);
+            } catch (InterruptedException e) {
+                AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+            }
             int x = aircraft.getPositionX();
             int y = aircraft.getPositionY();
             int height = aircraft.getHeight();
             FlightDirection flightDirection = aircraft.getDirection();
 
+            MilitaryFighterPlane fighter1 = null;
+            MilitaryFighterPlane fighter2 = null;
+
             if (x == 0 && (flightDirection.equals(FlightDirection.LEFT) || flightDirection.equals(FlightDirection.RIGHT))) {        // if it is in a top row
                 if (flightDirection.equals(FlightDirection.LEFT)) {
-                    generateEscortAircraft(x, FlightArea.getSizeY() - 1, height, flightDirection).start();
-                    generateEscortAircraft(x + 1, FlightArea.getSizeY() - 1, height, flightDirection).start();
+                    fighter1 = generateEscortAircraft(x, FlightArea.getSizeY() - 1, height, flightDirection);
+                    fighter2 = generateEscortAircraft(x + 1, FlightArea.getSizeY() - 1, height, flightDirection);
                 } else {
-                    generateEscortAircraft(x, 0, height, flightDirection).start();
-                    generateEscortAircraft(x + 1, 0, height, flightDirection).start();
+                    fighter1 = generateEscortAircraft(x, 0, height, flightDirection);
+                    fighter2 = generateEscortAircraft(x + 1, 0, height, flightDirection);
                 }
             } else if (y == FlightArea.getSizeY() - 1 && (flightDirection.equals(FlightDirection.UP) || flightDirection.equals(FlightDirection.DOWN))) {        // if it is in a far right column
                 if (flightDirection.equals(FlightDirection.UP)) {
-                    generateEscortAircraft(FlightArea.getSizeX() - 1, y, height, flightDirection).start();
-                    generateEscortAircraft(FlightArea.getSizeX() - 1, y - 1, height, flightDirection).start();
+                    fighter1 = generateEscortAircraft(FlightArea.getSizeX() - 1, y, height, flightDirection);
+                    fighter2 = generateEscortAircraft(FlightArea.getSizeX() - 1, y - 1, height, flightDirection);
                 } else {
-                    generateEscortAircraft(0, y, height, flightDirection).start();
-                    generateEscortAircraft(0, y - 1, height, flightDirection).start();
+                    fighter1 = generateEscortAircraft(0, y, height, flightDirection);
+                    fighter2 = generateEscortAircraft(0, y - 1, height, flightDirection);
                 }
             } else if (x == FlightArea.getSizeX() - 1 && (flightDirection.equals(FlightDirection.LEFT) || flightDirection.equals(FlightDirection.RIGHT))) {     // if it is in a bottom row
                 if (flightDirection.equals(FlightDirection.LEFT)) {
-                    generateEscortAircraft(x, FlightArea.getSizeY() - 1, height, flightDirection).start();
-                    generateEscortAircraft(x - 1, FlightArea.getSizeY() - 1, height, flightDirection).start();
+                    fighter1 = generateEscortAircraft(x, FlightArea.getSizeY() - 1, height, flightDirection);
+                    fighter2 = generateEscortAircraft(x - 1, FlightArea.getSizeY() - 1, height, flightDirection);
                 } else {
-                    generateEscortAircraft(x, 0, height, flightDirection).start();
-                    generateEscortAircraft(x - 1, 0, height, flightDirection).start();
+                    fighter1 = generateEscortAircraft(x, 0, height, flightDirection);
+                    fighter2 = generateEscortAircraft(x - 1, 0, height, flightDirection);
                 }
             } else if (y == 0 && (flightDirection.equals(FlightDirection.UP) || flightDirection.equals(FlightDirection.DOWN))) {        // if it is in a far left column
                 if (flightDirection.equals(FlightDirection.UP)) {
-                    generateEscortAircraft(FlightArea.getSizeX() - 1, y, height, flightDirection).start();
-                    generateEscortAircraft(FlightArea.getSizeX() - 1, y + 1, height, flightDirection).start();
+                    fighter1 = generateEscortAircraft(FlightArea.getSizeX() - 1, y, height, flightDirection);
+                    fighter2 = generateEscortAircraft(FlightArea.getSizeX() - 1, y + 1, height, flightDirection);
                 } else {
-                    generateEscortAircraft(0, y, height, flightDirection).start();
-                    generateEscortAircraft(0, y + 1, height, flightDirection).start();
+                    fighter1 = generateEscortAircraft(0, y, height, flightDirection);
+                    fighter2 = generateEscortAircraft(0, y + 1, height, flightDirection);
                 }
             } else {
                 switch (flightDirection) {
                     case UP:
-                        generateEscortAircraft(FlightArea.getSizeX() - 1, y - 1, height, flightDirection).start();
-                        generateEscortAircraft(FlightArea.getSizeX() - 1, y + 1, height, flightDirection).start();
+                        fighter1 = generateEscortAircraft(FlightArea.getSizeX() - 1, y - 1, height, flightDirection);
+                        fighter2 = generateEscortAircraft(FlightArea.getSizeX() - 1, y + 1, height, flightDirection);
                         break;
                     case LEFT:
-                        generateEscortAircraft(x - 1, FlightArea.getSizeY() - 1, height, flightDirection).start();
-                        generateEscortAircraft(x + 1, FlightArea.getSizeY() - 1, height, flightDirection).start();
+                        fighter1 = generateEscortAircraft(x - 1, FlightArea.getSizeY() - 1, height, flightDirection);
+                        fighter2 = generateEscortAircraft(x + 1, FlightArea.getSizeY() - 1, height, flightDirection);
                         break;
                     case DOWN:
-                        generateEscortAircraft(0, y - 1, height, flightDirection).start();
-                        generateEscortAircraft(0, y + 1, height, flightDirection).start();
+                        fighter1 = generateEscortAircraft(0, y - 1, height, flightDirection);
+                        fighter2 = generateEscortAircraft(0, y + 1, height, flightDirection);
                         break;
                     case RIGHT:
-                        generateEscortAircraft(x - 1, 0, height, flightDirection).start();
-                        generateEscortAircraft(x + 1, 0, height, flightDirection).start();
+                        fighter1 = generateEscortAircraft(x - 1, 0, height, flightDirection);
+                        fighter2 = generateEscortAircraft(x + 1, 0, height, flightDirection);
                         break;
                 }
             }
+
+            flightArea.setPosition(fighter1, fighter1.getPositionX(), fighter1.getPositionY(), fighter1.getHeight());
+            aircraftRegistry.put(fighter1.getAircraftId(), fighter1);
+            fighter1.start();
+
+            flightArea.setPosition(fighter2, fighter2.getPositionX(), fighter2.getPositionY(), fighter2.getHeight());
+            aircraftRegistry.put(fighter2.getAircraftId(), fighter2);
+            fighter2.start();
 
         }
     }

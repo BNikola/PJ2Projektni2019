@@ -15,4 +15,10 @@ public class MilitaryFighterPlane extends Aircraft {
     public MilitaryFighterPlane(String aircraftId, boolean foreign, Integer height, String model, List<Person> persons, HashMap<Integer, String> characteristics, int speed) {
         super(aircraftId, foreign, height, model, persons, characteristics, speed);
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", MilitaryFighterPlane";
+    }
 }

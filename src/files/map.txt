@@ -1,1 +1,0 @@
-[12-2], aircraftId=B8LCZR, height=5, foreign=true, characteristics={}, speed=3, direction=UP, FirefightingHelicopter, waterCapacity=95

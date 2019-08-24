@@ -125,7 +125,6 @@ public class Radar extends Thread {
                 }
                 sleep(refreshRate);
                 writeToFile(flightArea.toString());
-//                if (flightArea.toString().contains("foreign=true"));
             } catch (InterruptedException e) {
                 AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
             }

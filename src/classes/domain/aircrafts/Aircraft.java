@@ -2,6 +2,7 @@ package classes.domain.aircrafts;
 
 import classes.AirTrafficControl;
 import classes.Radar;
+import classes.domain.aircrafts.planes.MilitaryFighterPlane;
 import classes.domain.extras.FlightArea;
 import classes.domain.extras.FlightDirection;
 import classes.domain.persons.Person;
@@ -303,7 +304,7 @@ public class Aircraft extends Thread {
             case UP:
                 while (positionX > 0 && !crashed) {
                     System.out.println(this);
-                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign) {
+                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign && !(this instanceof MilitaryFighterPlane)) {
                         System.out.println("|- " + this);
                         this.changeDirection();
                         break;
@@ -324,7 +325,7 @@ public class Aircraft extends Thread {
             case LEFT:
                 while (positionY > 0 && !crashed) {
                     System.out.println(this);
-                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign) {
+                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign && !(this instanceof MilitaryFighterPlane)) {
                         System.out.println("|- " + this);
                         this.changeDirection();
                         break;
@@ -344,7 +345,7 @@ public class Aircraft extends Thread {
                 break;
 
             case DOWN:
-                while ((positionX < FlightArea.getSizeX() - 1) && !crashed && !foreign) {
+                while ((positionX < FlightArea.getSizeX() - 1) && !crashed && !foreign && !(this instanceof MilitaryFighterPlane)) {
                     System.out.println(this);
                     if (Simulator.flightArea.isNoFlight() && !directionChanged) {
                         System.out.println("|- " + this);
@@ -365,7 +366,7 @@ public class Aircraft extends Thread {
                 }
                 break;
             case RIGHT:
-                while ((positionY < FlightArea.getSizeY() - 1) && !crashed && !foreign) {
+                while ((positionY < FlightArea.getSizeY() - 1) && !crashed && !foreign && !(this instanceof MilitaryFighterPlane)) {
                     System.out.println(this);
                     if (Simulator.flightArea.isNoFlight() && !directionChanged) {
                         System.out.println("|- " + this);
