@@ -21,4 +21,10 @@ public class MilitaryFighterPlane extends Aircraft {
         return super.toString() +
                 ", MilitaryFighterPlane";
     }
+
+    @Override
+    public String printCrash() {
+        return super.printCrash() + ":MilitaryFighterPlane";
+    }
 }
+// TODO: 24.8.2019. implement run

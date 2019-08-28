@@ -229,12 +229,6 @@ public class Aircraft extends Thread {
     }
 
 
-    // todo - implement run
-
-    // todo - implement motion
-    //  - fix and finish run method for aircraft
-
-
 
     @Override
     public synchronized void run() {
@@ -510,5 +504,9 @@ public class Aircraft extends Thread {
                 return false;
             }
         }
+    }
+
+    public String printCrash() {
+        return aircraftId + ":" + foreign;
     }
 }

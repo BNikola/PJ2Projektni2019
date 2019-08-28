@@ -34,4 +34,9 @@ public class FirefightingHelicopter extends Aircraft {
                 ", FirefightingHelicopter" +
                 ", waterCapacity=" + waterCapacity;
     }
+
+    @Override
+    public String printCrash() {
+        return super.printCrash() + ":FirefightingHelicopter";
+    }
 }

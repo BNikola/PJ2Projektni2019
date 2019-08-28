@@ -34,4 +34,9 @@ public class TransportPlane extends Aircraft {
                 ", TransportPlane" +
                 ", maxCargoWeight=" + maxCargoWeight;
     }
+
+    @Override
+    public String printCrash() {
+        return super.printCrash() + ":TransportPlane";
+    }
 }

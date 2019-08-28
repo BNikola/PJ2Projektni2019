@@ -34,4 +34,9 @@ public class TransportHelicopter extends Aircraft {
                 ", TransportHelicopter" +
                 ", maxCargoWeight=" + maxCargoWeight;
     }
+
+    @Override
+    public String printCrash() {
+        return super.printCrash() + ":TransportHelicopter";
+    }
 }

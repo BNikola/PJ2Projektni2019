@@ -34,4 +34,9 @@ public class PassengerHelicopter extends Aircraft {
                 ", PassengerHelicopter" +
                 ", numberOfSeats=" + numberOfSeats;
     }
+
+    @Override
+    public String printCrash() {
+        return super.printCrash() + ":PassengerHelicopter";
+    }
 }

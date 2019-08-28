@@ -49,4 +49,9 @@ public class PassengerPlane extends Aircraft {
                 ", numberOfSeats=" + numberOfSeats +
                 ", maxWeight=" + maxWeight;
     }
+
+    @Override
+    public String printCrash() {
+        return super.printCrash() + ":PassengerPlane";
+    }
 }

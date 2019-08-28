@@ -34,4 +34,9 @@ public class FirefightingPlane extends Aircraft {
                 ", FirefightingPlane" +
                 ", waterCapacity=" + waterCapacity;
     }
+
+    @Override
+    public String printCrash() {
+        return super.printCrash() + ":FirefightingPlane";
+    }
 }
