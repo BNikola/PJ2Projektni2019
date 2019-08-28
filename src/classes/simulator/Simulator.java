@@ -305,7 +305,7 @@ public class Simulator extends Thread {
             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
         while (true) {
-            System.out.println(configWatcher.isChange());
+//            System.out.println(configWatcher.isChange());
             if (configWatcher.isChange()) {
                 try {
                     interval = Integer.parseInt(configWatcher.getOptions().get("interval"));
@@ -318,8 +318,12 @@ public class Simulator extends Thread {
             }
             // generates foreign aircraft if config file has changed
             if (foreign > 0) {
+                System.out.println("------------------------");
+                System.out.println(foreign);
+                System.out.println("------------------------");
                 Aircraft foreignAircraft = generateRandomAircraft();    // TODO: 22.8.2019. Change this to foreign military aircraft
                 foreignAircraft.setForeign(true);
+                System.out.println("Created: " + foreignAircraft);
                 foreignAircraft.start();
                 foreign--;
                 try {
@@ -328,14 +332,15 @@ public class Simulator extends Thread {
                     AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                 }
             }
-            System.out.println("------------------------");
-            System.out.println(foreign);
-            System.out.println("------------------------");
-            try {
-                sleep(interval);
-                generateRandomAircraft().start();
-            } catch (InterruptedException e) {
-                AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+//            System.out.println("NF Simulator: " + flightArea.isNoFlight() + " foreign: " + foreign);
+
+            if (!flightArea.isNoFlight()) {
+                try {
+                    sleep(interval);
+                    generateRandomAircraft().start();
+                } catch (InterruptedException e) {
+                    AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+                }
             }
         }
         // endregion

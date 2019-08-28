@@ -7,6 +7,7 @@ import classes.domain.extras.FileWatcher;
 import classes.domain.extras.FlightArea;
 import classes.domain.extras.ForeignWatcher;
 import classes.simulator.Simulator;
+import javafx.event.ActionEvent;
 
 import javax.swing.text.DateFormatter;
 import java.io.*;
@@ -101,10 +102,11 @@ public class Radar extends Thread {
                 }
             }
             if (detectedForeign.keySet().size() > 0) {
-                flightArea.setNoFlight(true);
+                // activate NFZ
                 for (String id : detectedForeign.keySet()) {
                     if (!detectedForeign.get(id) && (Simulator.aircraftRegistry.get(id) != null)) {
-// create a file in folder events
+                        flightArea.setNoFlight(true);
+                        // create a file in folder events
                         try (PrintWriter printWriter = new PrintWriter(new FileWriter(
                                 "events"
                                         + File.separator
@@ -115,6 +117,7 @@ public class Radar extends Thread {
                         } catch (IOException e) {
                             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                         }
+                        Controller.app.refreshEventsLabel("Detected aircraft: " + id + " at " + new Date());
                         Simulator.sendEscort(Simulator.aircraftRegistry.get(id));
                         detectedForeign.replace(id, true);
                     }
@@ -140,8 +143,7 @@ public class Radar extends Thread {
         System.out.println("From RADAR: " + b);
         flightArea.setCrash(false);
         // create CrashObject
-        String position = "[" + a.getPositionX() + "-" + a.getPositionY() + "-" + a.getHeight() + "]";
-        // TODO: 20.8.2019. change this to add more details
+        String position = "[x=" + a.getPositionX() + " y=" + a.getPositionY() + " h=" + a.getHeight() + "]";
         String details = a.printCrash() + "\n" + b.printCrash();
         Date date = Calendar.getInstance().getTime();
         CrashWarning crashWarning = new CrashWarning(details, date, position);

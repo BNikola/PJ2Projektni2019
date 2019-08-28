@@ -1,6 +1,5 @@
 package classes.controllers;
 
-import classes.AirTrafficControl;
 import classes.Radar;
 import classes.domain.extras.AlertBox;
 import classes.domain.extras.FileWatcher;
@@ -9,13 +8,11 @@ import classes.simulator.Simulator;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -23,13 +20,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
 
 
 public class Controller implements Initializable {
@@ -37,9 +32,12 @@ public class Controller implements Initializable {
     public static Controller app;
     @FXML
     private Button NFZButton;
-
+    @FXML
+    private Label NFZLabel;
     @FXML
     private GridPane flightAreaGridPane;
+    @FXML
+    private Label newEventLabel;
 
     @FXML
     private Button check;
@@ -146,10 +144,20 @@ public class Controller implements Initializable {
     }
 
     public void activateNFZ(ActionEvent actionEvent) {
-        System.out.println("NFZ is activated");
-        Simulator.flightArea.setNoFlight(!Simulator.flightArea.isNoFlight());
-        System.out.println(Simulator.flightArea.isNoFlight());
-        // TODO: 23.8.2019. Change this to something meaningful
+        System.out.println("NFZ is activated " + Simulator.flightArea.isNoFlight());
+        if (Simulator.flightArea.isNoFlight()) {
+            NFZLabel.setText("NFZ is ON");
+            NFZLabel.setTextFill(Color.RED);
+            Simulator.flightArea.setNoFlight(false);
+        } else {
+            NFZLabel.setText("NFZ is OFF");
+            NFZLabel.setTextFill(Color.GREEN);
+            Simulator.flightArea.setNoFlight(true);
+        }
+    }
+
+    public void refreshEventsLabel(String eventData) {
+        Platform.runLater(() -> newEventLabel.setText(eventData));
     }
 
     public static void displayCrash(String crashDetails) {

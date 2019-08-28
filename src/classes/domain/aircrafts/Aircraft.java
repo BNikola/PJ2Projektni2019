@@ -498,11 +498,7 @@ public class Aircraft extends Thread {
             return false;
         } else {
             Aircraft a = (Aircraft) obj; // TODO: 18.8.2019. maybe change this to some superclass of Aircraft and Rocket
-            if (height.equals(a.height)) {
-                return true;
-            } else {
-                return false;
-            }
+            return height.equals(a.height);
         }
     }
 

@@ -56,7 +56,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label fx:id="NewEventLabel" text="Label" BorderPane.alignment="CENTER" />
+                  <Label fx:id="newEventLabel" text="Label" BorderPane.alignment="CENTER" />
                </children>
                <BorderPane.margin>
                   <Insets top="20.0" />

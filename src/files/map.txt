@@ -1,0 +1,5 @@
+[0-4], aircraftId=N77E69, height=1, foreign=false, characteristics={}, speed=3, direction=UP, TransportPlane, maxCargoWeight=474
+[2-2], aircraftId=N27KSE, height=4, foreign=false, characteristics={}, speed=1, direction=DOWN, FirefightingHelicopter, waterCapacity=154
+[6-9], aircraftId=U1W7YK, height=5, foreign=false, characteristics={}, speed=2, direction=UP, PassengerHelicopter, numberOfSeats=7
+[7-9], aircraftId=QGQVN3, height=0, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingHelicopter, waterCapacity=256
+[8-6], aircraftId=O7VJTI, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerHelicopter, numberOfSeats=7
