@@ -116,6 +116,7 @@ public class FlightArea {
         return flightArea[x][y].getObjectFromHeight(height);
     }
 
+    // TODO: 28.8.2019. remove this
     public synchronized void setPosition2(Object object, int x, int y, int height) {
         flightArea[x][y].setObjectToHeight(object, height);
     }
@@ -124,7 +125,6 @@ public class FlightArea {
         if (object != null) {
             if (object.equals(flightArea[x][y].getObjectFromHeight(height))) {
                 crash = true;
-                // TODO: 20.8.2019. att test for foreign aircraft
                 // TODO: 21.8.2019. add test if flightArea[x][y] is not null
                 Aircraft objectFromHeight = (Aircraft) flightArea[x][y].getObjectFromHeight(height);
                 Radar.processCollision(objectFromHeight, (Aircraft)object);

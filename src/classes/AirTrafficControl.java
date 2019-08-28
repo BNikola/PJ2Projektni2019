@@ -70,7 +70,6 @@ public class AirTrafficControl extends Application {
     }
 
     // TODO: 18.8.2019. Remove unecessary code from everything (Aircraft, FlightArea, Field...)
-    // TODO: 20.8.2019. Add interception method (for foreign aircraft)
     // TODO: 20.8.2019. Add rocket movement
     // TODO: 21.8.2019. Add  show details of events
     // TODO: 21.8.2019. Add label to the bottom of main app for new events functionality

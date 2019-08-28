@@ -90,7 +90,6 @@ public class Radar extends Thread {
         foreignWatcher.start();
         System.out.println(this.getId());
         // todo - add parameter to stop
-        //  - maybe put this into main and make new Thread for this main
         while (true) {
             foreignWatcher.setData(flightArea.toString());
             // if foreign is detected
@@ -103,21 +102,23 @@ public class Radar extends Thread {
             }
             if (detectedForeign.keySet().size() > 0) {
                 flightArea.setNoFlight(true);
-                detectedForeign.keySet().stream().filter(id -> !detectedForeign.get(id)).forEach(id -> {
-                    // create a file in folder events
-                    try (PrintWriter printWriter = new PrintWriter(new FileWriter(
-                            "events"
-                                    + File.separator
-                                    + new SimpleDateFormat("yyyy-MM-dd'_'HH-mm-ss").format(new Date())
-                                    + ".txt"))) {
-                        printWriter.println("Detected foreign aircraft");
-                        printWriter.println(Simulator.aircraftRegistry.get(id));
-                    } catch (IOException e) {
-                        AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+                for (String id : detectedForeign.keySet()) {
+                    if (!detectedForeign.get(id) && (Simulator.aircraftRegistry.get(id) != null)) {
+// create a file in folder events
+                        try (PrintWriter printWriter = new PrintWriter(new FileWriter(
+                                "events"
+                                        + File.separator
+                                        + new SimpleDateFormat("yyyy-MM-dd'_'HH-mm-ss").format(new Date())
+                                        + ".txt"))) {
+                            printWriter.println("Detected foreign aircraft");
+                            printWriter.println(Simulator.aircraftRegistry.get(id));
+                        } catch (IOException e) {
+                            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+                        }
+                        Simulator.sendEscort(Simulator.aircraftRegistry.get(id));
+                        detectedForeign.replace(id, true);
                     }
-                    Simulator.sendEscort(Simulator.aircraftRegistry.get(id));
-                    detectedForeign.replace(id, true);
-                });
+                }
             }
             try {
                 if (flightArea.isCrash()) {
@@ -141,7 +142,7 @@ public class Radar extends Thread {
         // create CrashObject
         String position = "[" + a.getPositionX() + "-" + a.getPositionY() + "-" + a.getHeight() + "]";
         // TODO: 20.8.2019. change this to add more details
-        String details = "Crashed: " + a.getClass().getCanonicalName() + " and " + b.getClass().getCanonicalName();
+        String details = a.printCrash() + "\n" + b.printCrash();
         Date date = Calendar.getInstance().getTime();
         CrashWarning crashWarning = new CrashWarning(details, date, position);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-hh.mm.ss");

@@ -47,6 +47,6 @@ public class CrashWarning implements Serializable {
 
     @Override
     public String toString() {
-        return positionOfCrash + "::" + timeOfCrash + "::" + details;
+        return "Position: " + positionOfCrash + "\nTime:" + timeOfCrash + "\nDetails:\n" + details;
     }
 }
