@@ -19,7 +19,7 @@ public class MilitaryBomberPlane extends Aircraft {
     @Override
     public String toString() {
         return super.toString() +
-                ",MilitaryBomberPlane";
+                ", MilitaryBomberPlane";
     }
 
     @Override

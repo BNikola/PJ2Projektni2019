@@ -5,10 +5,7 @@ import classes.domain.aircrafts.Aircraft;
 import classes.domain.aircrafts.helicopters.FirefightingHelicopter;
 import classes.domain.aircrafts.helicopters.PassengerHelicopter;
 import classes.domain.aircrafts.helicopters.TransportHelicopter;
-import classes.domain.aircrafts.planes.FirefightingPlane;
-import classes.domain.aircrafts.planes.MilitaryFighterPlane;
-import classes.domain.aircrafts.planes.PassengerPlane;
-import classes.domain.aircrafts.planes.TransportPlane;
+import classes.domain.aircrafts.planes.*;
 import classes.domain.extras.ConfigWatcher;
 import classes.domain.extras.FlightArea;
 import classes.domain.extras.FlightDirection;
@@ -215,6 +212,34 @@ public class Simulator extends Thread {
         return aircraft;
     }
 
+    // TODO: 29.8.2019. change to private 
+    public Aircraft generateForeignAircraft() {
+        Aircraft aircraft = null;
+        int choice = rand.nextInt(2);
+        String aircraftId = randomAlphaNumeric(COUNT);
+        Integer height = Height.values()[rand.nextInt(Height.values().length)].getHeight();      // getting random height
+        String model = "Model";
+        int speed = rand.nextInt(3) + 1;
+        switch (choice) {
+            case 0:
+                aircraft = new MilitaryFighterPlane(
+                        aircraftId, true, height, model, speed);
+                break;
+            case 1:
+                aircraft = new MilitaryBomberPlane(
+                        aircraftId, true, height, model, speed);
+                break;
+            default:
+                aircraft = new MilitaryFighterPlane(
+                        aircraftId, true, height, model, speed);
+        }
+
+        aircraft.setPositionAndDirection();
+        aircraftRegistry.put(aircraftId, aircraft);
+        flightArea.setPosition(aircraft, aircraft.getPositionX(), aircraft.getPositionY(), aircraft.getHeight());
+        return aircraft;
+    }
+
     public static void main(String[] args) {
 //        Simulator s = new Simulator();
         Simulator s = new Simulator(flightArea);
@@ -317,15 +342,18 @@ public class Simulator extends Thread {
                 }
             }
             // generates foreign aircraft if config file has changed
-            if (foreign > 0) {
+            while (foreign > 0) {
+                System.out.println(aircraftRegistry);
                 System.out.println("------------------------");
                 System.out.println(foreign);
                 System.out.println("------------------------");
-                Aircraft foreignAircraft = generateRandomAircraft();    // TODO: 22.8.2019. Change this to foreign military aircraft
-                foreignAircraft.setForeign(true);
-                System.out.println("Created: " + foreignAircraft);
-                foreignAircraft.start();
-                foreign--;
+                Aircraft foreignAricraft = generateForeignAircraft();
+                foreignAricraft.start();
+                System.out.println(foreignAricraft);
+                if (Simulator.aircraftRegistry.containsKey(foreignAricraft.getAircraftId())) {
+                    foreign--;
+                }
+                System.out.println("new\n" + aircraftRegistry);
                 try {
                     sleep(interval);
                 } catch (InterruptedException e) {
@@ -333,7 +361,6 @@ public class Simulator extends Thread {
                 }
             }
 //            System.out.println("NF Simulator: " + flightArea.isNoFlight() + " foreign: " + foreign);
-
             if (!flightArea.isNoFlight()) {
                 try {
                     sleep(interval);
@@ -388,6 +415,8 @@ public class Simulator extends Thread {
 //        // endregion
 
     }
+
+
 
     // region private methods
     private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

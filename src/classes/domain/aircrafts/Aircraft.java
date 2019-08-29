@@ -339,9 +339,9 @@ public class Aircraft extends Thread {
                 break;
 
             case DOWN:
-                while ((positionX < FlightArea.getSizeX() - 1) && !crashed && !foreign && !(this instanceof MilitaryFighterPlane)) {
+                while ((positionX < FlightArea.getSizeX() - 1) && !crashed) {
                     System.out.println(this);
-                    if (Simulator.flightArea.isNoFlight() && !directionChanged) {
+                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign && !(this instanceof MilitaryFighterPlane)) {
                         System.out.println("|- " + this);
                         this.changeDirection();
                         break;
@@ -360,9 +360,9 @@ public class Aircraft extends Thread {
                 }
                 break;
             case RIGHT:
-                while ((positionY < FlightArea.getSizeY() - 1) && !crashed && !foreign && !(this instanceof MilitaryFighterPlane)) {
+                while ((positionY < FlightArea.getSizeY() - 1) && !crashed) {
                     System.out.println(this);
-                    if (Simulator.flightArea.isNoFlight() && !directionChanged) {
+                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign && !(this instanceof MilitaryFighterPlane)) {
                         System.out.println("|- " + this);
                         this.changeDirection();
                         break;
@@ -470,26 +470,15 @@ public class Aircraft extends Thread {
     public static void main(String[] args) {
         Simulator s = new Simulator();
         Aircraft a = s.generateRandomAircraft();
-        Aircraft b = s.generateRandomAircraft();
-        System.out.println(a);
-        System.out.println(b);
-        a.positionX = 0;
-        a.positionY = FlightArea.getSizeY() - 1;
-        a.setDirection(FlightDirection.RIGHT);
-        System.out.println(a);
-        System.out.println(a.getClosestExit());
-        System.out.println(b.getClosestExit());
-        System.out.println(a.getDirection().equals(a.getClosestExit()));
-        System.out.println(b.getDirection().equals(b.getClosestExit()));
-        a.changeDirection();
-        b.changeDirection();
-
-
-        System.out.println(a);
-        System.out.println(b);
-        int height = Integer.parseInt(a.toString().split(", ")[2].split("=")[1]);
-        System.out.println(height);
-
+        Aircraft b = s.generateForeignAircraft();
+        s.flightArea.setNoFlight(true);
+        System.out.println(Simulator.flightArea.isNoFlight());
+        System.out.println(b.directionChanged + "->" + !b.directionChanged);
+        System.out.println(b.foreign + "->" + !b.foreign);
+        System.out.println(b instanceof MilitaryFighterPlane);
+        if (s.flightArea.isNoFlight() && !b.directionChanged && !b.foreign && !(b instanceof MilitaryFighterPlane)) {
+            System.out.println("proslo");
+        }
     }
 
     @Override

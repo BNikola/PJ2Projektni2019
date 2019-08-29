@@ -102,8 +102,10 @@ public class Radar extends Thread {
                 }
             }
             if (detectedForeign.keySet().size() > 0) {
+                System.out.println(detectedForeign);
                 // activate NFZ
                 for (String id : detectedForeign.keySet()) {
+                    System.out.println("Detected: " + Simulator.aircraftRegistry.get(id));
                     if (!detectedForeign.get(id) && (Simulator.aircraftRegistry.get(id) != null)) {
                         flightArea.setNoFlight(true);
                         // create a file in folder events

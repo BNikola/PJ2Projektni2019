@@ -1,5 +1,6 @@
-[0-4], aircraftId=N77E69, height=1, foreign=false, characteristics={}, speed=3, direction=UP, TransportPlane, maxCargoWeight=474
-[2-2], aircraftId=N27KSE, height=4, foreign=false, characteristics={}, speed=1, direction=DOWN, FirefightingHelicopter, waterCapacity=154
-[6-9], aircraftId=U1W7YK, height=5, foreign=false, characteristics={}, speed=2, direction=UP, PassengerHelicopter, numberOfSeats=7
-[7-9], aircraftId=QGQVN3, height=0, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingHelicopter, waterCapacity=256
-[8-6], aircraftId=O7VJTI, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerHelicopter, numberOfSeats=7
+[4-7], aircraftId=4C8MQP, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, MilitaryFighterPlane
+[5-8], aircraftId=AYZG02, height=3, foreign=true, characteristics={}, speed=3, direction=DOWN, MilitaryBomberPlane
+[12-9], aircraftId=BPRYTE, height=3, foreign=false, characteristics={}, speed=1, direction=DOWN, MilitaryFighterPlane
+[14-16], aircraftId=7ACSZI, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, MilitaryFighterPlane
+[15-14], aircraftId=EN5PPK, height=0, foreign=true, characteristics={}, speed=3, direction=LEFT, MilitaryBomberPlane
+[16-16], aircraftId=ZPMQGX, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, MilitaryFighterPlane
