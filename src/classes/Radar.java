@@ -156,6 +156,10 @@ public class Radar extends Thread {
             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
         Controller.displayCrash(crashWarning.toString());
+    }
 
+    public static void main(String[] args) {
+        Radar r = new Radar();
+        r.run();
     }
 }

@@ -3,6 +3,7 @@ package classes.domain.extras;
 import classes.AirTrafficControl;
 import classes.Radar;
 import classes.domain.aircrafts.Aircraft;
+import classes.domain.aircrafts.planes.MilitaryFighterPlane;
 
 import java.io.*;
 import java.util.Date;
@@ -125,7 +126,6 @@ public class FlightArea {
         if (object != null) {
             if (object.equals(flightArea[x][y].getObjectFromHeight(height))) {
                 crash = true;
-                // TODO: 21.8.2019. add test if flightArea[x][y] is not null
                 Aircraft objectFromHeight = (Aircraft) flightArea[x][y].getObjectFromHeight(height);
                 Radar.processCollision(objectFromHeight, (Aircraft)object);
                 objectFromHeight.setCrashed(true);

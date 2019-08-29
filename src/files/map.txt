@@ -1,6 +1,3 @@
-[4-7], aircraftId=4C8MQP, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, MilitaryFighterPlane
-[5-8], aircraftId=AYZG02, height=3, foreign=true, characteristics={}, speed=3, direction=DOWN, MilitaryBomberPlane
-[12-9], aircraftId=BPRYTE, height=3, foreign=false, characteristics={}, speed=1, direction=DOWN, MilitaryFighterPlane
-[14-16], aircraftId=7ACSZI, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, MilitaryFighterPlane
-[15-14], aircraftId=EN5PPK, height=0, foreign=true, characteristics={}, speed=3, direction=LEFT, MilitaryBomberPlane
-[16-16], aircraftId=ZPMQGX, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, MilitaryFighterPlane
+[3-0], aircraftId=M4EAT6, height=5, foreign=false, characteristics={}, speed=3, direction=LEFT, TransportPlane, maxCargoWeight=785
+[4-5], aircraftId=UO6JG4, height=3, foreign=false, characteristics={}, speed=1, direction=UP, MilitaryFighterPlane
+[4-7], aircraftId=8BESKB, height=3, foreign=false, characteristics={}, speed=1, direction=UP, MilitaryFighterPlane
