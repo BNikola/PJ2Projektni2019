@@ -262,7 +262,7 @@ public class Aircraft extends Thread {
             }
         }
         // todo - remove this after check for all directions
-        System.out.println("Zadnje pozicije: " + positionX + " - " + positionY);
+        System.out.println(aircraftId + " -> Zadnje pozicije: " + positionX + " - " + positionY);
         Simulator.aircraftRegistry.remove(aircraftId);      // removes this id from registry
         Simulator.flightArea.setPosition(null, positionX, positionY, height);
 

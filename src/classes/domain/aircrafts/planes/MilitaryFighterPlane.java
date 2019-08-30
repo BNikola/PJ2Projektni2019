@@ -161,17 +161,19 @@ public class MilitaryFighterPlane extends Aircraft {
             case LEFT:
                 while (positionY > 0 && !crashed) {
                     if (position == 1) {
-                        Object scanAhead = Simulator.flightArea.getPosition(positionX - 1, positionY, intruder.getHeight());
-                        if (scanAhead != null) {
-                            if (((Aircraft) scanAhead).getAircraftId().equals(intruder.getAircraftId())) {
-                                intruder.setCrashed(true);
-                            }
-                        }
-                    } else if (position == -1) {
                         Object scanAhead = Simulator.flightArea.getPosition(positionX + 1, positionY, intruder.getHeight());
                         if (scanAhead != null) {
                             if (((Aircraft) scanAhead).getAircraftId().equals(intruder.getAircraftId())) {
                                 intruder.setCrashed(true);
+                                System.out.println("Right -> CAUGHT");
+                            }
+                        }
+                    } else if (position == -1) {
+                        Object scanAhead = Simulator.flightArea.getPosition(positionX - 1, positionY, intruder.getHeight());
+                        if (scanAhead != null) {
+                            if (((Aircraft) scanAhead).getAircraftId().equals(intruder.getAircraftId())) {
+                                intruder.setCrashed(true);
+                                System.out.println("Left -> CAUGHT");
                             }
                         }
                     } else if (position == 0) {

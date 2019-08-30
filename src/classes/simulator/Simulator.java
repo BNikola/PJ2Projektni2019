@@ -83,7 +83,7 @@ public class Simulator extends Thread {
             }
             int x = aircraft.getPositionX();
             int y = aircraft.getPositionY();
-            int height = aircraft.getHeight();
+            int height = (aircraft.getHeight() + 1) % Height.values().length;
             FlightDirection flightDirection = aircraft.getDirection();
 
             MilitaryFighterPlane fighter1 = null;
@@ -380,8 +380,8 @@ public class Simulator extends Thread {
         }
         // endregion
 
-//         // region Testing
-//
+         // region Testing
+
 //        if (configWatcher.isChange()) {
 //            System.out.println(configWatcher.getOptions().get("interval"));
 //            System.out.println(configWatcher.getOptions().get("foreign"));
@@ -418,8 +418,36 @@ public class Simulator extends Thread {
 //        flightArea.setPosition(d, d.getPositionX(), d.getPositionY(), d.getHeight());
 //
 //        a.start();
+//        try {
+//            sleep(4000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 //
-//        // endregion
+//        Aircraft foreign1 = generateForeignAircraft();
+//        Aircraft foreign2 = generateForeignAircraft();
+//        flightArea.setPosition(null, foreign1.getPositionX(), foreign1.getPositionY(), foreign1.getHeight());
+//        flightArea.setPosition(null, foreign2.getPositionX(), foreign2.getPositionY(), foreign2.getHeight());
+//
+//        foreign1.setPositionX(0);
+//        foreign1.setPositionY(2);
+//        foreign2.setPositionX(9);
+//        foreign2.setPositionY(7);
+//        foreign1.setHeight(3);
+//        foreign2.setHeight(3);
+//        flightArea.setPosition(foreign1, foreign1.getPositionX(), foreign1.getPositionY(), foreign1.getHeight());
+//        flightArea.setPosition(foreign2, foreign2.getPositionX(), foreign2.getPositionY(), foreign2.getHeight());
+//        foreign1.setDirection(FlightDirection.DOWN);
+//        foreign2.setDirection(FlightDirection.UP);
+//        foreign1.setSpeed(3);
+//        foreign2.setSpeed(3);
+//
+//
+//        foreign1.start();
+//        foreign2.start();
+
+
+        // endregion
     }
 
     // region private methods
