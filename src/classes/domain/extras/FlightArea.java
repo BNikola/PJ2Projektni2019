@@ -117,11 +117,6 @@ public class FlightArea {
         return flightArea[x][y].getObjectFromHeight(height);
     }
 
-    // TODO: 28.8.2019. remove this
-    public synchronized void setPosition2(Object object, int x, int y, int height) {
-        flightArea[x][y].setObjectToHeight(object, height);
-    }
-
     public synchronized void setPosition(Object object, int x, int y, int height) {
         if (object != null) {
             if (object.equals(flightArea[x][y].getObjectFromHeight(height))) {

@@ -48,3 +48,13 @@
     -fx-text-fill: LAWNGREEN;
     -fx-font-weight: bold;
 }
+
+.MilitaryFighterPlane {
+    -fx-text-fill: #2E86AB;
+    -fx-font-weight: bold;
+}
+
+.MilitaryBomberPlane {
+    -fx-text-fill: #EC9A29;
+    -fx-font-weight: bold;
+}

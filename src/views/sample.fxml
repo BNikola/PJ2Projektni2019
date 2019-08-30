@@ -6,17 +6,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.controllers.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.controllers.Controller">
    <center>
       <ScrollPane BorderPane.alignment="CENTER">
          <content>
             <GridPane fx:id="flightAreaGridPane" alignment="CENTER">
               <columnConstraints>
 <!--                  uncomment this so you can use scenebuilder-->
-<!--                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="10.0" />-->
+                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="10.0" />
               </columnConstraints>
               <rowConstraints>
-<!--                <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="ALWAYS" />-->
+                <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="ALWAYS" />
               </rowConstraints>
             </GridPane>
          </content>
@@ -29,9 +29,10 @@
       <HBox spacing="20.0" BorderPane.alignment="CENTER">
          <children>
              <Button onAction="#test" text="refresh" />
-            <Button fx:id="ShowEventsButton" mnemonicParsing="false" text="Show events" />
+            <Button fx:id="ShowCrashesButton" mnemonicParsing="false" onAction="#showCrashes" text="Show Crashes" />
+            <Button fx:id="ShowForeignButton" mnemonicParsing="false" onAction="#showForeign" text="Show Foreign" />
             <Region HBox.hgrow="ALWAYS" />
-            <Button fx:id="NFZButton" mnemonicParsing="false" text="Activate NFZ" onAction="#activateNFZ"/>
+            <Button fx:id="NFZButton" mnemonicParsing="false" onAction="#activateNFZ" text="Activate NFZ" />
             <Label fx:id="NFZLabel" styleClass="NFZLabel" text="NFZ is OFF">
                <HBox.margin>
                   <Insets top="5.0" />
@@ -43,17 +44,28 @@
    <bottom>
       <VBox spacing="20.0">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+            <VBox spacing="20.0">
                <children>
-                  <Label styleClass="FirefightingHelicopter" text="FirefightingHelicopter" />
-                  <Label layoutX="10.0" layoutY="10.0" styleClass="PassengerHelicopter" text="PassengerHelicopter" />
-                  <Label layoutX="38.0" layoutY="10.0" styleClass="TransportHelicopter" text="TransportHelicopter" />
-                  <Label layoutX="66.0" layoutY="10.0" styleClass="FirefightingPlane" text="FirefightingPlane" />
-                  <Label layoutX="94.0" layoutY="10.0" styleClass="PassengerPlane" text="PassengerPlane" />
-                  <Label layoutX="122.0" layoutY="10.0" styleClass="TransportPlane" text="TransportPlane" />
-                  <Label layoutX="150.0" layoutY="10.0" text="Label" />
+                  <HBox spacing="20.0">
+                     <children>
+                        <Label layoutX="150.0" layoutY="10.0" text="Civilian" />
+                        <Label styleClass="FirefightingHelicopter" text="FirefightingHelicopter" />
+                        <Label layoutX="10.0" layoutY="10.0" styleClass="PassengerHelicopter" text="PassengerHelicopter" />
+                        <Label layoutX="38.0" layoutY="10.0" styleClass="TransportHelicopter" text="TransportHelicopter" />
+                        <Label layoutX="66.0" layoutY="10.0" styleClass="FirefightingPlane" text="FirefightingPlane" />
+                        <Label layoutX="94.0" layoutY="10.0" styleClass="PassengerPlane" text="PassengerPlane" />
+                        <Label layoutX="122.0" layoutY="10.0" styleClass="TransportPlane" text="TransportPlane" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="20.0">
+                     <children>
+                        <Label text="Military" />
+                        <Label layoutX="10.0" layoutY="10.0" styleClass="MilitaryFighterPlane" text="MilitaryFighterPlane" />
+                        <Label layoutX="38.0" layoutY="10.0" styleClass="MilitaryBomberPlane" text="MilitaryBomberPlane" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
+            </VBox>
             <HBox>
                <children>
                   <Label fx:id="newEventLabel" text="Label" BorderPane.alignment="CENTER" />

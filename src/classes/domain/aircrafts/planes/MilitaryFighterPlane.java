@@ -23,7 +23,6 @@ public class MilitaryFighterPlane extends Aircraft {
      */
     private int position;
 
-    // TODO: 29.8.2019. add escort and position in constructor
     // region Constructors
     public MilitaryFighterPlane(String aircraftId, boolean foreign, Integer height, String model, int speed) {
         super(aircraftId, foreign, height, model, speed);
@@ -275,4 +274,3 @@ public class MilitaryFighterPlane extends Aircraft {
         }
     }
 }
-// TODO: 24.8.2019. implement run

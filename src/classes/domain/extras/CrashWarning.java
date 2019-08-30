@@ -11,22 +11,32 @@ public class CrashWarning implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String details;
+    private String crashed1;
+    private String crashed2;
     private Date timeOfCrash;
     private String positionOfCrash;
 
-    public CrashWarning(String details, Date timeOfCrash, String positionOfCrash) {
-        this.details = details;
+    public CrashWarning(String crashed1, String crashed2, Date timeOfCrash, String positionOfCrash) {
+        this.crashed1 = crashed1;
+        this.crashed2 = crashed2;
         this.timeOfCrash = timeOfCrash;
         this.positionOfCrash = positionOfCrash;
     }
 
-    public String getDetails() {
-        return details;
+    public String getCrashed1() {
+        return crashed1;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public void setCrashed1(String crashed1) {
+        this.crashed1 = crashed1;
+    }
+
+    public String getCrashed2() {
+        return crashed2;
+    }
+
+    public void setCrashed2(String crashed2) {
+        this.crashed2 = crashed2;
     }
 
     public Date getTimeOfCrash() {
@@ -47,6 +57,6 @@ public class CrashWarning implements Serializable {
 
     @Override
     public String toString() {
-        return "Position: " + positionOfCrash + "\nTime: " + timeOfCrash + "\nDetails:\n" + details;
+        return "Position: " + positionOfCrash + "\nTime: " + timeOfCrash + "\nCrashed:\n" + crashed1 + "\nCrashed:\n" + crashed2;
     }
 }

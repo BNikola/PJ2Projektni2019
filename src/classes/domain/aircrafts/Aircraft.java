@@ -279,19 +279,6 @@ public class Aircraft extends Thread {
 
     // endregion
 
-    // todo - remove characteristics maybe - check parsing then
-    @Override
-    public String toString() {
-        return "[" + positionX + "-" + positionY + "]" +
-                ", aircraftId=" + aircraftId +
-                ", height=" + height +
-                ", foreign=" + foreign +
-                ", characteristics=" + characteristics +
-                ", speed=" + speed +
-                ", direction=" + direction;
-    }
-
-
     // region Private methods
     private void move() {
         switch (direction) {
@@ -491,7 +478,19 @@ public class Aircraft extends Thread {
         }
     }
 
+    // todo - remove characteristics maybe - check parsing then
+    @Override
+    public String toString() {
+        return "[" + positionX + "-" + positionY + "]" +
+                ", aircraftId=" + aircraftId +
+                ", height=" + height +
+                ", foreign=" + foreign +
+                ", characteristics=" + characteristics +
+                ", speed=" + speed +
+                ", direction=" + direction;
+    }
+
     public String printCrash() {
-        return aircraftId + ":" + foreign;
+        return aircraftId + ":" + foreign + ":" + speed;
     }
 }

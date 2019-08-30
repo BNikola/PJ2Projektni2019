@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.controllers.CrashController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.controllers.CrashController">
    <top>
       <HBox BorderPane.alignment="CENTER">
          <children>
@@ -21,11 +21,25 @@
          </padding>
       </HBox>
    </top>
-   <right>
-      <ScrollPane fx:id="scrollPane" prefViewportWidth="800.0" BorderPane.alignment="CENTER">
-         <content>
-            <ListView fx:id="crashDetailsListView" BorderPane.alignment="CENTER" />
-         </content>
-      </ScrollPane>
-   </right>
+   <center>
+      <TableView fx:id="crashTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="positionColumn" minWidth="50.0" prefWidth="200.0" text="Position" />
+            <TableColumn fx:id="crashedOneColumn" minWidth="50.0" prefWidth="200.0" text="Crashed 1" />
+            <TableColumn fx:id="crashedTwoColumn" minWidth="50.0" prefWidth="200.0" text="Crashed 2" />
+          <TableColumn fx:id="crashedDateColumn" minWidth="50.0" prefWidth="200.0" text="Crash Date" />
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox spacing="10.0">
+         <children>
+            <Label text="Details:" BorderPane.alignment="CENTER" />
+            <Label text="AircraftId : Foreign : Speed : Type of aircraft" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
+   </bottom>
 </BorderPane>

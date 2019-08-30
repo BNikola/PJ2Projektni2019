@@ -1,5 +1,6 @@
 package classes.controllers;
 
+import classes.AirTrafficControl;
 import classes.Radar;
 import classes.domain.extras.AlertBox;
 import classes.domain.extras.FileWatcher;
@@ -8,9 +9,12 @@ import classes.simulator.Simulator;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.ColumnConstraints;
@@ -20,16 +24,23 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 
 public class Controller implements Initializable {
 
     public static Controller app;
+    @FXML
+    private Button ShowCrashesButton;
+    @FXML
+    private Button ShowForeignButton;
     @FXML
     private Button NFZButton;
     @FXML
@@ -52,6 +63,53 @@ public class Controller implements Initializable {
             }
         }
     }
+
+
+    public void showCrashes(ActionEvent actionEvent) {
+//        Platform.runLater(() -> {
+            try {
+                System.out.println();
+                Parent root = FXMLLoader.load(getClass().getResource("../../views/crashWarning.fxml"));
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                stage.setScene(scene);
+                stage.setTitle("Crash details");
+
+                scene.getWindow().setOnCloseRequest(e -> {
+                    e.consume();
+                    stage.close();
+                });
+
+                stage.show();
+            } catch (IOException ex) {
+                AirTrafficControl.LOGGER.log(Level.SEVERE, ex.toString(), ex);
+            }
+//        });
+    }
+
+
+    public void showForeign(ActionEvent actionEvent) {
+        try {
+            System.out.println();
+            Parent root = FXMLLoader.load(getClass().getResource("../../views/foreignView.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.setTitle("Foreign details");
+
+            scene.getWindow().setOnCloseRequest(e -> {
+                e.consume();
+                stage.close();
+            });
+
+            stage.show();
+        } catch (IOException ex) {
+            AirTrafficControl.LOGGER.log(Level.SEVERE, ex.toString(), ex);
+        }
+    }
+
 
 
 
@@ -102,6 +160,20 @@ public class Controller implements Initializable {
                     case "TransportPlane":
                         t.setFill(Color.LAWNGREEN);
                         break;
+                    case "MilitaryFighterPlane":
+                        if (split[3].contains("false")) {
+                            t.setFill(Color.web("#2E86AB"));
+                        } else {
+                            t.setFill(Color.web("#075070"));
+                        }
+                        break;
+                    case "MilitaryBomberPlane":
+                        if (split[3].contains("false")) {
+                            t.setFill(Color.web("#EC9A29"));
+                        } else {
+                            t.setFill(Color.web("#C67400"));
+                        }
+                        break;
                     default:
                         t.setFill(Color.BLACK);
                 }
@@ -146,12 +218,12 @@ public class Controller implements Initializable {
     public void activateNFZ(ActionEvent actionEvent) {
         System.out.println("NFZ is activated " + Simulator.flightArea.isNoFlight());
         if (Simulator.flightArea.isNoFlight()) {
-            NFZLabel.setText("NFZ is ON");
-            NFZLabel.setTextFill(Color.RED);
-            Simulator.flightArea.setNoFlight(false);
-        } else {
             NFZLabel.setText("NFZ is OFF");
             NFZLabel.setTextFill(Color.GREEN);
+            Simulator.flightArea.setNoFlight(false);
+        } else {
+            NFZLabel.setText("NFZ is ON");
+            NFZLabel.setTextFill(Color.RED);
             Simulator.flightArea.setNoFlight(true);
         }
     }
@@ -165,4 +237,5 @@ public class Controller implements Initializable {
             AlertBox.display("Crash detected", crashDetails);
         });
     }
+
 }
