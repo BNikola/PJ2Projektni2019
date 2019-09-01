@@ -472,8 +472,10 @@ public class Aircraft extends Thread {
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
+        } else if (!(obj instanceof Aircraft)) {
+            return false;
         } else {
-            Aircraft a = (Aircraft) obj; // TODO: 18.8.2019. maybe change this to some superclass of Aircraft and Rocket
+            Aircraft a = (Aircraft) obj;
             return height.equals(a.height);
         }
     }

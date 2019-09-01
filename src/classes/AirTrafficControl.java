@@ -22,7 +22,6 @@ public class AirTrafficControl extends Application {
     public static final Properties PROPERTIES = new Properties();
     public static final Logger LOGGER = Logger.getLogger("Logger");
 
-    // TODO: 17.8.2019. maybe add constructor and member for no flight
     // endregion
 
     // region Static block for logger

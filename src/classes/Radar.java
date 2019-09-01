@@ -3,13 +3,10 @@ package classes;
 import classes.controllers.Controller;
 import classes.domain.aircrafts.Aircraft;
 import classes.domain.extras.CrashWarning;
-import classes.domain.extras.FileWatcher;
 import classes.domain.extras.FlightArea;
 import classes.domain.extras.ForeignWatcher;
 import classes.simulator.Simulator;
-import javafx.event.ActionEvent;
 
-import javax.swing.text.DateFormatter;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -161,10 +158,5 @@ public class Radar extends Thread {
             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
         Controller.displayCrash(crashWarning.toString());
-    }
-
-    public static void main(String[] args) {
-        Radar r = new Radar();
-        r.run();
     }
 }

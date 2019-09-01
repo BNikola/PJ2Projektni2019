@@ -10,6 +10,8 @@ import classes.domain.extras.ConfigWatcher;
 import classes.domain.extras.FlightArea;
 import classes.domain.extras.FlightDirection;
 import classes.domain.extras.Height;
+import classes.domain.rockets.HailRocket;
+import classes.domain.rockets.MilitaryRocket;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -303,12 +305,40 @@ public class Simulator extends Thread {
 //        Simulator.isNFZ = true;
 //        b.changeDirection();
 //        b.start();
-        a.start();
-        fighter1.start();
-        fighter2.start();
+//        a.start();
+//        fighter1.start();
+//        fighter2.start();
         System.out.println("---------------------------------");
         System.out.println(flightArea);
         System.out.println("---------------------------------");
+        System.out.println();
+
+        MilitaryRocket mr1 = new MilitaryRocket(randomAlphaNumeric(4), 3, 3, 2);
+        mr1.setPositionX(6);
+        mr1.setPositionY(6);
+        mr1.setDirection(FlightDirection.UP);
+        s.flightArea.setPosition(mr1, mr1.getPositionX(), mr1.getPositionY(), mr1.getHeight());
+
+        HailRocket hr = new HailRocket(randomAlphaNumeric(4), 2, 5, 1);
+        hr.setPositionX(6);
+        hr.setPositionY(6);
+        hr.setDirection(FlightDirection.UP);
+        s.flightArea.setPosition(hr, hr.getPositionX(), hr.getPositionY(), hr.getHeight());
+
+        System.out.println("---------------------------------");
+        System.out.println(flightArea);
+        System.out.println("---------------------------------");
+        System.out.println();
+
+        mr1.start();
+        hr.start();
+
+        try {
+            mr1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         if (s.configWatcher.isChange()) {
             System.out.println("change detected");
         }

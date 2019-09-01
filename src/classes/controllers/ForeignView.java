@@ -12,8 +12,6 @@ import java.util.ResourceBundle;
 
 public class ForeignView implements Initializable {
 
-    // TODO: 30.8.2019. Prettify this
-
     @FXML
     private ListView foreignList;
 
