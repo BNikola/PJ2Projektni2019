@@ -140,7 +140,6 @@ public class Controller implements Initializable {
             sp.getChildren().add(display);
             Platform.runLater(() -> {
                 Text t = (Text) ((VBox) flightAreaGridPane.getChildren().get(x + y * FlightArea.getSizeY())).getChildren().get(0);
-                // TODO: 16.8.2019. - add military planes
                 switch (category) {
                     case "FirefightingHelicopter":
                         t.setFill(Color.DARKRED);

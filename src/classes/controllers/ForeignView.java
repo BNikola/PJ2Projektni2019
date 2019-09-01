@@ -24,7 +24,7 @@ public class ForeignView implements Initializable {
         // list of foreign aircrafts
         foreignAircrafts = FXCollections.observableArrayList();
         loadDetectedForeignAircrafts(foreignAircrafts);
-        foreignList.getItems().add(foreignAircrafts);
+        foreignList.getItems().addAll(foreignAircrafts);
     }
 
     private void loadDetectedForeignAircrafts(ObservableList<String> list) {

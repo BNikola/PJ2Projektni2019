@@ -71,5 +71,4 @@ public class AirTrafficControl extends Application {
 
     // TODO: 18.8.2019. Remove unecessary code from everything (Aircraft, FlightArea, Field...)
     // TODO: 20.8.2019. Add rocket movement
-    // TODO: 21.8.2019. Add  show details of events
 }

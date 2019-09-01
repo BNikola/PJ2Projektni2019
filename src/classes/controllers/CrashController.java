@@ -16,7 +16,6 @@ import java.util.logging.Level;
 
 public class CrashController implements Initializable {
 
-    // TODO: 21.8.2019. remake this for  listing all crashes
     @FXML
     private TableView<CrashWarning> crashTable;
     @FXML

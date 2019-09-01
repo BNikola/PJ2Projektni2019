@@ -58,3 +58,7 @@
     -fx-text-fill: #EC9A29;
     -fx-font-weight: bold;
 }
+
+#newEventLabel {
+    -fx-text-fill: #DB504A;
+}
