@@ -1,2 +1,519 @@
-[4-0], aircraftId=2XKRPK, height=5, foreign=false, characteristics={}, speed=2, direction=DOWN, MilitaryFighterPlane
-[4-2], aircraftId=SREFC2, height=5, foreign=false, characteristics={}, speed=2, direction=DOWN, MilitaryFighterPlane
+[0-2], aircraftId=JQH4YO, height=2, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerHelicopter, numberOfSeats=6
+[0-3], aircraftId=K4Q53Y, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerHelicopter, numberOfSeats=4
+[0-51], aircraftId=3WKVB6, height=2, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=3
+[0-92], aircraftId=T6G40U, height=3, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingPlane, waterCapacity=300
+[0-98], aircraftId=A6Z8BI, height=4, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerHelicopter, numberOfSeats=2
+[0-98], aircraftId=FHZO9B, height=5, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportHelicopter, maxCargoWeight=215
+[1-1], aircraftId=DI6XTV, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=952
+[1-2], aircraftId=MNDA0X, height=1, foreign=false, characteristics={}, speed=2, direction=DOWN, TransportHelicopter, maxCargoWeight=301
+[1-2], aircraftId=CS6ZDZ, height=3, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportHelicopter, maxCargoWeight=383
+[1-3], aircraftId=DQ655R, height=3, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportPlane, maxCargoWeight=916
+[1-6], aircraftId=PO52KM, height=1, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingPlane, waterCapacity=496
+[1-6], aircraftId=5302Q9, height=4, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportHelicopter, maxCargoWeight=173
+[1-7], aircraftId=0DG9WT, height=4, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportPlane, maxCargoWeight=1014
+[1-8], aircraftId=M0NZ61, height=4, foreign=false, characteristics={}, speed=2, direction=DOWN, TransportPlane, maxCargoWeight=972
+[1-9], aircraftId=NK27N4, height=1, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingPlane, waterCapacity=699
+[1-9], aircraftId=GQ4N1S, height=4, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportPlane, maxCargoWeight=444
+[1-11], aircraftId=DGMCP8, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportPlane, maxCargoWeight=195
+[1-16], aircraftId=5JHQ74, height=1, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingHelicopter, waterCapacity=164
+[1-22], aircraftId=DON4XI, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingHelicopter, waterCapacity=183
+[1-23], aircraftId=8AVR30, height=1, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingPlane, waterCapacity=180
+[1-25], aircraftId=7B95ZL, height=5, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerHelicopter, numberOfSeats=4
+[1-28], aircraftId=BMFFKQ, height=0, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=82, maxWeight=1839
+[1-32], aircraftId=0KGZOH, height=3, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerPlane, numberOfSeats=185, maxWeight=1502
+[1-34], aircraftId=BJ4AIK, height=4, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingHelicopter, waterCapacity=279
+[1-39], aircraftId=265IMK, height=2, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportPlane, maxCargoWeight=414
+[1-40], aircraftId=TWK9SR, height=0, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerPlane, numberOfSeats=153, maxWeight=1258
+[1-41], aircraftId=V7XIT7, height=0, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportHelicopter, maxCargoWeight=323
+[1-42], aircraftId=2442S0, height=2, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerPlane, numberOfSeats=100, maxWeight=288
+[1-42], aircraftId=EDP9JH, height=4, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=4
+[1-45], aircraftId=W3KC17, height=5, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportPlane, maxCargoWeight=806
+[1-52], aircraftId=95DJ2Q, height=4, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerPlane, numberOfSeats=25, maxWeight=1838
+[1-53], aircraftId=UR2HH9, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerPlane, numberOfSeats=153, maxWeight=928
+[1-58], aircraftId=B03LGO, height=5, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerPlane, numberOfSeats=80, maxWeight=835
+[1-60], aircraftId=2B3XRO, height=2, foreign=false, characteristics={}, speed=2, direction=DOWN, TransportPlane, maxCargoWeight=1051
+[1-63], aircraftId=ZS88XC, height=0, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingPlane, waterCapacity=475
+[1-68], aircraftId=NT9GQ3, height=4, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=4
+[1-69], aircraftId=20STDZ, height=4, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingHelicopter, waterCapacity=60
+[1-73], aircraftId=G7Q0L3, height=2, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerPlane, numberOfSeats=34, maxWeight=732
+[1-75], aircraftId=4EX2L7, height=4, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportHelicopter, maxCargoWeight=416
+[1-76], aircraftId=NADC9B, height=0, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerPlane, numberOfSeats=104, maxWeight=1452
+[1-77], aircraftId=LL2ZLU, height=4, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=7
+[1-80], aircraftId=VIC5E8, height=1, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=5
+[1-82], aircraftId=P5YI17, height=0, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingHelicopter, waterCapacity=343
+[1-88], aircraftId=55VTME, height=1, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerHelicopter, numberOfSeats=7
+[1-89], aircraftId=25AZ6V, height=0, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerPlane, numberOfSeats=102, maxWeight=235
+[1-89], aircraftId=GBUVJO, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingHelicopter, waterCapacity=298
+[1-98], aircraftId=XY8PDT, height=4, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportPlane, maxCargoWeight=201
+[2-1], aircraftId=CO214K, height=4, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerPlane, numberOfSeats=98, maxWeight=3029
+[2-2], aircraftId=8E9ATR, height=5, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportHelicopter, maxCargoWeight=222
+[2-3], aircraftId=EPBWWU, height=5, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerPlane, numberOfSeats=190, maxWeight=3088
+[2-5], aircraftId=KQ4EBX, height=4, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportHelicopter, maxCargoWeight=224
+[2-13], aircraftId=Z8ZKZM, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=5
+[2-13], aircraftId=54YNON, height=5, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerHelicopter, numberOfSeats=5
+[2-15], aircraftId=LYOT37, height=5, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerHelicopter, numberOfSeats=4
+[2-17], aircraftId=R449K3, height=4, foreign=false, characteristics={}, speed=1, direction=DOWN, FirefightingPlane, waterCapacity=652
+[2-18], aircraftId=TWMRRH, height=3, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=199, maxWeight=839
+[2-19], aircraftId=3JUC2M, height=1, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportHelicopter, maxCargoWeight=396
+[2-20], aircraftId=IZ40OP, height=4, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportHelicopter, maxCargoWeight=56
+[2-24], aircraftId=DM75K2, height=1, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportPlane, maxCargoWeight=670
+[2-26], aircraftId=1CQZRJ, height=1, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerPlane, numberOfSeats=25, maxWeight=2643
+[2-27], aircraftId=RHOYS1, height=0, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=64, maxWeight=1155
+[2-31], aircraftId=Y5547O, height=3, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerPlane, numberOfSeats=109, maxWeight=932
+[2-34], aircraftId=XUTSF3, height=0, foreign=false, characteristics={}, speed=1, direction=DOWN, FirefightingHelicopter, waterCapacity=219
+[2-36], aircraftId=D5CGMS, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerPlane, numberOfSeats=57, maxWeight=1851
+[2-39], aircraftId=ENRC3F, height=0, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerPlane, numberOfSeats=131, maxWeight=303
+[2-39], aircraftId=69CDDM, height=4, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=148, maxWeight=2267
+[2-40], aircraftId=FW0L9I, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=3
+[2-42], aircraftId=LS6S8A, height=5, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingHelicopter, waterCapacity=190
+[2-44], aircraftId=4RXIEW, height=4, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportPlane, maxCargoWeight=320
+[2-44], aircraftId=8R5K64, height=5, foreign=false, characteristics={}, speed=1, direction=DOWN, FirefightingPlane, waterCapacity=145
+[2-45], aircraftId=8638W1, height=2, foreign=false, characteristics={}, speed=2, direction=DOWN, TransportHelicopter, maxCargoWeight=198
+[2-49], aircraftId=JG6EBZ, height=5, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerHelicopter, numberOfSeats=6
+[2-50], aircraftId=JAZO3B, height=5, foreign=false, characteristics={}, speed=2, direction=DOWN, TransportPlane, maxCargoWeight=279
+[2-52], aircraftId=EZBDJX, height=0, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingHelicopter, waterCapacity=246
+[2-52], aircraftId=WLET8U, height=2, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportPlane, maxCargoWeight=371
+[2-53], aircraftId=KJTYHV, height=2, foreign=false, characteristics={}, speed=2, direction=DOWN, TransportHelicopter, maxCargoWeight=375
+[2-56], aircraftId=BPSA9U, height=1, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerPlane, numberOfSeats=15, maxWeight=136
+[2-58], aircraftId=U9PJFB, height=0, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportPlane, maxCargoWeight=294
+[2-58], aircraftId=NFRLXD, height=1, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportHelicopter, maxCargoWeight=265
+[2-58], aircraftId=HKEI46, height=2, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportPlane, maxCargoWeight=329
+[2-60], aircraftId=3CD6QQ, height=3, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=146, maxWeight=175
+[2-66], aircraftId=O6U407, height=3, foreign=false, characteristics={}, speed=2, direction=DOWN, TransportPlane, maxCargoWeight=604
+[2-70], aircraftId=2UBRXX, height=3, foreign=false, characteristics={}, speed=1, direction=DOWN, FirefightingPlane, waterCapacity=146
+[2-72], aircraftId=3C7DLV, height=0, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=229, maxWeight=2643
+[2-74], aircraftId=XCE0G4, height=3, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerPlane, numberOfSeats=66, maxWeight=592
+[2-78], aircraftId=KEIYTH, height=2, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerPlane, numberOfSeats=38, maxWeight=679
+[2-84], aircraftId=UFWZ1Q, height=1, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingPlane, waterCapacity=527
+[2-87], aircraftId=GH8H0I, height=4, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingHelicopter, waterCapacity=274
+[2-91], aircraftId=IWESC0, height=1, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportHelicopter, maxCargoWeight=440
+[2-91], aircraftId=74SMK1, height=4, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=6
+[2-92], aircraftId=TF9UQL, height=3, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportPlane, maxCargoWeight=846
+[2-95], aircraftId=YQRF55, height=1, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerHelicopter, numberOfSeats=3
+[2-97], aircraftId=YGEMPJ, height=1, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerPlane, numberOfSeats=227, maxWeight=1536
+[2-97], aircraftId=C47T2L, height=5, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerPlane, numberOfSeats=35, maxWeight=103
+[2-99], aircraftId=PCNS2M, height=2, foreign=false, characteristics={}, speed=1, direction=DOWN, FirefightingHelicopter, waterCapacity=299
+[3-0], aircraftId=8E3Q0E, height=0, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingPlane, waterCapacity=656
+[3-0], aircraftId=Q70ZZV, height=4, foreign=false, characteristics={}, speed=1, direction=DOWN, FirefightingHelicopter, waterCapacity=171
+[3-1], aircraftId=5PRE4F, height=3, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportHelicopter, maxCargoWeight=378
+[3-4], aircraftId=JL803M, height=0, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=239, maxWeight=480
+[3-5], aircraftId=OZ5W4H, height=1, foreign=false, characteristics={}, speed=1, direction=DOWN, FirefightingPlane, waterCapacity=333
+[3-15], aircraftId=9O30K4, height=4, foreign=false, characteristics={}, speed=2, direction=DOWN, TransportPlane, maxCargoWeight=471
+[3-17], aircraftId=7E5YOT, height=2, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportPlane, maxCargoWeight=736
+[3-23], aircraftId=0A4P48, height=2, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportPlane, maxCargoWeight=877
+[3-24], aircraftId=JTAERX, height=2, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerHelicopter, numberOfSeats=7
+[3-36], aircraftId=RK7WA2, height=2, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingPlane, waterCapacity=106
+[3-41], aircraftId=UT75B9, height=2, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerHelicopter, numberOfSeats=7
+[3-46], aircraftId=7KZD2N, height=5, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerPlane, numberOfSeats=238, maxWeight=163
+[3-49], aircraftId=CYU2Z7, height=1, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingHelicopter, waterCapacity=313
+[3-51], aircraftId=6YJZYM, height=4, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=36, maxWeight=633
+[3-57], aircraftId=MGHD6U, height=0, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportPlane, maxCargoWeight=664
+[3-58], aircraftId=7VWJJ5, height=2, foreign=false, characteristics={}, speed=1, direction=DOWN, FirefightingPlane, waterCapacity=489
+[3-63], aircraftId=32J7AZ, height=2, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportPlane, maxCargoWeight=492
+[3-66], aircraftId=0DS56T, height=1, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=4
+[3-66], aircraftId=J11ZKQ, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportHelicopter, maxCargoWeight=321
+[3-68], aircraftId=GD5JHV, height=0, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingHelicopter, waterCapacity=124
+[3-70], aircraftId=MZD80I, height=3, foreign=false, characteristics={}, speed=3, direction=DOWN, PassengerHelicopter, numberOfSeats=2
+[3-72], aircraftId=C8J4TX, height=2, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportPlane, maxCargoWeight=590
+[3-97], aircraftId=LC0JP7, height=1, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingPlane, waterCapacity=194
+[3-98], aircraftId=YG1HSM, height=4, foreign=false, characteristics={}, speed=3, direction=DOWN, FirefightingPlane, waterCapacity=558
+[4-1], aircraftId=NK3XQB, height=0, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportHelicopter, maxCargoWeight=330
+[4-2], aircraftId=3NJI7Q, height=2, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportHelicopter, maxCargoWeight=236
+[4-6], aircraftId=PA92QK, height=1, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingPlane, waterCapacity=272
+[4-9], aircraftId=C40MO5, height=2, foreign=false, characteristics={}, speed=2, direction=DOWN, TransportHelicopter, maxCargoWeight=77
+[4-9], aircraftId=EEYGR5, height=3, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingHelicopter, waterCapacity=146
+[4-9], aircraftId=UMP2KD, height=4, foreign=false, characteristics={}, speed=2, direction=DOWN, TransportPlane, maxCargoWeight=965
+[4-22], aircraftId=1I8U8E, height=5, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingHelicopter, waterCapacity=120
+[4-38], aircraftId=UB8E19, height=0, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerHelicopter, numberOfSeats=7
+[4-43], aircraftId=20ZTHS, height=3, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerPlane, numberOfSeats=166, maxWeight=1184
+[4-53], aircraftId=01XN54, height=3, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportHelicopter, maxCargoWeight=400
+[4-62], aircraftId=Y5T4NL, height=0, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingPlane, waterCapacity=301
+[4-69], aircraftId=25ZZHJ, height=3, foreign=false, characteristics={}, speed=2, direction=DOWN, FirefightingHelicopter, waterCapacity=249
+[4-74], aircraftId=2ZZVCX, height=5, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerHelicopter, numberOfSeats=5
+[4-78], aircraftId=EPWKEM, height=1, foreign=false, characteristics={}, speed=1, direction=DOWN, FirefightingHelicopter, waterCapacity=79
+[4-90], aircraftId=CPD859, height=2, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportPlane, maxCargoWeight=234
+[4-93], aircraftId=7YWTUX, height=2, foreign=false, characteristics={}, speed=2, direction=DOWN, PassengerHelicopter, numberOfSeats=4
+[4-96], aircraftId=SB2SOI, height=4, foreign=false, characteristics={}, speed=3, direction=LEFT, TransportPlane, maxCargoWeight=322
+[4-98], aircraftId=D3X6RA, height=5, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportPlane, maxCargoWeight=138
+[5-17], aircraftId=NCLVJH, height=3, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=221, maxWeight=1287
+[5-21], aircraftId=N7BRAG, height=3, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=130, maxWeight=2682
+[5-71], aircraftId=QI6FIH, height=0, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=131, maxWeight=789
+[5-75], aircraftId=FRH0DI, height=5, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportHelicopter, maxCargoWeight=266
+[6-1], aircraftId=0YJ182, height=2, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=657
+[6-1], aircraftId=2KRY1D, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingHelicopter, waterCapacity=276
+[6-39], aircraftId=O0N1RK, height=3, foreign=false, characteristics={}, speed=1, direction=DOWN, FirefightingHelicopter, waterCapacity=298
+[6-79], aircraftId=0IYT5U, height=1, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerHelicopter, numberOfSeats=4
+[6-97], aircraftId=J75JWO, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingHelicopter, waterCapacity=105
+[6-98], aircraftId=J8M6KJ, height=4, foreign=false, characteristics={}, speed=3, direction=LEFT, FirefightingHelicopter, waterCapacity=160
+[7-1], aircraftId=U7CUGS, height=3, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingHelicopter, waterCapacity=225
+[7-3], aircraftId=QTUB4Z, height=0, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportPlane, maxCargoWeight=116
+[7-4], aircraftId=JQLGKV, height=2, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingHelicopter, waterCapacity=312
+[7-26], aircraftId=CHPLVB, height=2, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerPlane, numberOfSeats=36, maxWeight=2051
+[7-44], aircraftId=LRA8WQ, height=5, foreign=false, characteristics={}, speed=1, direction=DOWN, PassengerHelicopter, numberOfSeats=4
+[7-65], aircraftId=BPBKC7, height=2, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportHelicopter, maxCargoWeight=99
+[7-68], aircraftId=BKDLM7, height=3, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportHelicopter, maxCargoWeight=363
+[7-89], aircraftId=IB9WMM, height=2, foreign=false, characteristics={}, speed=1, direction=DOWN, TransportHelicopter, maxCargoWeight=215
+[7-91], aircraftId=CC8SJK, height=1, foreign=false, characteristics={}, speed=1, direction=DOWN, FirefightingPlane, waterCapacity=699
+[7-92], aircraftId=PNGZR4, height=3, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerPlane, numberOfSeats=193, maxWeight=1117
+[7-96], aircraftId=OQB4FN, height=5, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingHelicopter, waterCapacity=112
+[8-1], aircraftId=J77LAW, height=5, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingPlane, waterCapacity=405
+[8-2], aircraftId=IBTYFC, height=0, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingPlane, waterCapacity=283
+[8-2], aircraftId=GZMC9J, height=4, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingHelicopter, waterCapacity=136
+[8-3], aircraftId=D6N0B9, height=0, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingHelicopter, waterCapacity=265
+[8-97], aircraftId=G56FV0, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, FirefightingPlane, waterCapacity=412
+[9-1], aircraftId=CZ2S36, height=1, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerHelicopter, numberOfSeats=6
+[9-4], aircraftId=4XE6IS, height=1, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportPlane, maxCargoWeight=170
+[9-94], aircraftId=N9ZN7L, height=5, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerPlane, numberOfSeats=103, maxWeight=1558
+[10-1], aircraftId=MSLJE8, height=2, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=849
+[10-96], aircraftId=8VSFW1, height=3, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportPlane, maxCargoWeight=297
+[10-97], aircraftId=GG6XMS, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingHelicopter, waterCapacity=88
+[11-4], aircraftId=AJEORX, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingPlane, waterCapacity=323
+[12-95], aircraftId=JERT63, height=3, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerHelicopter, numberOfSeats=4
+[12-96], aircraftId=IGLQWO, height=1, foreign=false, characteristics={}, speed=3, direction=LEFT, TransportHelicopter, maxCargoWeight=281
+[12-98], aircraftId=4EAF34, height=2, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerPlane, numberOfSeats=40, maxWeight=1739
+[12-98], aircraftId=IALDHZ, height=3, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingHelicopter, waterCapacity=92
+[13-2], aircraftId=VRNQEE, height=5, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=348
+[14-1], aircraftId=HVD0GI, height=1, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerHelicopter, numberOfSeats=3
+[14-2], aircraftId=N82TLR, height=2, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportHelicopter, maxCargoWeight=432
+[15-1], aircraftId=BUPHUX, height=2, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingPlane, waterCapacity=114
+[15-2], aircraftId=HTM8D5, height=3, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerHelicopter, numberOfSeats=2
+[15-3], aircraftId=ZNYZRB, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerPlane, numberOfSeats=6, maxWeight=623
+[15-4], aircraftId=22Q14K, height=1, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportHelicopter, maxCargoWeight=151
+[15-97], aircraftId=U2PH8P, height=5, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerPlane, numberOfSeats=85, maxWeight=930
+[15-98], aircraftId=24G7ZH, height=2, foreign=false, characteristics={}, speed=3, direction=LEFT, FirefightingHelicopter, waterCapacity=300
+[16-1], aircraftId=UM0G7A, height=0, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerHelicopter, numberOfSeats=5
+[16-1], aircraftId=EJVX3N, height=5, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingPlane, waterCapacity=342
+[16-2], aircraftId=XI8K15, height=1, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingHelicopter, waterCapacity=90
+[16-4], aircraftId=BN8R9X, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerPlane, numberOfSeats=12, maxWeight=2353
+[16-92], aircraftId=PQSF88, height=4, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportPlane, maxCargoWeight=972
+[16-97], aircraftId=HTQUFH, height=1, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerHelicopter, numberOfSeats=2
+[17-1], aircraftId=BL6PIG, height=2, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerPlane, numberOfSeats=113, maxWeight=2330
+[17-2], aircraftId=SN76VI, height=1, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerPlane, numberOfSeats=146, maxWeight=2902
+[17-2], aircraftId=I4TRJQ, height=4, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportPlane, maxCargoWeight=1041
+[17-2], aircraftId=NYLOL5, height=5, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportHelicopter, maxCargoWeight=378
+[18-1], aircraftId=0JRF4S, height=2, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerHelicopter, numberOfSeats=4
+[18-2], aircraftId=KNZNWK, height=1, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportHelicopter, maxCargoWeight=163
+[18-5], aircraftId=6IJ1IG, height=0, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingPlane, waterCapacity=381
+[18-97], aircraftId=ZCT73Z, height=0, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerHelicopter, numberOfSeats=6
+[19-95], aircraftId=M280PM, height=3, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingHelicopter, waterCapacity=87
+[19-97], aircraftId=5IPC9P, height=1, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportHelicopter, maxCargoWeight=183
+[21-7], aircraftId=D4VBOF, height=4, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportPlane, maxCargoWeight=595
+[22-1], aircraftId=FBRA9N, height=0, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingHelicopter, waterCapacity=198
+[22-2], aircraftId=YM63J1, height=2, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerPlane, numberOfSeats=40, maxWeight=2208
+[22-96], aircraftId=PBKTAW, height=5, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportHelicopter, maxCargoWeight=346
+[22-97], aircraftId=VNSIOJ, height=4, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportHelicopter, maxCargoWeight=251
+[23-1], aircraftId=8QOGHD, height=3, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=313
+[23-4], aircraftId=6YHX02, height=5, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingHelicopter, waterCapacity=154
+[23-95], aircraftId=PJ0RM9, height=2, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingHelicopter, waterCapacity=133
+[24-92], aircraftId=X0UC2N, height=2, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportHelicopter, maxCargoWeight=307
+[25-1], aircraftId=6P7ZB6, height=1, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingPlane, waterCapacity=561
+[26-2], aircraftId=FWM1HY, height=0, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingPlane, waterCapacity=138
+[26-96], aircraftId=1ULJ73, height=1, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerPlane, numberOfSeats=23, maxWeight=2144
+[26-97], aircraftId=7IXJVP, height=0, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingPlane, waterCapacity=484
+[27-92], aircraftId=55FPFO, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportHelicopter, maxCargoWeight=270
+[27-96], aircraftId=9K780X, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingPlane, waterCapacity=179
+[27-97], aircraftId=3ZDUGP, height=4, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerHelicopter, numberOfSeats=4
+[28-4], aircraftId=Y6OK36, height=4, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingHelicopter, waterCapacity=173
+[29-1], aircraftId=0K5O3Y, height=1, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingPlane, waterCapacity=180
+[29-1], aircraftId=IF1DU7, height=3, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerHelicopter, numberOfSeats=5
+[29-7], aircraftId=Q2PZJI, height=3, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportHelicopter, maxCargoWeight=331
+[29-97], aircraftId=5IHD9M, height=3, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportHelicopter, maxCargoWeight=360
+[29-98], aircraftId=W12P6H, height=4, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerPlane, numberOfSeats=243, maxWeight=2076
+[30-1], aircraftId=E9CC69, height=5, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingHelicopter, waterCapacity=71
+[30-2], aircraftId=KQ2DXG, height=4, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingPlane, waterCapacity=243
+[30-96], aircraftId=EX0BXZ, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, TransportHelicopter, maxCargoWeight=235
+[30-97], aircraftId=EPSGBB, height=4, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportPlane, maxCargoWeight=626
+[31-1], aircraftId=XX24U8, height=2, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingHelicopter, waterCapacity=235
+[31-92], aircraftId=P6QK2M, height=2, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportPlane, maxCargoWeight=875
+[31-93], aircraftId=NU5W0P, height=1, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerPlane, numberOfSeats=201, maxWeight=2758
+[32-2], aircraftId=4N3HL8, height=0, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerHelicopter, numberOfSeats=7
+[32-92], aircraftId=355J2W, height=1, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingHelicopter, waterCapacity=201
+[32-96], aircraftId=2A9VJ5, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingPlane, waterCapacity=276
+[32-97], aircraftId=CNWEIT, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerPlane, numberOfSeats=68, maxWeight=841
+[32-98], aircraftId=M62193, height=4, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingHelicopter, waterCapacity=79
+[33-2], aircraftId=DQGARY, height=4, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingHelicopter, waterCapacity=112
+[34-95], aircraftId=FOS34A, height=2, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingPlane, waterCapacity=664
+[34-97], aircraftId=JGYNOV, height=0, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerPlane, numberOfSeats=140, maxWeight=850
+[35-1], aircraftId=GDXIVS, height=2, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportHelicopter, maxCargoWeight=336
+[35-2], aircraftId=KK1LSB, height=0, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingHelicopter, waterCapacity=128
+[35-98], aircraftId=1IZCKZ, height=0, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerHelicopter, numberOfSeats=3
+[36-94], aircraftId=K9ZIVO, height=1, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerHelicopter, numberOfSeats=5
+[36-96], aircraftId=LKJ4GK, height=2, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportPlane, maxCargoWeight=539
+[37-2], aircraftId=KUA0H8, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportHelicopter, maxCargoWeight=220
+[37-3], aircraftId=X3OFAE, height=0, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerHelicopter, numberOfSeats=4
+[37-95], aircraftId=K4CRGA, height=2, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingHelicopter, waterCapacity=253
+[38-1], aircraftId=A1YIX9, height=4, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingPlane, waterCapacity=370
+[38-3], aircraftId=8IVPJ1, height=3, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=734
+[38-92], aircraftId=LOWZLK, height=5, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerHelicopter, numberOfSeats=7
+[39-4], aircraftId=D60POC, height=0, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingPlane, waterCapacity=305
+[40-98], aircraftId=HVIKOS, height=3, foreign=false, characteristics={}, speed=3, direction=LEFT, TransportHelicopter, maxCargoWeight=195
+[41-1], aircraftId=8TOJMZ, height=1, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingPlane, waterCapacity=508
+[42-1], aircraftId=IRAT1K, height=4, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportHelicopter, maxCargoWeight=399
+[42-92], aircraftId=JKOB48, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerHelicopter, numberOfSeats=7
+[43-1], aircraftId=8HS1QH, height=3, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerHelicopter, numberOfSeats=7
+[43-1], aircraftId=RM040I, height=5, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=404
+[43-94], aircraftId=86FQKB, height=3, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingPlane, waterCapacity=538
+[43-98], aircraftId=5C9L9G, height=5, foreign=false, characteristics={}, speed=3, direction=LEFT, TransportHelicopter, maxCargoWeight=388
+[44-1], aircraftId=2SA853, height=4, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportPlane, maxCargoWeight=278
+[44-2], aircraftId=CQFMQ4, height=3, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportHelicopter, maxCargoWeight=357
+[44-3], aircraftId=IPI7WR, height=2, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerHelicopter, numberOfSeats=2
+[44-94], aircraftId=ETX6J1, height=1, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportPlane, maxCargoWeight=533
+[44-98], aircraftId=JR70CY, height=4, foreign=false, characteristics={}, speed=3, direction=LEFT, FirefightingHelicopter, waterCapacity=242
+[46-96], aircraftId=XOBJRN, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerPlane, numberOfSeats=33, maxWeight=288
+[47-2], aircraftId=75YOYQ, height=1, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingPlane, waterCapacity=298
+[48-2], aircraftId=SN0PRM, height=2, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerPlane, numberOfSeats=145, maxWeight=1563
+[48-98], aircraftId=69X302, height=1, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingHelicopter, waterCapacity=136
+[50-97], aircraftId=62J6AF, height=4, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportPlane, maxCargoWeight=390
+[50-98], aircraftId=MOGJD3, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, TransportHelicopter, maxCargoWeight=405
+[51-1], aircraftId=ZRGPPL, height=0, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerHelicopter, numberOfSeats=3
+[51-7], aircraftId=OBHXKI, height=0, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportHelicopter, maxCargoWeight=398
+[51-92], aircraftId=RXM7FB, height=3, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingPlane, waterCapacity=613
+[51-96], aircraftId=KFG85M, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerPlane, numberOfSeats=8, maxWeight=114
+[51-97], aircraftId=AC3G1R, height=2, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingPlane, waterCapacity=577
+[51-97], aircraftId=VE33FR, height=3, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerHelicopter, numberOfSeats=6
+[52-1], aircraftId=8NOJOL, height=0, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerPlane, numberOfSeats=122, maxWeight=1722
+[52-1], aircraftId=5LE61C, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerPlane, numberOfSeats=169, maxWeight=1871
+[52-2], aircraftId=0RLLP7, height=2, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerHelicopter, numberOfSeats=4
+[52-92], aircraftId=0PS1OT, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingHelicopter, waterCapacity=132
+[52-97], aircraftId=Y2M63Q, height=1, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerPlane, numberOfSeats=143, maxWeight=952
+[55-1], aircraftId=98RQM0, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=961
+[55-2], aircraftId=MDGLLD, height=0, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingPlane, waterCapacity=665
+[56-7], aircraftId=P40XWE, height=1, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportHelicopter, maxCargoWeight=370
+[56-95], aircraftId=KBSBLL, height=4, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingHelicopter, waterCapacity=268
+[56-97], aircraftId=QPVJXZ, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingHelicopter, waterCapacity=140
+[56-97], aircraftId=2VHNCC, height=5, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportPlane, maxCargoWeight=733
+[57-1], aircraftId=VNCM9C, height=1, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingPlane, waterCapacity=436
+[57-3], aircraftId=7DP5PK, height=4, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingHelicopter, waterCapacity=242
+[57-96], aircraftId=3UIF4J, height=1, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingHelicopter, waterCapacity=76
+[57-96], aircraftId=P2K9RW, height=5, foreign=false, characteristics={}, speed=3, direction=LEFT, TransportHelicopter, maxCargoWeight=326
+[57-97], aircraftId=Q7DTU7, height=2, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerHelicopter, numberOfSeats=3
+[58-2], aircraftId=XLAOKZ, height=2, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=528
+[59-2], aircraftId=Y00TVM, height=1, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerPlane, numberOfSeats=57, maxWeight=1870
+[59-95], aircraftId=WCW6SL, height=1, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportHelicopter, maxCargoWeight=192
+[59-98], aircraftId=Q5437F, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerPlane, numberOfSeats=220, maxWeight=3069
+[59-98], aircraftId=EO8EAO, height=5, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingHelicopter, waterCapacity=263
+[60-1], aircraftId=UH1Y7Z, height=5, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportHelicopter, maxCargoWeight=165
+[60-5], aircraftId=7ZW57U, height=4, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingPlane, waterCapacity=677
+[60-94], aircraftId=27MTOG, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingHelicopter, waterCapacity=124
+[60-94], aircraftId=2NW81W, height=4, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerHelicopter, numberOfSeats=4
+[60-97], aircraftId=H3AWNJ, height=4, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingHelicopter, waterCapacity=282
+[60-98], aircraftId=66X1BP, height=2, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportPlane, maxCargoWeight=969
+[62-4], aircraftId=COBXA2, height=0, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerPlane, numberOfSeats=141, maxWeight=218
+[62-98], aircraftId=J1ZLUE, height=5, foreign=false, characteristics={}, speed=3, direction=LEFT, TransportHelicopter, maxCargoWeight=376
+[63-98], aircraftId=MC2SE9, height=4, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerPlane, numberOfSeats=30, maxWeight=1272
+[64-98], aircraftId=322GSP, height=3, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingHelicopter, waterCapacity=331
+[65-1], aircraftId=FWX0DW, height=2, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportHelicopter, maxCargoWeight=132
+[65-98], aircraftId=OCXPU7, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, FirefightingPlane, waterCapacity=464
+[66-1], aircraftId=NTCQ28, height=5, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingPlane, waterCapacity=170
+[66-95], aircraftId=SQQHOY, height=2, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingPlane, waterCapacity=648
+[67-2], aircraftId=JDT0KV, height=4, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportPlane, maxCargoWeight=414
+[67-3], aircraftId=2548WR, height=5, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingHelicopter, waterCapacity=239
+[67-95], aircraftId=6J71XL, height=2, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportHelicopter, maxCargoWeight=276
+[67-97], aircraftId=5S70A5, height=3, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportPlane, maxCargoWeight=197
+[68-2], aircraftId=9B3N3S, height=1, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerPlane, numberOfSeats=89, maxWeight=2123
+[68-5], aircraftId=LV7WQ6, height=3, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerHelicopter, numberOfSeats=5
+[69-1], aircraftId=4107MN, height=2, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingPlane, waterCapacity=425
+[69-3], aircraftId=IM6JED, height=2, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportHelicopter, maxCargoWeight=345
+[69-97], aircraftId=IGGWGW, height=2, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerPlane, numberOfSeats=188, maxWeight=2109
+[69-97], aircraftId=23TOJL, height=4, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerHelicopter, numberOfSeats=3
+[70-92], aircraftId=3SVFXI, height=3, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingHelicopter, waterCapacity=241
+[70-92], aircraftId=IPHLD7, height=4, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerPlane, numberOfSeats=106, maxWeight=2462
+[71-1], aircraftId=I9NE3P, height=2, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingHelicopter, waterCapacity=227
+[71-1], aircraftId=8WKIZR, height=3, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerPlane, numberOfSeats=213, maxWeight=421
+[71-2], aircraftId=WNN15P, height=0, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportHelicopter, maxCargoWeight=269
+[71-97], aircraftId=G76F5W, height=4, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerPlane, numberOfSeats=157, maxWeight=1176
+[71-98], aircraftId=3LX523, height=0, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportPlane, maxCargoWeight=806
+[72-3], aircraftId=QUFZU8, height=0, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingPlane, waterCapacity=423
+[73-97], aircraftId=ZE7J6M, height=1, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingPlane, waterCapacity=557
+[75-1], aircraftId=AXEWM5, height=0, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportPlane, maxCargoWeight=1019
+[75-4], aircraftId=JKN2CX, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingHelicopter, waterCapacity=311
+[76-2], aircraftId=6T0S55, height=2, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerPlane, numberOfSeats=44, maxWeight=497
+[77-2], aircraftId=UJY8GP, height=0, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerPlane, numberOfSeats=28, maxWeight=834
+[77-2], aircraftId=52WOSP, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingPlane, waterCapacity=264
+[78-95], aircraftId=ITWY8H, height=4, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportPlane, maxCargoWeight=891
+[78-96], aircraftId=L43Z2X, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerHelicopter, numberOfSeats=2
+[79-92], aircraftId=ZXBCZ1, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerPlane, numberOfSeats=160, maxWeight=204
+[79-95], aircraftId=7IFJ1S, height=3, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerPlane, numberOfSeats=57, maxWeight=535
+[79-98], aircraftId=D46J7B, height=5, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportHelicopter, maxCargoWeight=446
+[80-1], aircraftId=VJ53ZB, height=3, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerHelicopter, numberOfSeats=4
+[80-2], aircraftId=74O0KM, height=1, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerHelicopter, numberOfSeats=2
+[80-7], aircraftId=XCG6P1, height=0, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportHelicopter, maxCargoWeight=421
+[80-97], aircraftId=8623YE, height=2, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerHelicopter, numberOfSeats=3
+[81-1], aircraftId=U3VU1E, height=2, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportHelicopter, maxCargoWeight=401
+[81-7], aircraftId=S1C0FJ, height=4, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingPlane, waterCapacity=277
+[81-92], aircraftId=V0RUOR, height=1, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingHelicopter, waterCapacity=154
+[81-97], aircraftId=010WO4, height=2, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerPlane, numberOfSeats=115, maxWeight=1168
+[82-4], aircraftId=AWTYAU, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportHelicopter, maxCargoWeight=240
+[82-6], aircraftId=D285W0, height=0, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportPlane, maxCargoWeight=1059
+[82-92], aircraftId=O6K3GG, height=3, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportHelicopter, maxCargoWeight=154
+[82-98], aircraftId=S3PIC9, height=3, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerHelicopter, numberOfSeats=4
+[83-1], aircraftId=48GNUM, height=1, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerHelicopter, numberOfSeats=2
+[83-3], aircraftId=9YBB5T, height=3, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportPlane, maxCargoWeight=1038
+[84-2], aircraftId=534VIU, height=0, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerHelicopter, numberOfSeats=7
+[84-2], aircraftId=N2XOOI, height=3, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=557
+[84-97], aircraftId=A4Z97K, height=4, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerHelicopter, numberOfSeats=7
+[84-97], aircraftId=X122B7, height=5, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportHelicopter, maxCargoWeight=320
+[86-1], aircraftId=6EQ5QP, height=0, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportPlane, maxCargoWeight=540
+[86-1], aircraftId=KZ5CHU, height=4, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportHelicopter, maxCargoWeight=318
+[86-1], aircraftId=PZRN45, height=5, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingPlane, waterCapacity=292
+[86-2], aircraftId=FU9HJQ, height=0, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingHelicopter, waterCapacity=264
+[86-2], aircraftId=HAWXSQ, height=5, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerPlane, numberOfSeats=230, maxWeight=1356
+[86-5], aircraftId=TLLFAM, height=4, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerPlane, numberOfSeats=111, maxWeight=1710
+[86-7], aircraftId=E40BV1, height=2, foreign=false, characteristics={}, speed=1, direction=RIGHT, FirefightingHelicopter, waterCapacity=260
+[88-2], aircraftId=DRXB98, height=5, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerPlane, numberOfSeats=155, maxWeight=770
+[88-92], aircraftId=ABAAJL, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, PassengerPlane, numberOfSeats=214, maxWeight=389
+[89-1], aircraftId=AOUJCY, height=1, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingPlane, waterCapacity=468
+[89-2], aircraftId=LUSS6U, height=3, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerHelicopter, numberOfSeats=2
+[89-2], aircraftId=6A0R40, height=5, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportPlane, maxCargoWeight=202
+[89-3], aircraftId=JCN4P9, height=5, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerPlane, numberOfSeats=41, maxWeight=529
+[89-96], aircraftId=R169SU, height=4, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportPlane, maxCargoWeight=350
+[91-3], aircraftId=3MKTZI, height=4, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerPlane, numberOfSeats=51, maxWeight=2068
+[91-95], aircraftId=EWAUYK, height=3, foreign=false, characteristics={}, speed=1, direction=LEFT, TransportHelicopter, maxCargoWeight=410
+[91-96], aircraftId=0WUS2Z, height=0, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerPlane, numberOfSeats=65, maxWeight=2257
+[91-97], aircraftId=8HJRP1, height=1, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerPlane, numberOfSeats=135, maxWeight=748
+[91-98], aircraftId=LY7TWA, height=3, foreign=false, characteristics={}, speed=3, direction=LEFT, FirefightingHelicopter, waterCapacity=178
+[92-1], aircraftId=5J5JHF, height=1, foreign=false, characteristics={}, speed=3, direction=RIGHT, FirefightingHelicopter, waterCapacity=225
+[92-1], aircraftId=GKRNNG, height=5, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportHelicopter, maxCargoWeight=151
+[92-3], aircraftId=KYF91Q, height=3, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerPlane, numberOfSeats=80, maxWeight=1047
+[92-4], aircraftId=UJO9P3, height=0, foreign=false, characteristics={}, speed=2, direction=RIGHT, FirefightingPlane, waterCapacity=686
+[92-15], aircraftId=HTIJKK, height=2, foreign=false, characteristics={}, speed=1, direction=UP, TransportHelicopter, maxCargoWeight=103
+[92-35], aircraftId=1A2AGW, height=3, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingHelicopter, waterCapacity=348
+[92-63], aircraftId=JCB8ZY, height=3, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingPlane, waterCapacity=382
+[92-82], aircraftId=34FTAD, height=3, foreign=false, characteristics={}, speed=1, direction=UP, PassengerPlane, numberOfSeats=17, maxWeight=2894
+[92-85], aircraftId=1LAMFX, height=5, foreign=false, characteristics={}, speed=1, direction=UP, TransportPlane, maxCargoWeight=254
+[92-88], aircraftId=47AHMU, height=0, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingPlane, waterCapacity=393
+[92-88], aircraftId=7NIJVA, height=1, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingHelicopter, waterCapacity=211
+[93-50], aircraftId=KAL50M, height=2, foreign=false, characteristics={}, speed=1, direction=UP, PassengerHelicopter, numberOfSeats=3
+[93-97], aircraftId=TKZTHC, height=0, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerPlane, numberOfSeats=107, maxWeight=1814
+[94-1], aircraftId=0HJ54B, height=4, foreign=false, characteristics={}, speed=3, direction=RIGHT, PassengerPlane, numberOfSeats=42, maxWeight=2997
+[94-8], aircraftId=6OHQP3, height=2, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingPlane, waterCapacity=640
+[94-26], aircraftId=M6W8GH, height=2, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingHelicopter, waterCapacity=143
+[94-49], aircraftId=UKYJOD, height=0, foreign=false, characteristics={}, speed=1, direction=UP, PassengerHelicopter, numberOfSeats=5
+[94-57], aircraftId=6H7FRL, height=0, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingPlane, waterCapacity=314
+[94-89], aircraftId=AA3W8O, height=3, foreign=false, characteristics={}, speed=1, direction=UP, TransportPlane, maxCargoWeight=266
+[95-3], aircraftId=321HT9, height=1, foreign=false, characteristics={}, speed=1, direction=RIGHT, PassengerHelicopter, numberOfSeats=2
+[95-6], aircraftId=WD00AC, height=3, foreign=false, characteristics={}, speed=2, direction=UP, PassengerHelicopter, numberOfSeats=4
+[95-8], aircraftId=9KY4HF, height=5, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingHelicopter, waterCapacity=142
+[95-25], aircraftId=RDKZPQ, height=3, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingPlane, waterCapacity=188
+[95-39], aircraftId=LRVWQD, height=4, foreign=false, characteristics={}, speed=1, direction=UP, PassengerHelicopter, numberOfSeats=2
+[95-57], aircraftId=640UEW, height=4, foreign=false, characteristics={}, speed=1, direction=UP, PassengerHelicopter, numberOfSeats=4
+[95-70], aircraftId=YXNJCD, height=3, foreign=false, characteristics={}, speed=1, direction=UP, TransportHelicopter, maxCargoWeight=73
+[95-77], aircraftId=V61UY9, height=5, foreign=false, characteristics={}, speed=2, direction=UP, PassengerPlane, numberOfSeats=193, maxWeight=1435
+[95-82], aircraftId=DLZAHP, height=3, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingPlane, waterCapacity=111
+[95-83], aircraftId=YFI20W, height=4, foreign=false, characteristics={}, speed=1, direction=UP, TransportPlane, maxCargoWeight=254
+[95-85], aircraftId=TRZ5HY, height=3, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingPlane, waterCapacity=249
+[95-86], aircraftId=RRRWDB, height=2, foreign=false, characteristics={}, speed=2, direction=UP, PassengerPlane, numberOfSeats=219, maxWeight=2354
+[95-86], aircraftId=88EGYG, height=3, foreign=false, characteristics={}, speed=2, direction=UP, PassengerHelicopter, numberOfSeats=2
+[95-90], aircraftId=XZPMIW, height=4, foreign=false, characteristics={}, speed=2, direction=UP, PassengerPlane, numberOfSeats=35, maxWeight=2733
+[95-94], aircraftId=RQDVEY, height=1, foreign=false, characteristics={}, speed=1, direction=UP, PassengerPlane, numberOfSeats=233, maxWeight=548
+[95-97], aircraftId=5PLPP6, height=0, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingHelicopter, waterCapacity=50
+[96-1], aircraftId=8PWMBC, height=0, foreign=false, characteristics={}, speed=2, direction=UP, TransportPlane, maxCargoWeight=405
+[96-1], aircraftId=137SW1, height=2, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportPlane, maxCargoWeight=254
+[96-1], aircraftId=W2Q0Y6, height=5, foreign=false, characteristics={}, speed=2, direction=RIGHT, PassengerHelicopter, numberOfSeats=2
+[96-15], aircraftId=IEHO0T, height=3, foreign=false, characteristics={}, speed=2, direction=UP, PassengerPlane, numberOfSeats=154, maxWeight=232
+[96-17], aircraftId=BUI1KT, height=1, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingHelicopter, waterCapacity=169
+[96-27], aircraftId=FZLTK8, height=2, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingPlane, waterCapacity=136
+[96-31], aircraftId=IYNYPO, height=2, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingPlane, waterCapacity=114
+[96-34], aircraftId=YG1T4Q, height=4, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingPlane, waterCapacity=448
+[96-35], aircraftId=CSL0HL, height=2, foreign=false, characteristics={}, speed=3, direction=UP, PassengerHelicopter, numberOfSeats=2
+[96-42], aircraftId=JH5PG5, height=0, foreign=false, characteristics={}, speed=1, direction=UP, TransportPlane, maxCargoWeight=267
+[96-47], aircraftId=9KRI2W, height=3, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=328
+[96-52], aircraftId=E6QMHZ, height=5, foreign=false, characteristics={}, speed=2, direction=UP, PassengerHelicopter, numberOfSeats=2
+[96-54], aircraftId=ZNVERE, height=0, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingHelicopter, waterCapacity=164
+[96-69], aircraftId=TIYUA3, height=5, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=111
+[96-76], aircraftId=RSB6UI, height=5, foreign=false, characteristics={}, speed=1, direction=UP, PassengerHelicopter, numberOfSeats=7
+[96-78], aircraftId=EDMW3V, height=2, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingHelicopter, waterCapacity=144
+[96-88], aircraftId=IUH4J4, height=2, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingHelicopter, waterCapacity=104
+[96-95], aircraftId=X8K3ZM, height=1, foreign=false, characteristics={}, speed=1, direction=UP, TransportHelicopter, maxCargoWeight=235
+[96-97], aircraftId=WHZR5X, height=5, foreign=false, characteristics={}, speed=3, direction=LEFT, PassengerHelicopter, numberOfSeats=4
+[96-98], aircraftId=SQO07U, height=1, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportHelicopter, maxCargoWeight=374
+[96-98], aircraftId=C36H12, height=3, foreign=false, characteristics={}, speed=2, direction=UP, PassengerPlane, numberOfSeats=107, maxWeight=2761
+[96-98], aircraftId=94T5RX, height=4, foreign=false, characteristics={}, speed=3, direction=LEFT, FirefightingHelicopter, waterCapacity=192
+[97-3], aircraftId=AC8H9R, height=0, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportHelicopter, maxCargoWeight=303
+[97-5], aircraftId=YC6Y60, height=3, foreign=false, characteristics={}, speed=2, direction=UP, TransportHelicopter, maxCargoWeight=104
+[97-11], aircraftId=MCWRNK, height=4, foreign=false, characteristics={}, speed=2, direction=UP, PassengerPlane, numberOfSeats=33, maxWeight=3096
+[97-14], aircraftId=A2LXI7, height=4, foreign=false, characteristics={}, speed=1, direction=UP, TransportPlane, maxCargoWeight=670
+[97-15], aircraftId=3NJ9JY, height=4, foreign=false, characteristics={}, speed=2, direction=UP, TransportPlane, maxCargoWeight=528
+[97-18], aircraftId=X07C4K, height=1, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingPlane, waterCapacity=531
+[97-19], aircraftId=ZW2JBR, height=0, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingHelicopter, waterCapacity=265
+[97-19], aircraftId=ZC2NL9, height=3, foreign=false, characteristics={}, speed=2, direction=UP, TransportPlane, maxCargoWeight=117
+[97-21], aircraftId=GZT45J, height=1, foreign=false, characteristics={}, speed=2, direction=UP, TransportHelicopter, maxCargoWeight=231
+[97-21], aircraftId=AYSA9O, height=5, foreign=false, characteristics={}, speed=2, direction=UP, TransportHelicopter, maxCargoWeight=191
+[97-25], aircraftId=HX4N04, height=0, foreign=false, characteristics={}, speed=2, direction=UP, PassengerHelicopter, numberOfSeats=7
+[97-28], aircraftId=LCWA5F, height=0, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingHelicopter, waterCapacity=322
+[97-28], aircraftId=NZPDCA, height=2, foreign=false, characteristics={}, speed=1, direction=UP, TransportHelicopter, maxCargoWeight=256
+[97-28], aircraftId=211Z37, height=4, foreign=false, characteristics={}, speed=2, direction=UP, TransportPlane, maxCargoWeight=186
+[97-34], aircraftId=GJPNOM, height=0, foreign=false, characteristics={}, speed=2, direction=UP, TransportPlane, maxCargoWeight=834
+[97-43], aircraftId=G9YJTB, height=2, foreign=false, characteristics={}, speed=3, direction=UP, PassengerPlane, numberOfSeats=189, maxWeight=1071
+[97-45], aircraftId=31WADX, height=2, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingPlane, waterCapacity=200
+[97-45], aircraftId=2H75N7, height=4, foreign=false, characteristics={}, speed=2, direction=UP, TransportPlane, maxCargoWeight=822
+[97-46], aircraftId=4FEHOK, height=3, foreign=false, characteristics={}, speed=1, direction=UP, PassengerPlane, numberOfSeats=10, maxWeight=2846
+[97-48], aircraftId=8JH94O, height=3, foreign=false, characteristics={}, speed=2, direction=UP, PassengerHelicopter, numberOfSeats=2
+[97-48], aircraftId=E7PCM1, height=4, foreign=false, characteristics={}, speed=2, direction=UP, TransportPlane, maxCargoWeight=625
+[97-50], aircraftId=1AUAJB, height=1, foreign=false, characteristics={}, speed=1, direction=UP, TransportHelicopter, maxCargoWeight=197
+[97-50], aircraftId=VE8UFU, height=5, foreign=false, characteristics={}, speed=2, direction=UP, PassengerPlane, numberOfSeats=152, maxWeight=2966
+[97-63], aircraftId=8NF7NI, height=4, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingHelicopter, waterCapacity=327
+[97-65], aircraftId=18ISQ6, height=5, foreign=false, characteristics={}, speed=3, direction=UP, TransportHelicopter, maxCargoWeight=332
+[97-69], aircraftId=NHP187, height=1, foreign=false, characteristics={}, speed=3, direction=UP, PassengerPlane, numberOfSeats=175, maxWeight=889
+[97-70], aircraftId=199OU1, height=1, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingHelicopter, waterCapacity=85
+[97-71], aircraftId=NBX6IP, height=0, foreign=false, characteristics={}, speed=3, direction=UP, PassengerHelicopter, numberOfSeats=2
+[97-71], aircraftId=DWMQUU, height=3, foreign=false, characteristics={}, speed=3, direction=UP, TransportHelicopter, maxCargoWeight=204
+[97-72], aircraftId=219FZW, height=3, foreign=false, characteristics={}, speed=1, direction=UP, PassengerPlane, numberOfSeats=158, maxWeight=2742
+[97-73], aircraftId=NYLBJ0, height=4, foreign=false, characteristics={}, speed=3, direction=UP, TransportPlane, maxCargoWeight=470
+[97-78], aircraftId=I28X7F, height=5, foreign=false, characteristics={}, speed=1, direction=UP, PassengerHelicopter, numberOfSeats=4
+[97-81], aircraftId=A1LCHI, height=1, foreign=false, characteristics={}, speed=2, direction=UP, PassengerPlane, numberOfSeats=233, maxWeight=1466
+[97-81], aircraftId=JOMUQ1, height=2, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingPlane, waterCapacity=351
+[97-83], aircraftId=4AD7AZ, height=3, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingPlane, waterCapacity=457
+[97-90], aircraftId=90QP9G, height=4, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=258
+[97-92], aircraftId=32A54F, height=0, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingPlane, waterCapacity=134
+[97-92], aircraftId=MMFEIQ, height=1, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingPlane, waterCapacity=139
+[97-95], aircraftId=8KCG75, height=1, foreign=false, characteristics={}, speed=2, direction=LEFT, FirefightingPlane, waterCapacity=544
+[97-95], aircraftId=U43E21, height=3, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingPlane, waterCapacity=514
+[97-96], aircraftId=R4DB38, height=4, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=303
+[97-97], aircraftId=605WHF, height=2, foreign=false, characteristics={}, speed=1, direction=UP, TransportPlane, maxCargoWeight=979
+[97-98], aircraftId=X17KRT, height=5, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportHelicopter, maxCargoWeight=344
+[98-0], aircraftId=AIMFOR, height=1, foreign=false, characteristics={}, speed=3, direction=UP, PassengerHelicopter, numberOfSeats=3
+[98-1], aircraftId=WO2AX1, height=3, foreign=false, characteristics={}, speed=2, direction=RIGHT, TransportPlane, maxCargoWeight=944
+[98-4], aircraftId=0UO72S, height=2, foreign=false, characteristics={}, speed=3, direction=UP, TransportPlane, maxCargoWeight=916
+[98-9], aircraftId=MW8O7Y, height=4, foreign=false, characteristics={}, speed=2, direction=UP, PassengerHelicopter, numberOfSeats=2
+[98-13], aircraftId=NN7E5O, height=2, foreign=false, characteristics={}, speed=3, direction=UP, TransportHelicopter, maxCargoWeight=194
+[98-15], aircraftId=VHJNDZ, height=3, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=213
+[98-16], aircraftId=NFNGVT, height=2, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=281
+[98-16], aircraftId=KCURXJ, height=4, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingPlane, waterCapacity=284
+[98-19], aircraftId=8T5ZQF, height=5, foreign=false, characteristics={}, speed=2, direction=UP, TransportHelicopter, maxCargoWeight=249
+[98-20], aircraftId=1UV2NT, height=0, foreign=false, characteristics={}, speed=2, direction=UP, PassengerPlane, numberOfSeats=76, maxWeight=700
+[98-22], aircraftId=PMSSSH, height=4, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingPlane, waterCapacity=303
+[98-24], aircraftId=6QIJUW, height=5, foreign=false, characteristics={}, speed=3, direction=UP, TransportPlane, maxCargoWeight=969
+[98-25], aircraftId=SQQINL, height=4, foreign=false, characteristics={}, speed=3, direction=UP, PassengerHelicopter, numberOfSeats=6
+[98-26], aircraftId=6I7D21, height=1, foreign=false, characteristics={}, speed=3, direction=UP, PassengerPlane, numberOfSeats=157, maxWeight=1542
+[98-28], aircraftId=BLA6XP, height=4, foreign=false, characteristics={}, speed=2, direction=UP, PassengerHelicopter, numberOfSeats=6
+[98-29], aircraftId=PXB6XE, height=3, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingHelicopter, waterCapacity=137
+[98-30], aircraftId=FU86ML, height=2, foreign=false, characteristics={}, speed=3, direction=UP, TransportPlane, maxCargoWeight=535
+[98-30], aircraftId=OTSL5X, height=3, foreign=false, characteristics={}, speed=3, direction=UP, TransportHelicopter, maxCargoWeight=247
+[98-31], aircraftId=W1W1WV, height=3, foreign=false, characteristics={}, speed=3, direction=UP, TransportPlane, maxCargoWeight=174
+[98-36], aircraftId=ZRNG53, height=5, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingHelicopter, waterCapacity=166
+[98-39], aircraftId=IWALIU, height=0, foreign=false, characteristics={}, speed=3, direction=UP, PassengerHelicopter, numberOfSeats=5
+[98-43], aircraftId=6ZIRRY, height=5, foreign=false, characteristics={}, speed=2, direction=UP, PassengerPlane, numberOfSeats=209, maxWeight=1027
+[98-48], aircraftId=EJ8R0C, height=1, foreign=false, characteristics={}, speed=2, direction=UP, PassengerHelicopter, numberOfSeats=5
+[98-50], aircraftId=P535UO, height=3, foreign=false, characteristics={}, speed=3, direction=UP, TransportPlane, maxCargoWeight=413
+[98-51], aircraftId=5GHKLE, height=1, foreign=false, characteristics={}, speed=3, direction=UP, TransportPlane, maxCargoWeight=184
+[98-52], aircraftId=9MNVRH, height=2, foreign=false, characteristics={}, speed=2, direction=UP, TransportHelicopter, maxCargoWeight=92
+[98-53], aircraftId=2SBYTE, height=1, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=304
+[98-57], aircraftId=GKCJ4Z, height=4, foreign=false, characteristics={}, speed=3, direction=UP, PassengerPlane, numberOfSeats=121, maxWeight=2250
+[98-58], aircraftId=4OXEIH, height=0, foreign=false, characteristics={}, speed=3, direction=UP, PassengerPlane, numberOfSeats=238, maxWeight=935
+[98-59], aircraftId=1RP4PR, height=2, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingHelicopter, waterCapacity=218
+[98-59], aircraftId=3GHE0D, height=4, foreign=false, characteristics={}, speed=2, direction=UP, TransportHelicopter, maxCargoWeight=121
+[98-63], aircraftId=ZRTDMH, height=3, foreign=false, characteristics={}, speed=3, direction=UP, PassengerHelicopter, numberOfSeats=2
+[98-72], aircraftId=X2ISSU, height=1, foreign=false, characteristics={}, speed=2, direction=UP, PassengerPlane, numberOfSeats=106, maxWeight=1994
+[98-75], aircraftId=E8VS3H, height=3, foreign=false, characteristics={}, speed=3, direction=UP, PassengerPlane, numberOfSeats=75, maxWeight=2369
+[98-76], aircraftId=O923OU, height=2, foreign=false, characteristics={}, speed=2, direction=UP, TransportPlane, maxCargoWeight=819
+[98-79], aircraftId=LMINGB, height=0, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=272
+[98-82], aircraftId=6VEK2Z, height=3, foreign=false, characteristics={}, speed=3, direction=UP, TransportPlane, maxCargoWeight=309
+[98-87], aircraftId=KYEQ0E, height=4, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingHelicopter, waterCapacity=346
+[98-89], aircraftId=7LRO8D, height=2, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingPlane, waterCapacity=378
+[98-92], aircraftId=AIVE43, height=1, foreign=false, characteristics={}, speed=3, direction=UP, FirefightingPlane, waterCapacity=574
+[98-92], aircraftId=KQUQQP, height=4, foreign=false, characteristics={}, speed=3, direction=UP, PassengerPlane, numberOfSeats=102, maxWeight=2817
+[98-96], aircraftId=YM9JX8, height=3, foreign=false, characteristics={}, speed=2, direction=UP, PassengerHelicopter, numberOfSeats=5
+[98-97], aircraftId=CKIO4F, height=0, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportHelicopter, maxCargoWeight=374
+[98-97], aircraftId=N8WELM, height=2, foreign=false, characteristics={}, speed=1, direction=LEFT, FirefightingPlane, waterCapacity=664
+[98-97], aircraftId=6ABZDQ, height=3, foreign=false, characteristics={}, speed=3, direction=LEFT, TransportPlane, maxCargoWeight=492

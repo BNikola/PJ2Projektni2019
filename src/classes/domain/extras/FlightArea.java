@@ -121,6 +121,7 @@ public class FlightArea {
         if (object != null) {
             if (object.equals(flightArea[x][y].getObjectFromHeight(height))) {
                 crash = true;
+                // TODO: 1.9.2019. Can change this to accomodate Rockets too
                 Aircraft objectFromHeight = (Aircraft) flightArea[x][y].getObjectFromHeight(height);
                 Radar.processCollision(objectFromHeight, (Aircraft)object);
                 objectFromHeight.setCrashed(true);

@@ -3,6 +3,7 @@ package classes.controllers;
 import classes.AirTrafficControl;
 import classes.Radar;
 import classes.domain.extras.AlertBox;
+import classes.domain.extras.BackupCreator;
 import classes.domain.extras.FileWatcher;
 import classes.domain.extras.FlightArea;
 import classes.simulator.Simulator;
@@ -206,11 +207,11 @@ public class Controller implements Initializable {
             }
         });
 
-        System.out.println("From controller");
-        System.out.println(flightAreaGridPane.getColumnCount());
-        System.out.println(flightAreaGridPane.getRowCount());
         FileWatcher fw = new FileWatcher("map.txt", Radar.PATH_TO_FILES);
         fw.start();
+
+        BackupCreator backupCreator = new BackupCreator();
+        backupCreator.start();
 
     }
 
