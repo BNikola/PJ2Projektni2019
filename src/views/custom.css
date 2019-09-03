@@ -44,8 +44,14 @@
     -fx-text-fill: DEEPSKYBLUE;
     -fx-font-weight: bold;
 }
+
 .TransportPlane {
     -fx-text-fill: LAWNGREEN;
+    -fx-font-weight: bold;
+}
+
+.Drone {
+    -fx-text-fill: DARKMAGENTA;
     -fx-font-weight: bold;
 }
 

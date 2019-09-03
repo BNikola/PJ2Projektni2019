@@ -56,6 +56,7 @@
                         <Label layoutX="66.0" layoutY="10.0" styleClass="FirefightingPlane" text="FirefightingPlane" />
                         <Label layoutX="94.0" layoutY="10.0" styleClass="PassengerPlane" text="PassengerPlane" />
                         <Label layoutX="122.0" layoutY="10.0" styleClass="TransportPlane" text="TransportPlane" />
+                        <Label styleClass="Drone" text="Drone" />
                      </children>
                   </HBox>
                   <HBox spacing="20.0">

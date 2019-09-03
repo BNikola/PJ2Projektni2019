@@ -160,6 +160,9 @@ public class Controller implements Initializable {
                     case "TransportPlane":
                         t.setFill(Color.LAWNGREEN);
                         break;
+                    case "Drone":
+                        t.setFill(Color.DARKMAGENTA);
+                        break;
                     case "MilitaryFighterPlane":
                         if (split[3].contains("false")) {
                             t.setFill(Color.web("#2E86AB"));

@@ -2,6 +2,7 @@ package classes.simulator;
 
 import classes.AirTrafficControl;
 import classes.domain.aircrafts.Aircraft;
+import classes.domain.aircrafts.Drone;
 import classes.domain.aircrafts.helicopters.FirefightingHelicopter;
 import classes.domain.aircrafts.helicopters.PassengerHelicopter;
 import classes.domain.aircrafts.helicopters.TransportHelicopter;
@@ -159,7 +160,7 @@ public class Simulator extends Thread {
     // todo - change to private
     public Aircraft generateRandomAircraft() {
         Aircraft aircraft = null;
-        int choice = rand.nextInt(6);
+        int choice = rand.nextInt(7);
         String aircraftId = randomAlphaNumeric(COUNT);
         Integer height = Height.values()[rand.nextInt(Height.values().length)].getHeight();      // getting random height
         String model = "Model";
@@ -195,12 +196,13 @@ public class Simulator extends Thread {
                         aircraftId, false, height, model, speed,
                         rand.nextInt(1000) + 100);
                 break;
+            case 6:
+                aircraft = new Drone(aircraftId, false, height, model, speed);
+                break;
             default:
                 aircraft = new PassengerPlane(
                         aircraftId, false, height, model, speed,
                         rand.nextInt(240) + 5, rand.nextInt(3000) + 100);
-
-                // todo - drone
         }
 
         aircraft.setPositionAndDirection();

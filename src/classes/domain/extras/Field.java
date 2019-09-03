@@ -1,13 +1,6 @@
 package classes.domain.extras;
 
 import classes.domain.aircrafts.Aircraft;
-import classes.domain.aircrafts.Drones;
-import classes.domain.aircrafts.helicopters.FirefightingHelicopter;
-import classes.domain.aircrafts.helicopters.PassengerHelicopter;
-import classes.domain.aircrafts.helicopters.TransportHelicopter;
-import classes.domain.aircrafts.planes.*;
-
-import java.util.Arrays;
 
 public class Field {
     private Object[] heights;

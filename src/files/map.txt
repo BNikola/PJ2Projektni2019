@@ -1,0 +1,7 @@
+[0-8], aircraftId=PP25HB, height=4, foreign=false, characteristics={}, speed=2, direction=UP, PassengerHelicopter, numberOfSeats=6
+[5-0], aircraftId=O1HSOQ, height=1, foreign=false, characteristics={}, speed=2, direction=UP, FirefightingPlane, waterCapacity=667
+[5-2], aircraftId=HHK3ZZ, height=4, foreign=false, characteristics={}, speed=2, direction=LEFT, TransportPlane, maxCargoWeight=317
+[5-3], aircraftId=T4DQF1, height=0, foreign=false, characteristics={}, speed=1, direction=UP, FirefightingHelicopter, waterCapacity=254
+[5-6], aircraftId=NY9CS0, height=2, foreign=false, characteristics={}, speed=1, direction=RIGHT, TransportHelicopter, maxCargoWeight=115
+[8-1], aircraftId=5O139J, height=1, foreign=false, characteristics={}, speed=3, direction=UP, Drone
+[9-0], aircraftId=9YNIQT, height=0, foreign=false, characteristics={}, speed=3, direction=DOWN, TransportHelicopter, maxCargoWeight=228
