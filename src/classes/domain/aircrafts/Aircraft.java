@@ -457,7 +457,7 @@ public class Aircraft extends Thread {
     public static void main(String[] args) {
         Simulator s = new Simulator();
         Aircraft a = s.generateRandomAircraft();
-        Aircraft b = s.generateForeignAircraft();
+        Aircraft b = s.generateMilitaryAircraft(true);
         s.flightArea.setNoFlight(true);
         System.out.println(Simulator.flightArea.isNoFlight());
         System.out.println(b.directionChanged + "->" + !b.directionChanged);

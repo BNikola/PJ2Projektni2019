@@ -210,7 +210,7 @@ public class Simulator extends Thread {
     }
 
     // TODO: 29.8.2019. change to private
-    public Aircraft generateForeignAircraft() {
+    public Aircraft generateMilitaryAircraft(boolean foreign) {
         Aircraft aircraft = null;
         int choice = rand.nextInt(2);
         String aircraftId = randomAlphaNumeric(COUNT);
@@ -220,15 +220,15 @@ public class Simulator extends Thread {
         switch (choice) {
             case 0:
                 aircraft = new MilitaryFighterPlane(
-                        aircraftId, true, height, model, speed);
+                        aircraftId, foreign, height, model, speed);
                 break;
             case 1:
                 aircraft = new MilitaryBomberPlane(
-                        aircraftId, true, height, model, speed);
+                        aircraftId, foreign, height, model, speed);
                 break;
             default:
                 aircraft = new MilitaryFighterPlane(
-                        aircraftId, true, height, model, speed);
+                        aircraftId, foreign, height, model, speed);
         }
 
         aircraft.setPositionAndDirection();
@@ -261,7 +261,7 @@ public class Simulator extends Thread {
 //            }
 //        }
 
-        Aircraft a = s.generateForeignAircraft();
+        Aircraft a = s.generateMilitaryAircraft(true);
         Aircraft b = s.generateRandomAircraft();
         Aircraft c = s.generateRandomAircraft();
         Aircraft d = s.generateRandomAircraft();
@@ -385,11 +385,31 @@ public class Simulator extends Thread {
                 System.out.println("------------------------");
                 System.out.println(foreign);
                 System.out.println("------------------------");
-                Aircraft foreignAricraft = generateForeignAircraft();
+                Aircraft foreignAricraft = generateMilitaryAircraft(true);
                 foreignAricraft.start();
                 System.out.println(foreignAricraft);
                 if (Simulator.aircraftRegistry.containsKey(foreignAricraft.getAircraftId())) {
                     foreign--;
+                }
+                System.out.println("new\n" + aircraftRegistry);
+                try {
+                    sleep(interval);
+                } catch (InterruptedException e) {
+                    AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
+                }
+            }
+
+            while (domestic > 0) {
+                System.out.println(aircraftRegistry);
+                System.out.println("------------------------");
+                System.out.println(domestic);
+                System.out.println("------------------------");
+
+                Aircraft domesticAircraft = generateMilitaryAircraft(false);
+                domesticAircraft.start();
+                System.out.println(domesticAircraft);
+                if (Simulator.aircraftRegistry.containsKey(domesticAircraft.getAircraftId())) {
+                    domestic--;
                 }
                 System.out.println("new\n" + aircraftRegistry);
                 try {
