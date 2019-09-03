@@ -239,127 +239,6 @@ public class Simulator extends Thread {
         return aircraft;
     }
 
-    public static void main(String[] args) {
-//        Simulator s = new Simulator();
-        Simulator s = new Simulator(flightArea);
-        System.out.println(FlightArea.getSizeX());
-        System.out.println(FlightArea.getSizeY());
-        s.configWatcher.start();
-        int i = 0;
-        List<Aircraft> aircrafts = new ArrayList<>();
-//        while (i++ < 30) {
-//        while(i == 0) {
-//            if (s.configWatcher.isChange()) {
-//                interval = Integer.parseInt(s.configWatcher.getOptions().get("interval"));
-//            }
-//            try {
-//                Thread.sleep(interval);
-//                s.generateRandomAircraft().start();
-////                Aircraft a = s.generateRandomAircraft();
-////                aircrafts.add(a);
-////                a.start();
-//            } catch (InterruptedException e) {
-//                AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
-//            }
-//        }
-
-        Aircraft a = s.generateMilitaryAircraft(true);
-        Aircraft b = s.generateRandomAircraft();
-        Aircraft c = s.generateRandomAircraft();
-        Aircraft d = s.generateRandomAircraft();
-        flightArea.setPosition(null, a.getPositionX(), a.getPositionY(), a.getHeight());
-        flightArea.setPosition(null, b.getPositionX(), b.getPositionY(), b.getHeight());
-        flightArea.setPosition(null, c.getPositionX(), c.getPositionY(), c.getHeight());
-        flightArea.setPosition(null, d.getPositionX(), d.getPositionY(), d.getHeight());
-
-        a.setPositionX(6);
-        a.setPositionY(0);
-        a.setDirection(FlightDirection.UP);
-        a.setSpeed(3);
-        a.setHeight(2);
-        b.setPositionX(4);
-        b.setPositionY(0);
-        b.setDirection(FlightDirection.DOWN);
-        b.setHeight(0);
-        c.setPositionX(7);
-        c.setPositionY(7);
-        c.setDirection(FlightDirection.LEFT);
-        d.setPositionX(5);
-        d.setPositionY(5);
-        d.setHeight(2);
-        d.setDirection(FlightDirection.UP);
-        flightArea.setPosition(a, a.getPositionX(), a.getPositionY(), a.getHeight());
-        flightArea.setPosition(b, b.getPositionX(), b.getPositionY(), b.getHeight());
-        flightArea.setPosition(c, c.getPositionX(), c.getPositionY(), c.getHeight());
-        flightArea.setPosition(d, d.getPositionX(), d.getPositionY(), d.getHeight());
-
-        MilitaryFighterPlane fighter1 = generateEscortAircraft(8, 1, (a.getHeight() + 1) % Height.values().length, FlightDirection.UP, a, 1);
-        fighter1.setEscort(true);
-        fighter1.setIntruder(a);
-        fighter1.setPosition(1);
-        MilitaryFighterPlane fighter2 = generateEscortAircraft(8, 0, (a.getHeight() + 1) % Height.values().length, FlightDirection.UP, a, 0);
-        fighter2.setEscort(true);
-        fighter2.setIntruder(a);
-        fighter2.setPosition(0);
-        fighter1.setSpeed(2);
-        fighter2.setSpeed(2);
-
-//        Simulator.isNFZ = true;
-//        b.changeDirection();
-//        b.start();
-//        a.start();
-//        fighter1.start();
-//        fighter2.start();
-        System.out.println("---------------------------------");
-        System.out.println(flightArea);
-        System.out.println("---------------------------------");
-        System.out.println();
-
-        MilitaryRocket mr1 = new MilitaryRocket(randomAlphaNumeric(4), 3, 3, 2);
-        mr1.setPositionX(6);
-        mr1.setPositionY(6);
-        mr1.setDirection(FlightDirection.UP);
-        s.flightArea.setPosition(mr1, mr1.getPositionX(), mr1.getPositionY(), mr1.getHeight());
-
-        HailRocket hr = new HailRocket(randomAlphaNumeric(4), 2, 5, 1);
-        hr.setPositionX(6);
-        hr.setPositionY(6);
-        hr.setDirection(FlightDirection.UP);
-        s.flightArea.setPosition(hr, hr.getPositionX(), hr.getPositionY(), hr.getHeight());
-
-        System.out.println("---------------------------------");
-        System.out.println(flightArea);
-        System.out.println("---------------------------------");
-        System.out.println();
-
-        mr1.start();
-        hr.start();
-
-        try {
-            mr1.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        if (s.configWatcher.isChange()) {
-            System.out.println("change detected");
-        }
-//        System.out.println("A: " + a.getClosestExit() + a);
-//        System.out.println("B: " + b.getClosestExit() + b);
-//        System.out.println("C: " + c.getClosestExit() + c);
-//        System.out.println("D: " + d.getClosestExit() + d);
-        try {
-            a.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        s.configWatcher.interrupt();
-        System.out.println("---------------------------------");
-        System.out.println(flightArea);
-        System.out.println("---------------------------------");
-    }
-
     @Override
     public void run() {
         configWatcher.start();
@@ -370,7 +249,6 @@ public class Simulator extends Thread {
             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
         while (true) {
-//            System.out.println(configWatcher.isChange());
             if (configWatcher.isChange()) {
                 try {
                     interval = Integer.parseInt(configWatcher.getOptions().get("interval"));
@@ -383,17 +261,11 @@ public class Simulator extends Thread {
             }
             // generates foreign aircraft if config file has changed
             while (foreign > 0) {
-                System.out.println(aircraftRegistry);
-                System.out.println("------------------------");
-                System.out.println(foreign);
-                System.out.println("------------------------");
                 Aircraft foreignAricraft = generateMilitaryAircraft(true);
                 foreignAricraft.start();
-                System.out.println(foreignAricraft);
                 if (Simulator.aircraftRegistry.containsKey(foreignAricraft.getAircraftId())) {
                     foreign--;
                 }
-                System.out.println("new\n" + aircraftRegistry);
                 try {
                     sleep(interval);
                 } catch (InterruptedException e) {
@@ -402,25 +274,17 @@ public class Simulator extends Thread {
             }
 
             while (domestic > 0) {
-                System.out.println(aircraftRegistry);
-                System.out.println("------------------------");
-                System.out.println(domestic);
-                System.out.println("------------------------");
-
                 Aircraft domesticAircraft = generateMilitaryAircraft(false);
                 domesticAircraft.start();
-                System.out.println(domesticAircraft);
                 if (Simulator.aircraftRegistry.containsKey(domesticAircraft.getAircraftId())) {
                     domestic--;
                 }
-                System.out.println("new\n" + aircraftRegistry);
                 try {
                     sleep(interval);
                 } catch (InterruptedException e) {
                     AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
                 }
             }
-//            System.out.println("NF Simulator: " + flightArea.isNoFlight() + " foreign: " + foreign);
             if (!flightArea.isNoFlight()) {
                 try {
                     sleep(interval);
@@ -430,75 +294,6 @@ public class Simulator extends Thread {
                 }
             }
         }
-        // endregion
-
-         // region Testing
-
-//        if (configWatcher.isChange()) {
-//            System.out.println(configWatcher.getOptions().get("interval"));
-//            System.out.println(configWatcher.getOptions().get("foreign"));
-//            System.out.println(configWatcher.getOptions().get("domestic"));
-//            configWatcher.setChange(false);
-//        }
-//        Aircraft a = this.generateRandomAircraft();
-//        Aircraft b = this.generateRandomAircraft();
-//        Aircraft c = this.generateRandomAircraft();
-//        Aircraft d = this.generateRandomAircraft();
-//        flightArea.setPosition(null, a.getPositionX(), a.getPositionY(), a.getHeight());
-//        flightArea.setPosition(null, b.getPositionX(), b.getPositionY(), b.getHeight());
-//        flightArea.setPosition(null, c.getPositionX(), c.getPositionY(), c.getHeight());
-//        flightArea.setPosition(null, d.getPositionX(), d.getPositionY(), d.getHeight());
-//
-//        a.setPositionX(6);
-//        a.setPositionY(5);
-//        a.setDirection(FlightDirection.UP);
-//        a.setSpeed(2);
-//        a.setHeight(2);
-//        b.setPositionX(8);
-//        b.setPositionY(4);
-//        b.setDirection(FlightDirection.DOWN);
-//        b.setHeight(1);
-//        c.setPositionX(7);
-//        c.setPositionY(7);
-//        c.setDirection(FlightDirection.LEFT);
-//        d.setPositionX(5);
-//        d.setPositionY(5);
-//        d.setDirection(FlightDirection.UP);
-//        flightArea.setPosition(a, a.getPositionX(), a.getPositionY(), a.getHeight());
-//        flightArea.setPosition(b, b.getPositionX(), b.getPositionY(), b.getHeight());
-//        flightArea.setPosition(c, c.getPositionX(), c.getPositionY(), c.getHeight());
-//        flightArea.setPosition(d, d.getPositionX(), d.getPositionY(), d.getHeight());
-//
-//        a.start();
-//        try {
-//            sleep(4000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        Aircraft foreign1 = generateForeignAircraft();
-//        Aircraft foreign2 = generateForeignAircraft();
-//        flightArea.setPosition(null, foreign1.getPositionX(), foreign1.getPositionY(), foreign1.getHeight());
-//        flightArea.setPosition(null, foreign2.getPositionX(), foreign2.getPositionY(), foreign2.getHeight());
-//
-//        foreign1.setPositionX(0);
-//        foreign1.setPositionY(2);
-//        foreign2.setPositionX(9);
-//        foreign2.setPositionY(7);
-//        foreign1.setHeight(3);
-//        foreign2.setHeight(3);
-//        flightArea.setPosition(foreign1, foreign1.getPositionX(), foreign1.getPositionY(), foreign1.getHeight());
-//        flightArea.setPosition(foreign2, foreign2.getPositionX(), foreign2.getPositionY(), foreign2.getHeight());
-//        foreign1.setDirection(FlightDirection.DOWN);
-//        foreign2.setDirection(FlightDirection.UP);
-//        foreign1.setSpeed(3);
-//        foreign2.setSpeed(3);
-//
-//
-//        foreign1.start();
-//        foreign2.start();
-
-
         // endregion
     }
 

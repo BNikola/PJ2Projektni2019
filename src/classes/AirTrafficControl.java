@@ -1,6 +1,8 @@
 package classes;
 
 import classes.domain.extras.ConfirmBox;
+import classes.domain.extras.FlightArea;
+import classes.simulator.Simulator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -40,10 +42,10 @@ public class AirTrafficControl extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("views/sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/sample.fxml"));
         window = primaryStage;
         window.setTitle("Air Traffic Control");
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root, 1000, 800);
         scene.getStylesheets().add("views/custom.css");
         window.setScene(scene);
         window.show();
@@ -56,7 +58,6 @@ public class AirTrafficControl extends Application {
     }
 
     private void closeProgram() {
-        // TODO: 17.8.2019. add termination of Simulator and Radar
         boolean answer = ConfirmBox.display("Alert!", "Are you sure you want to exit?");
         if (answer) {
             window.close();
@@ -64,7 +65,11 @@ public class AirTrafficControl extends Application {
     }
 
     public static void main(String[] args) {
-        // TODO: 17.8.2019. add Simulator and Radar
+        FlightArea flightArea = new FlightArea();
+        Simulator s = new Simulator(flightArea);
+        Radar r = new Radar(flightArea);
+        s.start();
+        r.start();
         launch(args);
     }
 

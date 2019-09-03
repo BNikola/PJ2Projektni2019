@@ -72,7 +72,6 @@ public class FileWatcher extends Thread {
 
             System.out.println("Watch service registered for dir: " + dir.getFileName());
 
-            // todo - ad parameter to stop this
             while (true) {
                 WatchKey key;
                 try {

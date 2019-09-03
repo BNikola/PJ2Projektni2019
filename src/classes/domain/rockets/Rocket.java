@@ -94,7 +94,6 @@ public class Rocket extends Thread {
         while(!doneMoving) {
             move();
             if (crashed) {
-                System.out.println("Srusio se" + this);
                 doneMoving = true;
             } else {
                 switch (direction) {
@@ -127,7 +126,6 @@ public class Rocket extends Thread {
         switch (direction) {
             case UP:
                 while(positionX > 0 && !crashed && traveledDistance < range) {
-                    System.out.println(this);
                     Simulator.flightArea.setPosition(this, positionX - 1, positionY, height);
                     Simulator.flightArea.setPosition(null, positionX, positionY, height);
                     positionX--;
@@ -142,7 +140,6 @@ public class Rocket extends Thread {
                 break;
             case LEFT:
                 while (positionY > 0 && !crashed && traveledDistance < range) {
-                    System.out.println(this);
                     Simulator.flightArea.setPosition(this, positionX, positionY - 1, height);
                     Simulator.flightArea.setPosition(null, positionX, positionY, height);
                     positionY--;
@@ -157,7 +154,6 @@ public class Rocket extends Thread {
                 break;
             case DOWN:
                 while ((positionX < FlightArea.getSizeX() - 1) && !crashed && traveledDistance < range) {
-                    System.out.println(this);
                     Simulator.flightArea.setPosition(this, positionX + 1, positionY, height);
                     Simulator.flightArea.setPosition(null, positionX, positionY, height);
                     positionX++;
@@ -172,7 +168,6 @@ public class Rocket extends Thread {
                 break;
             case RIGHT:
                 while ((positionY < FlightArea.getSizeY()) && !crashed && traveledDistance < range) {
-                    System.out.println(this);
                     Simulator.flightArea.setPosition(this, positionX, positionY + 1, height);
                     Simulator.flightArea.setPosition(null, positionX, positionY, height);
                     positionY++;

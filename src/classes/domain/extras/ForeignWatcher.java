@@ -37,24 +37,4 @@ public class ForeignWatcher extends Thread {
                     .collect(Collectors.toMap(array -> array[1].split("=")[1], array -> array[7]));
         }
     }
-
-    public static void main(String[] args) {
-        Simulator simulator = new Simulator();
-        Aircraft a = simulator.generateRandomAircraft();
-        Aircraft b = simulator.generateRandomAircraft();
-        Aircraft c = simulator.generateRandomAircraft();
-        c.setForeign(true);
-        b.setForeign(true);
-        ForeignWatcher fw = new ForeignWatcher(Simulator.flightArea.toString());
-        fw.run();
-        System.out.println(fw.getCollect().keySet().size());
-
-        if (fw.getCollect().containsKey(b.getAircraftId())) {
-            System.out.println("Detected: " + b);
-        }
-
-        System.out.println("-----------");
-        System.out.println(Simulator.flightArea);
-        System.out.println("-----------");
-    }
 }

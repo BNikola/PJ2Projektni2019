@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.logging.Level;
+
 public class Main extends Application {
 
     @Override
@@ -20,7 +22,7 @@ public class Main extends Application {
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {
-            System.out.println("Uhvacen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
         // start simulator
 

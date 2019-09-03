@@ -74,8 +74,6 @@ public class ConfigWatcher extends Thread {
                     WatchEvent<Path> ev = (WatchEvent<Path>) event;
                     Path fileName = ev.context();
 
-//                    System.out.println(kind.name() + ": " + fileName);        // additional details (which files are changed)
-
                     // if the file name matches and if the file is modified
                     if (fileName.toString().trim().contains(configFileName) && kind.equals(ENTRY_MODIFY)) {
                         List<String> content = Files.readAllLines(dir.resolve(fileName));
@@ -99,13 +97,6 @@ public class ConfigWatcher extends Thread {
         } catch (IOException e) {
             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
-    }
-    // endregion
-
-    public static void main(String[] args) {
-        ConfigWatcher cw = new ConfigWatcher("config.properties");
-        System.out.println(pathToConfig);
-        cw.start();
     }
 
     private static String pathToConfig = System.getProperty("user.dir")

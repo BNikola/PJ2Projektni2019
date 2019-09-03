@@ -86,8 +86,6 @@ public class Radar extends Thread {
             AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
         }
         foreignWatcher.start();
-        System.out.println(this.getId());
-        // todo - add parameter to stop
         while (true) {
             foreignWatcher.setData(flightArea.toString());
             // if foreign is detected
@@ -99,11 +97,9 @@ public class Radar extends Thread {
                 }
             }
             if (detectedForeign.keySet().size() > 0) {
-                System.out.println(detectedForeign);
                 // activate NFZ
                 synchronized (detectedForeign) {
                     for (String id : detectedForeign.keySet()) {
-                        System.out.println("Detected: " + Simulator.aircraftRegistry.get(id));
                         if (!detectedForeign.get(id) && (Simulator.aircraftRegistry.get(id) != null)) {
                             flightArea.setNoFlight(true);
                             // create a file in folder events in a separate thread
@@ -139,11 +135,9 @@ public class Radar extends Thread {
     }
 
     public static void processCollision(Aircraft a, Aircraft b) {
-        if (a != null && b != null) {
-            System.out.println("Colision at: [" + a.getPositionX() + "-" + a.getPositionY() + "] " + "[" + b.getPositionX() + "-" + b.getPositionY() + "]");
-        }
-        System.out.println("From RADAR: " + a);
-        System.out.println("From RADAR: " + b);
+//        if (a != null && b != null) {
+//            System.out.println("Colision at: [" + a.getPositionX() + "-" + a.getPositionY() + "] " + "[" + b.getPositionX() + "-" + b.getPositionY() + "]");
+//        }
         flightArea.setCrash(false);
         // create CrashObject
         assert a != null;

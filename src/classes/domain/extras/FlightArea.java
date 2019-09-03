@@ -134,14 +134,6 @@ public class FlightArea {
         }
     }
 
-    public void print() {
-        for (int i = 0; i < SIZE_X; i++) {
-            for (int j = 0; j < SIZE_Y; j++) {
-                System.out.print(flightArea[i][j].print() + " | ");
-            }
-            System.out.println();
-        }
-    }
     //endregion
 
     @Override

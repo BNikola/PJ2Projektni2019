@@ -235,7 +235,6 @@ public class Aircraft extends Thread {
         while(!doneMoving) {
             move();
             if (crashed) {
-                System.out.println("Srusio se" + this);
                 doneMoving = true;
             } else {
                 switch (direction) {
@@ -261,18 +260,12 @@ public class Aircraft extends Thread {
                 }
             }
         }
-        // todo - remove this after check for all directions
-        System.out.println(aircraftId + " -> Zadnje pozicije: " + positionX + " - " + positionY);
         Simulator.aircraftRegistry.remove(aircraftId);      // removes this id from registry
         Simulator.flightArea.setPosition(null, positionX, positionY, height);
 
         if (foreign) {
             Radar.removeFromDetectedForeign(aircraftId);
         }
-//        for testing simple movement
-//        System.out.println("Napisao: " + this.getAircraftId() + "\n" + Simulator.flightArea);
-//        System.out.println("-----Radar");
-//        System.out.println(Radar.flightArea);
     }
 
 
@@ -284,9 +277,7 @@ public class Aircraft extends Thread {
         switch (direction) {
             case UP:
                 while (positionX > 0 && !crashed) {
-                    System.out.println(this);
                     if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign && !(this instanceof MilitaryFighterPlane)) {
-                        System.out.println("|- " + this);
                         this.changeDirection();
                         break;
                     }
@@ -305,9 +296,7 @@ public class Aircraft extends Thread {
                 break;
             case LEFT:
                 while (positionY > 0 && !crashed) {
-                    System.out.println(this);
                     if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign && !(this instanceof MilitaryFighterPlane)) {
-                        System.out.println("|- " + this);
                         this.changeDirection();
                         break;
                     }
@@ -327,9 +316,7 @@ public class Aircraft extends Thread {
 
             case DOWN:
                 while ((positionX < FlightArea.getSizeX() - 1) && !crashed) {
-                    System.out.println(this);
                     if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign && !(this instanceof MilitaryFighterPlane)) {
-                        System.out.println("|- " + this);
                         this.changeDirection();
                         break;
                     }
@@ -348,9 +335,7 @@ public class Aircraft extends Thread {
                 break;
             case RIGHT:
                 while ((positionY < FlightArea.getSizeY() - 1) && !crashed) {
-                    System.out.println(this);
                     if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign && !(this instanceof MilitaryFighterPlane)) {
-                        System.out.println("|- " + this);
                         this.changeDirection();
                         break;
                     }
@@ -454,20 +439,6 @@ public class Aircraft extends Thread {
     }
     // endregion Private methods
 
-    public static void main(String[] args) {
-        Simulator s = new Simulator();
-        Aircraft a = s.generateRandomAircraft();
-        Aircraft b = s.generateMilitaryAircraft(true);
-        s.flightArea.setNoFlight(true);
-        System.out.println(Simulator.flightArea.isNoFlight());
-        System.out.println(b.directionChanged + "->" + !b.directionChanged);
-        System.out.println(b.foreign + "->" + !b.foreign);
-        System.out.println(b instanceof MilitaryFighterPlane);
-        if (s.flightArea.isNoFlight() && !b.directionChanged && !b.foreign && !(b instanceof MilitaryFighterPlane)) {
-            System.out.println("proslo");
-        }
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -480,7 +451,6 @@ public class Aircraft extends Thread {
         }
     }
 
-    // todo - remove characteristics maybe - check parsing then
     @Override
     public String toString() {
         return "[" + positionX + "-" + positionY + "]" +

@@ -69,7 +69,6 @@ public class Controller implements Initializable {
     public void showCrashes(ActionEvent actionEvent) {
 //        Platform.runLater(() -> {
             try {
-                System.out.println();
                 Parent root = FXMLLoader.load(getClass().getResource("../../views/crashWarning.fxml"));
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
@@ -92,7 +91,6 @@ public class Controller implements Initializable {
 
     public void showForeign(ActionEvent actionEvent) {
         try {
-            System.out.println();
             Parent root = FXMLLoader.load(getClass().getResource("../../views/foreignView.fxml"));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -192,7 +190,6 @@ public class Controller implements Initializable {
 
         app = this;
         Platform.runLater(() -> {
-            System.out.println("started");
             for (int i = 0; i < FlightArea.getSizeX(); i++) {
                 for (int j = 0; j < FlightArea.getSizeY(); j++) {
                     VBox columnLayout = new VBox();
@@ -219,7 +216,6 @@ public class Controller implements Initializable {
     }
 
     public void activateNFZ(ActionEvent actionEvent) {
-        System.out.println("NFZ is activated " + Simulator.flightArea.isNoFlight());
         if (Simulator.flightArea.isNoFlight()) {
             NFZLabel.setText("NFZ is OFF");
             NFZLabel.setTextFill(Color.GREEN);

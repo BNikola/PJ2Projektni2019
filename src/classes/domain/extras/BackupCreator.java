@@ -14,7 +14,6 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 public class BackupCreator extends Thread {
-    // TODO: 28.8.2019. Add this to main, maybe remove class
     @Override
     public void run() {
         while (true) {

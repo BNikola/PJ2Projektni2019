@@ -83,11 +83,9 @@ public class MilitaryFighterPlane extends Aircraft implements MilitaryAircraftIn
         if (!escort) {
             super.run();
         } else {
-            System.out.println("Lovim: " + intruder);
             while(!doneMoving) {
                 pursuit();
                 if (crashed) {
-                    System.out.println("Srusio se" + this);
                     doneMoving = true;
                 } else {
                     switch (direction) {
@@ -114,7 +112,6 @@ public class MilitaryFighterPlane extends Aircraft implements MilitaryAircraftIn
                 }
             }
             // todo - remove this after check for all directions
-            System.out.println("Zadnje pozicije: " + positionX + " - " + positionY);
             Simulator.aircraftRegistry.remove(aircraftId);      // removes this id from registry
             Simulator.flightArea.setPosition(null, positionX, positionY, height);
         }
@@ -146,7 +143,6 @@ public class MilitaryFighterPlane extends Aircraft implements MilitaryAircraftIn
                             }
                         }
                     }
-                    System.out.println(this);
                     Simulator.flightArea.setPosition(this, positionX - 1, positionY, height);
                     Simulator.flightArea.setPosition(null, positionX, positionY, height);
                     positionX--;
@@ -165,7 +161,6 @@ public class MilitaryFighterPlane extends Aircraft implements MilitaryAircraftIn
                         if (scanAhead != null) {
                             if (((Aircraft) scanAhead).getAircraftId().equals(intruder.getAircraftId())) {
                                 intruder.setCrashed(true);
-                                System.out.println("Right -> CAUGHT");
                             }
                         }
                     } else if (position == -1) {
@@ -173,7 +168,6 @@ public class MilitaryFighterPlane extends Aircraft implements MilitaryAircraftIn
                         if (scanAhead != null) {
                             if (((Aircraft) scanAhead).getAircraftId().equals(intruder.getAircraftId())) {
                                 intruder.setCrashed(true);
-                                System.out.println("Left -> CAUGHT");
                             }
                         }
                     } else if (position == 0) {
@@ -184,7 +178,6 @@ public class MilitaryFighterPlane extends Aircraft implements MilitaryAircraftIn
                             }
                         }
                     }
-                    System.out.println(this);
                     Simulator.flightArea.setPosition(this, positionX, positionY-1, height);
                     Simulator.flightArea.setPosition(null, positionX, positionY, height);
                     positionY--;
@@ -221,7 +214,6 @@ public class MilitaryFighterPlane extends Aircraft implements MilitaryAircraftIn
                             }
                         }
                     }
-                    System.out.println(this);
                     Simulator.flightArea.setPosition(this, positionX + 1, positionY, height);
                     Simulator.flightArea.setPosition(null, positionX, positionY, height);
                     positionX++;
@@ -257,7 +249,6 @@ public class MilitaryFighterPlane extends Aircraft implements MilitaryAircraftIn
                             }
                         }
                     }
-                    System.out.println(this);
                     Simulator.flightArea.setPosition(this, positionX, positionY + 1, height);
                     Simulator.flightArea.setPosition(null, positionX, positionY, height);
                     positionY++;
