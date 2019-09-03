@@ -3,6 +3,7 @@ package classes.domain.aircrafts.planes;
 import classes.AirTrafficControl;
 import classes.domain.aircrafts.Aircraft;
 import classes.domain.extras.FlightArea;
+import classes.domain.interfaces.MilitaryAircraftInterface;
 import classes.domain.persons.Person;
 import classes.simulator.Simulator;
 
@@ -10,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 
-public class MilitaryFighterPlane extends Aircraft {
+public class MilitaryFighterPlane extends Aircraft implements MilitaryAircraftInterface {
 
     private boolean escort = false;
     private Aircraft intruder = null;
@@ -272,5 +273,16 @@ public class MilitaryFighterPlane extends Aircraft {
                 doneMoving = true;
                 break;
         }
+    }
+
+    @Override
+    public void attackTarget(int targetLocation) {
+        String location = (targetLocation == 0) ? " on the ground." : " in the air.";
+        System.out.println("Attacking target" + location);
+    }
+
+    @Override
+    public void carryArmament() {
+        System.out.println("Carry armament:\n" + this);
     }
 }

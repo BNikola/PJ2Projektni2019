@@ -39,4 +39,8 @@ public class FirefightingPlane extends Aircraft {
     public String printCrash() {
         return super.printCrash() + ":FirefightingPlane";
     }
+
+    public void putOutFire() {
+        System.out.println("Putting out fire:\n" + this);
+    }
 }

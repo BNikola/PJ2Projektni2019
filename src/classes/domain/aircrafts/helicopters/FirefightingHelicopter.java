@@ -39,4 +39,8 @@ public class FirefightingHelicopter extends Aircraft {
     public String printCrash() {
         return super.printCrash() + ":FirefightingHelicopter";
     }
+
+    public void putOutFire() {
+        System.out.println("Putting out fire:\n" + this);
+    }
 }
