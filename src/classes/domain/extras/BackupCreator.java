@@ -19,6 +19,7 @@ public class BackupCreator extends Thread {
         while (true) {
             File[] events = new File("events").listFiles();
             File[] alerts = new File("alert").listFiles();
+//            File map = new File("C:\\Users\\Korisnik\\Documents\\Nikola\\git\\pj2\\PJ2Projektni2019\\src\\files\\map.txt");
             String path = "backup"
                     + File.separator
                     + "backup_"
@@ -37,6 +38,10 @@ public class BackupCreator extends Thread {
                         zip.write(Files.readAllBytes(al.toPath()));
                     }
                 }
+//                if (map != null) {
+//                    zip.putNextEntry(new ZipEntry(String.valueOf(map)));
+//                    zip.write(Files.readAllBytes((map.toPath())));
+//                }
             } catch (IOException e) {
                 AirTrafficControl.LOGGER.log(Level.SEVERE, e.toString(), e);
             }

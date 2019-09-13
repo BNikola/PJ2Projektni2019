@@ -1,7 +1,7 @@
 package classes.controllers;
 
 import classes.AirTrafficControl;
-import classes.Radar;
+import classes.radar.Radar;
 import classes.domain.extras.AlertBox;
 import classes.domain.extras.BackupCreator;
 import classes.domain.extras.FileWatcher;

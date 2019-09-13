@@ -1,12 +1,10 @@
 package classes.domain.extras;
 
 import classes.AirTrafficControl;
-import classes.Radar;
+import classes.radar.Radar;
 import classes.domain.aircrafts.Aircraft;
-import classes.domain.aircrafts.planes.MilitaryFighterPlane;
 
 import java.io.*;
-import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Level;

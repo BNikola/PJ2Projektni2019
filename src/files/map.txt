@@ -1,0 +1,2 @@
+[5-0], aircraftId=NGRL34, height=5, foreign=false, characteristics={}, speed=2, direction=LEFT, PassengerHelicopter, numberOfSeats=2
+[5-9], aircraftId=B82W38, height=0, foreign=false, characteristics={}, speed=3, direction=RIGHT, TransportPlane, maxCargoWeight=622

@@ -2,6 +2,7 @@ package classes;
 
 import classes.domain.extras.ConfirmBox;
 import classes.domain.extras.FlightArea;
+import classes.radar.Radar;
 import classes.simulator.Simulator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -72,6 +73,4 @@ public class AirTrafficControl extends Application {
         r.start();
         launch(args);
     }
-
-    // TODO: 18.8.2019. Remove unecessary code from everything (Aircraft, FlightArea, Field...)
 }

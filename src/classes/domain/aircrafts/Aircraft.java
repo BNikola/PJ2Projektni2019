@@ -1,8 +1,7 @@
 package classes.domain.aircrafts;
 
 import classes.AirTrafficControl;
-import classes.Radar;
-import classes.domain.aircrafts.planes.MilitaryFighterPlane;
+import classes.radar.Radar;
 import classes.domain.extras.FlightArea;
 import classes.domain.extras.FlightDirection;
 import classes.domain.persons.Person;
@@ -277,7 +276,7 @@ public class Aircraft extends Thread {
         switch (direction) {
             case UP:
                 while (positionX > 0 && !crashed) {
-                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign && !(this instanceof MilitaryFighterPlane)) {
+                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign) {
                         this.changeDirection();
                         break;
                     }
@@ -296,7 +295,7 @@ public class Aircraft extends Thread {
                 break;
             case LEFT:
                 while (positionY > 0 && !crashed) {
-                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign && !(this instanceof MilitaryFighterPlane)) {
+                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign) {
                         this.changeDirection();
                         break;
                     }
@@ -316,7 +315,7 @@ public class Aircraft extends Thread {
 
             case DOWN:
                 while ((positionX < FlightArea.getSizeX() - 1) && !crashed) {
-                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign && !(this instanceof MilitaryFighterPlane)) {
+                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign) {
                         this.changeDirection();
                         break;
                     }
@@ -335,7 +334,7 @@ public class Aircraft extends Thread {
                 break;
             case RIGHT:
                 while ((positionY < FlightArea.getSizeY() - 1) && !crashed) {
-                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign && !(this instanceof MilitaryFighterPlane)) {
+                    if (Simulator.flightArea.isNoFlight() && !directionChanged && !foreign) {
                         this.changeDirection();
                         break;
                     }
@@ -442,8 +441,6 @@ public class Aircraft extends Thread {
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
-            return false;
-        } else if (!(obj instanceof Aircraft)) {
             return false;
         } else {
             Aircraft a = (Aircraft) obj;

@@ -163,6 +163,7 @@ public class Simulator extends Thread {
         int choice = rand.nextInt(7);
         String aircraftId = randomAlphaNumeric(COUNT);
         Integer height = Height.values()[rand.nextInt(Height.values().length)].getHeight();      // getting random height
+//        Integer height = 1;
         String model = "Model";
         int speed = rand.nextInt(3) + 1;
         switch (choice) {

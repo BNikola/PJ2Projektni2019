@@ -1,6 +1,7 @@
 package classes;
 
 import classes.domain.extras.FlightArea;
+import classes.radar.Radar;
 import classes.simulator.Simulator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

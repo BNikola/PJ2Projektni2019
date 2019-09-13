@@ -1,5 +1,6 @@
-package classes;
+package classes.radar;
 
+import classes.AirTrafficControl;
 import classes.controllers.Controller;
 import classes.domain.aircrafts.Aircraft;
 import classes.domain.extras.CrashWarning;
